@@ -6,6 +6,7 @@ public class TestDummyScript : MonoBehaviour
 {
     Vector3 move;
     public Rigidbody playerRigidBody;
+    public static bool IsAlive = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class TestDummyScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerRigidBody.MovePosition(playerRigidBody.position + (move * 5) * Time.fixedDeltaTime);
+        playerRigidBody.MovePosition(playerRigidBody.position + (move * 20) * Time.fixedDeltaTime);
     }
 
 
