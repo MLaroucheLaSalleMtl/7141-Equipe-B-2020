@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 public class FollowTarget : MonoBehaviour
 {
-    [SerializeField] Transform target;
+    [SerializeField] Transform target = null;
     Vector3 destination;
     NavMeshAgent agent;
-    [SerializeField] private GameObject ennemyHitBox;
+    [SerializeField] private GameObject ennemyHitBox = null;
     public float attackCooldown = 1f;
     bool canAttack = true;
 

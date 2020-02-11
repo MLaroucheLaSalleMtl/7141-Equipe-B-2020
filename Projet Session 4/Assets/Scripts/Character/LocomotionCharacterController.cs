@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LocomotionCharacterController : MonoBehaviour
 {
@@ -12,16 +13,15 @@ public class LocomotionCharacterController : MonoBehaviour
     private Rigidbody playerRigidBody;
     private float cameraRange = 100f;
     private int floorMask;
+    bool dash = false;
 
     private Vector3 moveDirection = Vector3.zero;
-    private Animator anim;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        anim = GetComponent<Animator>();
-        //floorMask = LayerMask.GetMask("Floor");
-        //playerRigidBody = GetComponent<Rigidbody>();
+        floorMask = LayerMask.GetMask("Ground");
+        playerRigidBody = GetComponent<Rigidbody>();
     }
 
 
@@ -33,14 +33,30 @@ public class LocomotionCharacterController : MonoBehaviour
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
-        //PlayerRotation();
     }
 
+    void FixedUpdate()
+    {
+        PlayerRotation();
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveDirection = context.ReadValue<Vector2>();
+    }
+
+    public void Dash(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+             dash = true;
+        }
+    }
     private void Dash()
     {
-        if (Input.GetButtonDown("Dash") && dashTime == 0)
+        if (dash && dashTime == 0)
         {
-            dashTime = 5f;
+            dashTime = 8f;
         }
         
         if (dashTime > 0) /* Cette valeur est multiplier au speed du moveDirection donc lorsqu'elle est plus élevé que 1
@@ -48,13 +64,14 @@ public class LocomotionCharacterController : MonoBehaviour
         {
             dashSpeed = 3f;
             dashTime --;
+            dash = false;
         }
         else
         {
             dashSpeed = 1f;
         }
     }
-    /*private void PlayerRotation() // Unity tutorial sur top down shooter ( voir documentation ) ** Aller revoir ** CREDIT : UNITY TUTORIAL
+    private void PlayerRotation() // Unity tutorial sur top down shooter ( voir documentation ) ** Aller revoir ** CREDIT : UNITY TUTORIAL
     {
 
         // Create a ray from the mouse cursor on screen in the direction of the camera.
@@ -79,5 +96,5 @@ public class LocomotionCharacterController : MonoBehaviour
             playerRigidBody.MoveRotation(newRotation);
         }
 
-    }*/
+    }
 }

@@ -307,7 +307,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881a965e17c1d6d4c8606d87f872b82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRigidBody: {fileID: 199545284}
 --- !u!54 &199545284
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -501,8 +500,9 @@ GameObject:
   - component: {fileID: 290176716}
   - component: {fileID: 290176718}
   - component: {fileID: 290176717}
+  - component: {fileID: 290176719}
   m_Layer: 0
-  m_Name: Main Camera (1)
+  m_Name: Camera Player The Rock
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -573,6 +573,20 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &290176719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290176715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 444252c473ae31e4caaa43bd8f25bb84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1262829611}
+  offset: {x: 1, y: 17, z: -16}
 --- !u!1 &297077816
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,99 +616,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 861770176}
   m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &570189013
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 570189017}
-  - component: {fileID: 570189016}
-  - component: {fileID: 570189015}
-  - component: {fileID: 570189014}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
-  m_IsActive: 1
---- !u!65 &570189014
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570189013}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &570189015
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570189013}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &570189016
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570189013}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &570189017
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570189013}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100, y: 0, z: 0}
-  m_LocalScale: {x: 4.18, y: 4.55, z: 21.12}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -832,7 +753,7 @@ GameObject:
   - component: {fileID: 856032736}
   m_Layer: 0
   m_Name: Plane (Player Test)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1064,6 +985,7 @@ MonoBehaviour:
   - {fileID: 5338051944109378441, guid: a6d1c6741045023488ba80e55762dc00, type: 3}
   bossRooms:
   - {fileID: 313035155470007850, guid: 6aec09eff5e4880479f7f3fdf78d9d79, type: 3}
+  altarRooms: []
   player: {fileID: 199545282}
 --- !u!4 &903620497
 Transform:
@@ -1481,6 +1403,7 @@ GameObject:
   - component: {fileID: 1262829612}
   - component: {fileID: 1262829606}
   - component: {fileID: 1262829613}
+  - component: {fileID: 1262829614}
   m_Layer: 0
   m_Name: The Rock
   m_TagString: Player
@@ -1625,7 +1548,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895944ac480f4294f9692d0565cec61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 3538059517524107755, guid: 148c56d49ea49d140b44c15000205d8b, type: 3}
+  attackZone: {fileID: 3538059517524107755, guid: 148c56d49ea49d140b44c15000205d8b,
+    type: 3}
+--- !u!114 &1262829614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262829605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a36e5edcf1c8104fa596dc1025f096d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthCurrent: 10
+  healthMaximum:
+    baseValue: 0
+  healthRegenRatio:
+    baseValue: 0
+  manaCurrent: 0
+  manaMaximum:
+    baseValue: 0
+  manaRegenRatio:
+    baseValue: 0
+  barrierCurrent: 0
+  barrierMaximum:
+    baseValue: 0
+  armorStack: 0
+  armorReductionRatio: 5
+  resistanceDamage:
+    baseValue: 0
+  resistancePhysical:
+    baseValue: 0
+  resistanceMagical:
+    baseValue: 0
+  evasion:
+    baseValue: 0
+  attackSpeed:
+    baseValue: 2
+  movementSpeed:
+    baseValue: 0
 --- !u!1 &1346203315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1744,7 +1707,18 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1262829606}
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 503c42b7-5a29-4ead-b3d6-cfae0e29a58e
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
@@ -1752,7 +1726,18 @@ MonoBehaviour:
     m_ActionId: 664f93bf-909e-4fd4-a995-6b7d7dce32a7
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1262829613}
+        m_MethodName: Fire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: f8dd19df-aa11-4a70-9438-7322bd2d9ec2
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -1800,7 +1785,18 @@ MonoBehaviour:
     m_ActionId: 2562c1a0-7e43-4077-86e5-15d7be835630
     m_ActionName: UI/TrackedDeviceSelect
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1262829606}
+        m_MethodName: Dash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a22ccfb8-6731-464c-a769-4f834933a48d
     m_ActionName: Player/Dash[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0

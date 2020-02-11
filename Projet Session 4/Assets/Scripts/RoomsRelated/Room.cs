@@ -12,14 +12,19 @@ public class Room : MonoBehaviour
     [SerializeField] private List<GameObject> envrionmentObjects = new List<GameObject>();
 
     [SerializeField] private GameObject fog = null;
+    private Actor actorManager;
     private bool activeFog = true;
 
     #endregion
 
     #region Unity's Methods
+    void Start()
+    {
+        actorManager = GameObject.Find("Player").GetComponent<Actor>();
+    }
     private void Update()
     {
-        if (!TestDummyScript.IsAlive)
+        if (!actorManager.IsAlive)
         {
             Destroy(gameObject);
         }
@@ -37,6 +42,7 @@ public class Room : MonoBehaviour
             }
             foreach (GameObject obj in envrionmentObjects)
             {
+                if (obj != null)
                 obj.SetActive(true);
             }
             fog.SetActive(false);

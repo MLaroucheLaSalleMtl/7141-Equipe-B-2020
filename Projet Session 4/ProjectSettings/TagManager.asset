@@ -6,9 +6,10 @@ TagManager:
   tags:
   - Waypoint
   - Environment
-  - Floor
   - meleeAttack
   - enemyAttack
+  - Ground
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Ground
   - 
   - 
   - 
