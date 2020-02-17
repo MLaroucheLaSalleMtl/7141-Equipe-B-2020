@@ -17,18 +17,20 @@ public class AttackSystem : MonoBehaviour
     {
         actorManager = GetComponent<Actor>();
     }
-
-    void Update()
-    {
-    }
     #endregion
 
     #region Methods
+
+
+
     public IEnumerator UseBasicAttack()
     {
         canAttack = false;
         GameObject clone = Instantiate(attackZone, transform.position + (transform.forward * 2), transform.rotation);
-        clone.GetComponent<DamageComponant>().physicalDamage = actorManager.DamagePhysical.GetValue();
+        clone.GetComponent<DamageComponant>().BonusDamage = actorManager.PowerPhysical.GetValue();
+        clone.GetComponent<DamageComponant>().ArmorPenatration = actorManager.DamagePenetration.GetValue();
+        clone.GetComponent<DamageComponant>().CriticalChance = actorManager.CriticalChance.GetValue();
+        clone.GetComponent<DamageComponant>().CriticalRatio = actorManager.CriticalDamage.GetValue();
         yield return new WaitForSeconds(actorManager.AttackSpeed.GetValue());
         canAttack = true;
     }

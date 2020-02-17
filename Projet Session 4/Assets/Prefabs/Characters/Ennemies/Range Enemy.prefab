@@ -35,17 +35,25 @@ MonoBehaviour:
     baseValue: 0
   evasion:
     baseValue: 0
-  damagePhysical:
+  powerPhysical:
     baseValue: 0
-  damageMagical:
+  powerMagical:
     baseValue: 0
   damageThorn:
     baseValue: 0
   damagePenetration:
     baseValue: 0
+  criticalChance:
+    baseValue: 0
+  criticalDamage:
+    baseValue: 0
   attackSpeed:
     baseValue: 0
   movementSpeed:
+    baseValue: 0
+  cooldownReduction:
+    baseValue: 0
+  bonusBuffRatio:
     baseValue: 0
   dashCooldown:
     baseValue: 0
@@ -57,13 +65,15 @@ MonoBehaviour:
     baseValue: 0
   dashSpeedRatio:
     baseValue: 0
+  levelCurrent: 0
   target: {fileID: 0}
   ennemyHitBox: {fileID: 2845191619059603443, guid: 8f768e23121ad8849931a5574ac948b5,
     type: 3}
   attackCooldown: 1
-  rotationSpeed: 3
+  rotationSpeed: 0.1
   moveSpeed: 3
   attackDistance: 15
+  raycastDistance: 3
 --- !u!1001 &7792412473369704761
 PrefabInstance:
   m_ObjectHideFlags: 0

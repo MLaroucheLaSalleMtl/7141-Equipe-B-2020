@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 2047724654532373235}
   - component: {fileID: 2047724654532373241}
   - component: {fileID: 2047724654532373232}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -256,7 +256,45 @@ MonoBehaviour:
     baseValue: 0
   evasion:
     baseValue: 0
+  powerPhysical:
+    baseValue: 0
+  powerMagical:
+    baseValue: 0
+  damageThorn:
+    baseValue: 0
+  damagePenetration:
+    baseValue: 0
+  criticalChance:
+    baseValue: 0
+  criticalDamage:
+    baseValue: 0
   attackSpeed:
     baseValue: 0.3
   movementSpeed:
     baseValue: 6
+  cooldownReduction:
+    baseValue: 0
+  bonusBuffRatio:
+    baseValue: 0
+  dashCooldown:
+    baseValue: 1
+  dashCountdown: 1
+  dashCurrent: 3
+  dashMaximum:
+    baseValue: 3
+  dashRegenRatio:
+    baseValue: 0.5
+  dashSpeedRatio:
+    baseValue: 5
+  levelCurrent: 0
+  experienceCurrent: 0
+  experienceMaximum: 100
+  experienceRatio: 1
+  leveldifference: 1.15
+  skillPoints: 0
+  characteristicsPoints: 0
+  power: 0
+  vigilance: 0
+  mind: 0
+  resilience: 0
+  willPower: 0

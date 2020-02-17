@@ -32,6 +32,7 @@ public class Actor : MonoBehaviour
     [Header("Barrier")]
     [SerializeField] private float barrierCurrent = 0;
     [SerializeField] private Stat barrierMaximum = null;
+    public Stat BarrierMaximum { get => barrierMaximum; set => barrierMaximum = value; }
     #endregion
 
     #region Resistances & Evasion
@@ -42,21 +43,30 @@ public class Actor : MonoBehaviour
     [SerializeField] private Stat resistancePhysical = null;
     [SerializeField] private Stat resistanceMagical = null;
     [SerializeField] private Stat evasion = null;
+    public Stat ResistanceDamage { get => resistanceDamage; set => resistanceDamage = value; }
+    public Stat ResistancePhysical { get => resistancePhysical; set => resistancePhysical = value; }
+    public Stat ResistanceMagical { get => resistanceMagical; set => resistanceMagical = value; }
+    public Stat Evasion { get => evasion; set => evasion = value; }
     #endregion
 
     #region Damage
     [Header("Damage & Armor Penetration")]
-    [SerializeField] private Stat damagePhysical = null;
-    [SerializeField] private Stat damageMagical = null;
+    [SerializeField] private Stat powerPhysical = null;
+    [SerializeField] private Stat powerMagical = null;
     [SerializeField] private Stat damageThorn = null;
     [SerializeField] private Stat damagePenetration = null;
-    public Stat DamagePhysical { get => damagePhysical; set => damagePhysical = value; }
+    public Stat PowerPhysical { get => powerPhysical; set => powerPhysical = value; }
+    public Stat PowerMagical { get => powerMagical; set => powerMagical = value; }
+    public Stat DamageThorn { get => damageThorn; set => damageThorn = value; }
+    public Stat DamagePenetration { get => damagePenetration; set => damagePenetration = value; }
     #endregion
 
     #region Critical
-    //[Header("Critical Chance & Damage")]
-    //[SerializeField] private Stat criticalChance;
-    //[SerializeField] private Stat criticalDamage;
+    [Header("Critical Chance & Damage")]
+    [SerializeField] private Stat criticalChance;
+    [SerializeField] private Stat criticalDamage;
+    public Stat CriticalChance { get => criticalChance; set => criticalChance = value; }
+    public Stat CriticalDamage { get => criticalDamage; set => criticalDamage = value; }
     #endregion
 
     #region AttackSpeed, Cooldown & MovementSpeed
@@ -64,11 +74,14 @@ public class Actor : MonoBehaviour
     [SerializeField] private Stat attackSpeed = null;
     [SerializeField] private Stat movementSpeed = null;
     private bool canMove = true;
-    //[SerializeField] private Stat cooldownReduction = null;
+    [SerializeField] private Stat cooldownReduction = null;
+    [SerializeField] private Stat bonusBuffRatio = null;
 
     public Stat AttackSpeed { get => attackSpeed; }
     public Stat MovementSpeed { get => movementSpeed; protected set => movementSpeed = value; }
     public bool CanMove { get => canMove; protected set => canMove = value; }
+    public Stat CooldownReduction { get => cooldownReduction; set => cooldownReduction = value; }
+    public Stat BonusBuffRatio { get => bonusBuffRatio; set => bonusBuffRatio = value; }
     #endregion
 
     #region Dash
@@ -81,7 +94,7 @@ public class Actor : MonoBehaviour
     [SerializeField] private Stat dashRegenRatio = null;
     private float dashSpeed = 1f;
     [SerializeField] private Stat dashSpeedRatio = null;
-    private bool isdashing = false;
+   // private bool isdashing = false;
     public Stat DashCooldown { get => dashCooldown; set => dashCooldown = value; }
     public float DashCountdown { get => dashCountdown; set => dashCountdown = value; }
     public float DashSpeed { get => dashSpeed; set => dashSpeed = value; }
@@ -90,6 +103,10 @@ public class Actor : MonoBehaviour
     public Stat DashRegenRatio { get => dashRegenRatio; set => dashRegenRatio = value; }
     #endregion
 
+    #region Experience & Level
+    [SerializeField] private int levelCurrent;
+    public int LevelCurrent { get => levelCurrent; set => levelCurrent = value; }
+    #endregion
 
     #endregion
     void Start()
@@ -124,11 +141,20 @@ public class Actor : MonoBehaviour
     #endregion
 
     #region Damage
-    public void TakeDamage(float Amount, int DamageTypeIndex)
-    {
-        if (evasion.GetValue() > Random.Range(0, 100)) return;
 
-       Amount = ApplyResistance(Amount, DamageTypeIndex);
+    public void TakeThornDamage(float Amount)
+    {
+
+    }
+    public void TakeDamage(float Amount, float _ArmorPenetration, float _CriticalChance, float _CriticalRatio, string _TypeOfDamage)
+    {
+        if (evasion.GetValue() > Random.Range(0, 101)) return;
+        if (_CriticalChance > Random.Range(0, 101))
+        {
+            Amount *= _CriticalRatio;
+            print("Critical Strike!");
+        }
+       Amount = ApplyResistance(Amount,_ArmorPenetration, _TypeOfDamage);
 
         if(barrierCurrent >= 0)
         {
@@ -149,25 +175,27 @@ public class Actor : MonoBehaviour
     #endregion
 
     #region Armor and Resistance 
-    private float ApplyResistance( float Value, int ResistanceIndex)
+    private float ApplyResistance( float DamageTaken, float _ArmorPenetration, string _TypeOfDamage)
     {
-        float pureReduction = (Value / 100) * resistanceDamage.GetValue();
+        float pureReduction = (DamageTaken / 100) * resistanceDamage.GetValue();
+        float purePenetration = (DamageTaken / 100) * _ArmorPenetration;
 
-        switch (ResistanceIndex)
+        switch (_TypeOfDamage)
         {
-            case 1:
+            case "Physical":
                 {
-                    float reduction = (Value / 100) * resistancePhysical.GetValue();
-                    return Value -= (reduction + pureReduction);
+                    float reduction = (DamageTaken / 100) * resistancePhysical.GetValue();
+
+                    return DamageTaken -= (reduction + pureReduction - purePenetration);
                 }
-            case 2:
+            case "Magical":
                 {
-                    float reduction = (Value / 100) * resistanceMagical.GetValue();
-                    return Value -= (reduction + pureReduction);  
+                    float reduction = (DamageTaken / 100) * resistanceMagical.GetValue();
+                    return DamageTaken -= (reduction + pureReduction - purePenetration);  
                 }
-            case 3: { return Value; }
+            case "True": { return DamageTaken; }
         }
-        return Value;
+        return DamageTaken -= (pureReduction - purePenetration);
     }
     public void IncreaseArmorStack(int Amount)
     {
@@ -203,7 +231,7 @@ public class Actor : MonoBehaviour
 
     #region Dash
 
-    protected IEnumerator UseDash()
+    public IEnumerator UseDash()
     {
         if (dashCurrent <= 0) { yield break; }
         dashCountdown = 0f;
@@ -212,11 +240,11 @@ public class Actor : MonoBehaviour
         yield return new WaitForSeconds(dashDuration);
         dashSpeed -= dashSpeedRatio.GetValue();
         yield return new WaitForSeconds(dashCooldown.GetValue());
-        print("Ready to use Dash");
+
 
     }
 
-    protected void StartDashCooldown()
+    public void StartDashCooldown()
     {
             if (dashCountdown == dashCooldown.GetValue()) { return; }
             dashCountdown = Mathf.Clamp(dashCountdown += Time.deltaTime, 0, dashCooldown.GetValue());
@@ -227,6 +255,17 @@ public class Actor : MonoBehaviour
 
     #endregion
 
+    #region Level
+    protected void LevelUp()
+    {
+        levelCurrent++;
+    }
+    protected void SetLevel(int Value)
+    {
+        levelCurrent = Value;
+    }
+
+    #endregion
     protected virtual void Death() { if (HealthCurrent <= 0) Destroy(gameObject); }
     protected virtual void Movement() { }
     protected virtual void Rotation() { }

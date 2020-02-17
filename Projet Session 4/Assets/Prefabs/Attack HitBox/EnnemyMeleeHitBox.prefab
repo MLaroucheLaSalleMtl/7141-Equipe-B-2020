@@ -7,6 +7,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1976387493031531197, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: dealDamageTo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1976387493031531197, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: typeOfTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1976387493031531197, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: stunTimer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -70,12 +85,13 @@ PrefabInstance:
     - target: {fileID: 3538059517524107755, guid: 148c56d49ea49d140b44c15000205d8b,
         type: 3}
       propertyPath: m_Name
-      value: EnnemyHitBox
+      value: EnnemyMeleeHitBox
       objectReference: {fileID: 0}
     - target: {fileID: 3538059517524107755, guid: 148c56d49ea49d140b44c15000205d8b,
         type: 3}
       propertyPath: m_TagString
       value: enemyAttack
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3226876950663955708, guid: 148c56d49ea49d140b44c15000205d8b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 148c56d49ea49d140b44c15000205d8b, type: 3}

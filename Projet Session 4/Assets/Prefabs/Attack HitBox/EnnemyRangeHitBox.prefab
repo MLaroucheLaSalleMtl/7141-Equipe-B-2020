@@ -16,7 +16,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 1
---- !u!114 &7013076745651625024
+--- !u!114 &-7595275643993053925
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,10 +25,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2845191619059603443}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df4339214fafb57418a464eca781d0b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 65f877868b5a8814ab3fd78ac41d8ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 12
+  range: 100
+  velocity: 10
+  piercingNumber: 0
+  isHoming: 0
+  target: {fileID: 0}
+  typeOfTarget: 0
 --- !u!1001 &1613855269807306264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36,6 +41,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1976387493031531197, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: dealDamageTo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1976387493031531197, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: typeOfTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1976387493031531197, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: baseDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -1976387493031531197, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: stunTimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -61580686858782928, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: expirationTime
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -94,17 +124,17 @@ PrefabInstance:
     - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.41808665
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5443075
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.39442053
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3520710443885476287, guid: 148c56d49ea49d140b44c15000205d8b,
         type: 3}
@@ -124,9 +154,10 @@ PrefabInstance:
     - target: {fileID: 6773530205090813870, guid: 148c56d49ea49d140b44c15000205d8b,
         type: 3}
       propertyPath: timer
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3226876950663955708, guid: 148c56d49ea49d140b44c15000205d8b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 148c56d49ea49d140b44c15000205d8b, type: 3}
 --- !u!1 &2845191619059603443 stripped
 GameObject:
