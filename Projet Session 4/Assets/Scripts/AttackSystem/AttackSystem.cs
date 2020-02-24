@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class AttackSystem : MonoBehaviour
 {
     #region Variables & Attributs 
-    private Actor actorManager;
+    private Actor _actorManager;
     [SerializeField] private GameObject attackZone = null;
     private bool canAttack = true;
     // private float delayBetweenAttack = 2.5f;
@@ -15,7 +15,7 @@ public class AttackSystem : MonoBehaviour
     #region Unity's Methods
     void Start()
     {
-        actorManager = GetComponent<Actor>();
+        _actorManager = GetComponent<Actor>();
     }
     #endregion
 
@@ -27,11 +27,9 @@ public class AttackSystem : MonoBehaviour
     {
         canAttack = false;
         GameObject clone = Instantiate(attackZone, transform.position + (transform.forward * 2), transform.rotation);
-        clone.GetComponent<DamageComponant>().BonusDamage = actorManager.PowerPhysical.GetValue();
-        clone.GetComponent<DamageComponant>().ArmorPenatration = actorManager.DamagePenetration.GetValue();
-        clone.GetComponent<DamageComponant>().CriticalChance = actorManager.CriticalChance.GetValue();
-        clone.GetComponent<DamageComponant>().CriticalRatio = actorManager.CriticalDamage.GetValue();
-        yield return new WaitForSeconds(actorManager.AttackSpeed.GetValue());
+        clone.GetComponent<DamageComponant>().caster = GetComponent<Actor>();
+
+        yield return new WaitForSeconds(_actorManager.AttackSpeed.GetValue());
         canAttack = true;
     }
     public void Fire(InputAction.CallbackContext context)
@@ -40,7 +38,7 @@ public class AttackSystem : MonoBehaviour
         {
             if (canAttack)
             {
-                StartCoroutine(actorManager.AttackRootEffect(0.15f));
+                StartCoroutine(_actorManager.AttackRootEffect(0.15f));
                 StartCoroutine(UseBasicAttack());
             }
         }

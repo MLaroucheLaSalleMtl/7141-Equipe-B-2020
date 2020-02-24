@@ -31,8 +31,8 @@ public class ProceduralGenerationManager : MonoBehaviour
 
     #endregion
 
-    [Header("Player")]
-    [SerializeField] private GameObject player = null;
+    
+   // [SerializeField] private GameObject player = null;
 
     #endregion
 
@@ -43,23 +43,19 @@ public class ProceduralGenerationManager : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            actorManager.IsAlive = true;
-            RandomizeAllArrays(); 
-            GenerateRooms();
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            actorManager.IsAlive = false;
-            player.transform.position = new Vector3(0, 1.17f, 0);
-
-        }
 
     }
     #endregion
 
     #region Methods
+
+    public void InitializeGame()
+    {
+        actorManager.IsAlive = true;
+        RandomizeAllArrays();
+        GenerateRooms();
+    }
+
 
     #region Randomize the Generation
     private void RandomizeAllArrays()

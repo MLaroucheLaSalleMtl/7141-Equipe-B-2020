@@ -33,4 +33,9 @@ public class Stat
         }
     }
 
+    public void IncreaseCharacteristic()
+    {
+        baseValue++;
+    }
+
 }

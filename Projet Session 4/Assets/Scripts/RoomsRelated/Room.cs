@@ -10,7 +10,6 @@ public class Room : MonoBehaviour
 
     [Header("Room Related")]
     [SerializeField] private List<GameObject> envrionmentObjects = new List<GameObject>();
-    [SerializeField] private List<GameObject> ennemies = new List<GameObject>();
 
     [SerializeField] private GameObject fog = null;
     private Actor actorManager;
@@ -44,10 +43,6 @@ public class Room : MonoBehaviour
             foreach (GameObject obj in envrionmentObjects)
             {
                 if (obj != null)
-                obj.SetActive(true);
-            }
-            foreach(GameObject obj in ennemies)
-            {
                 obj.SetActive(true);
             }
             fog.SetActive(false);

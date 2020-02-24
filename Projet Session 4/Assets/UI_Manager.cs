@@ -42,6 +42,15 @@ public class UI_Manager : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private Text txt_CharacteristicPoints = null;
 
+    [Header("Character UI")]
+    [SerializeField] private Image img_HealthBar = null;
+    [SerializeField] private Image img_ManaBar = null;
+    [SerializeField] private Image img_BarrierBar = null;
+    [SerializeField] private Image img_XpBar = null;
+    [SerializeField] private Text txt_NumbOfArmorStack = null;
+    [SerializeField] private Text txt_Level = null;
+    [SerializeField] private Text txt_DashCount = null;
+
     [Header("Panel Toggle")]
     [SerializeField] private GameObject[] panels = null;
     [SerializeField] private Selectable[] defaultButtons = null;
@@ -82,8 +91,19 @@ public class UI_Manager : MonoBehaviour
         txt_BuffEnhancement.text = _Player.BonusBuffRatio.GetValue().ToString();
 
         txt_CharacteristicPoints.text = _Player.CharacteristicsPoints.ToString();
-    }
 
+        img_HealthBar.fillAmount = _Player.HealthCurrent / _Player.HealthMaximum.GetValue();
+        img_ManaBar.fillAmount = _Player.ManaCurrent / _Player.ManaMaximum.GetValue();
+        img_BarrierBar.fillAmount = _Player.BarrierCurrent / _Player.BarrierMaximum.GetValue();
+        txt_NumbOfArmorStack.text = ": " + _Player.ArmorStack.ToString();
+        txt_DashCount.text = ": " + _Player.DashCurrent.ToString("F0");
+        if(_Player.DashCurrent < 1f)
+            txt_DashCount.text = ": 0";
+
+        img_XpBar.fillAmount = _Player.ExperienceCurrent / _Player.ExperienceMaximum;
+        txt_Level.text = "Level " + _Player.LevelCurrent.ToString();
+
+    }
 
     #region Methods
     public void PanelToggle(int position)

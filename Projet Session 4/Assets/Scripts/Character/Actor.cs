@@ -32,6 +32,7 @@ public class Actor : MonoBehaviour
     [Header("Barrier")]
     [SerializeField] private float barrierCurrent = 0;
     [SerializeField] private Stat barrierMaximum = null;
+    public float BarrierCurrent { get => barrierCurrent; set => barrierCurrent = value; }
     public Stat BarrierMaximum { get => barrierMaximum; set => barrierMaximum = value; }
     #endregion
 
@@ -47,6 +48,7 @@ public class Actor : MonoBehaviour
     public Stat ResistancePhysical { get => resistancePhysical; set => resistancePhysical = value; }
     public Stat ResistanceMagical { get => resistanceMagical; set => resistanceMagical = value; }
     public Stat Evasion { get => evasion; set => evasion = value; }
+    public float ArmorStack { get => armorStack; set => armorStack = value; }
     #endregion
 
     #region Damage
@@ -120,15 +122,15 @@ public class Actor : MonoBehaviour
     #region Recovery ( Health, Mana, Barrier )
     public void AddHealth(float Amount)
     {
-        HealthCurrent = Mathf.Clamp(HealthCurrent += Amount, 0, HealthMaximum.GetValue());
+        HealthCurrent = Mathf.Clamp(HealthCurrent += Amount * BonusBuffRatio.GetValue(), 0, HealthMaximum.GetValue());
     }
     public void AddMana(float Amount)
     {
-        manaCurrent = Mathf.Clamp(manaCurrent += Amount, 0, manaMaximum.GetValue());
+        manaCurrent = Mathf.Clamp(manaCurrent += Amount * BonusBuffRatio.GetValue(), 0, manaMaximum.GetValue());
     }
     public void AddBarrier(float Amount)
     {
-       barrierCurrent = Mathf.Clamp(barrierCurrent += Amount,0,barrierMaximum.GetValue());
+       barrierCurrent = Mathf.Clamp(barrierCurrent += Amount * BonusBuffRatio.GetValue(), 0,barrierMaximum.GetValue());
     }
     public float Regeneration(float CurrentAmount, Stat MaximumAmount, Stat RatioPerSecond)
     {
@@ -269,7 +271,8 @@ public class Actor : MonoBehaviour
     protected virtual void Death() { if (HealthCurrent <= 0) Destroy(gameObject); }
     protected virtual void Movement() { }
     protected virtual void Rotation() { }
-    
+
+
     #endregion
 
 }

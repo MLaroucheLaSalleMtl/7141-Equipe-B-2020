@@ -8,8 +8,8 @@ public class MissileComponant : MonoBehaviour
     [SerializeField] private float velocity = 15f;
     [SerializeField] private int piercingNumber = 0;
     [SerializeField] private bool isHoming = false;
-    [SerializeField] private Transform target = null;
-    [SerializeField] private TypeOfTarget typeOfTarget = 0;
+    [SerializeField] public Transform target = null;
+    //[SerializeField] private TypeOfTarget typeOfTarget = 0;
     private bool isDirty = false;
     private Vector3 projectile_Direction;
     private Vector3 origin;
@@ -52,10 +52,11 @@ public class MissileComponant : MonoBehaviour
     {
         if (isHoming && !isDirty)
         {
-            Collider[] colliders = Physics.OverlapSphere(origin, range);
+            
+           /* Collider[] colliders = Physics.OverlapSphere(origin, range);
             foreach (Collider collider in colliders)
             {
-                if(collider.tag == "Player")
+                if(collider.tag == typeOfTarget.ToString())
                 {
                     target = collider.gameObject.transform;
                     if (target != null)
@@ -64,7 +65,7 @@ public class MissileComponant : MonoBehaviour
                         return;
                     }
                 }
-            }
+            }*/
         }
     }
 

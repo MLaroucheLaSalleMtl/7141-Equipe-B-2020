@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemy : Actor
 {
     #region Variables
     [SerializeField] protected Transform target;
     [SerializeField] protected GameObject ennemyHitBox = null;
+    [SerializeField] private Image img_EnnemyHealthBar = null;
 
     public float attackCooldown = 0f;
+    public int xpGive;
     bool canAttack = true;
     bool stun = false;
 
@@ -31,13 +34,16 @@ public class Enemy : Actor
 
     void Update()
     {
+        img_EnnemyHealthBar.fillAmount = gameObject.GetComponent<Enemy>().HealthCurrent / gameObject.GetComponent<Enemy>().HealthMaximum.GetValue();
         if (ennemyDetect)
         {
             AvoidObstacles();
             ChasePlayer();
+            DashCurrent = Regeneration(DashCurrent, DashMaximum, DashRegenRatio);
         }
-        Death();    
+        Death();
     }
+
     #region Methods For Move
     private void LookAt()
     {
@@ -110,10 +116,18 @@ public class Enemy : Actor
         yield return new WaitForSeconds(attackCooldown);
         if(!stun)
         {
-            Instantiate(ennemyHitBox, transform.position + (transform.forward * 2), transform.rotation);
+           GameObject clone = Instantiate(ennemyHitBox, transform.position + (transform.forward * 2), transform.rotation);
+            if(clone.GetComponent<DamageComponant>() != null)
+            clone.GetComponent<DamageComponant>().caster = GetComponent<Actor>();
         }
         canAttack = true;
     }
     #endregion
-    protected override void Death() { if (HealthCurrent <= 0)  Destroy(gameObject); }
+    protected override void Death() { 
+        if (HealthCurrent <= 0)
+        {
+            target.GetComponent<Player>().ExperienceCurrent += xpGive;
+            Destroy(gameObject);
+        }
+    }
 }
