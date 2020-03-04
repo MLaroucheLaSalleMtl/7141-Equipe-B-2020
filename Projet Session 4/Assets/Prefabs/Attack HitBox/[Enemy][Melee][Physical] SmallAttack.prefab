@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8587120454698392319
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -1976387493031531197, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: dealDamageTo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1976387493031531197, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: typeOfTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1976387493031531197, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: stunTimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1976387493031531197, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: baseDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1976387493031531197, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: damageRatio
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3520710443885476287, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f0931b1edbe492a46892cd229cec0acf, type: 2}
+    - target: {fileID: 3538059517524107755, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_Name
+      value: '[Enemy][Melee][Physical] SmallAttack'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538059517524107755, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemyAttack
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3226876950663955708, guid: 148c56d49ea49d140b44c15000205d8b, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 148c56d49ea49d140b44c15000205d8b, type: 3}

@@ -13,8 +13,10 @@ public class Enemy : Actor
 
     public float attackCooldown = 0f;
     public int xpGive;
+    public int goldReward = 0;
     bool canAttack = true;
     bool stun = false;
+    bool root = false;
 
     public float rotationSpeed = 3.0f;
     public float moveSpeed = 3.0f;
@@ -30,6 +32,7 @@ public class Enemy : Actor
     private void Awake()
     {
         transform.parent = null;
+        GameManager.NumberOfEnemy++;
     }
 
     void Update()
@@ -37,23 +40,25 @@ public class Enemy : Actor
         img_EnnemyHealthBar.fillAmount = gameObject.GetComponent<Enemy>().HealthCurrent / gameObject.GetComponent<Enemy>().HealthMaximum.GetValue();
         if (ennemyDetect)
         {
-            AvoidObstacles();
-            ChasePlayer();
+            if(root == false)
+            {
+                AvoidObstacles();
+                ChasePlayer();
+            }
             DashCurrent = Regeneration(DashCurrent, DashMaximum, DashRegenRatio);
         }
+        StartDamageImmunityCooldown();
         Death();
     }
 
     #region Methods For Move
     private void LookAt()
-    {
-        // Look at Player
+    {      
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position), rotationSpeed);
     }
     private void MoveTo()
     {
-        // Move at Player
-        transform.position += transform.forward * moveSpeed * DashSpeed * Time.deltaTime;
+        transform.position += transform.forward * MovementSpeed.GetValue() * DashSpeed * Time.deltaTime;
     }
 
     private void ChasePlayer()
@@ -81,20 +86,32 @@ public class Enemy : Actor
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, raycastDistance, layerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation((target.transform.position - transform.position) + (Vector3.right)), rotationSpeed * moveSpeed);
             transform.position += transform.right * moveSpeed * Time.deltaTime;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position), rotationSpeed);
             inFrontOfObstacles = true;
-        }
+        }      
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 100, Color.white);
             inFrontOfObstacles = false;
         }
     }
+        
+
     public void EnemyDetected()
     {
         target = GameObject.Find("Player").GetComponent<Transform>();
         ennemyDetect = true;
+    }
+    public void IsRoot()
+    {
+        StartCoroutine(EnemyIsRoot());
+    }
+    private IEnumerator EnemyIsRoot()
+    {
+        root = true;
+        yield return new WaitForSeconds(3f);
+        root = false;
     }
     #endregion
 
@@ -113,7 +130,7 @@ public class Enemy : Actor
     private IEnumerator EnnemyAttack()
     {
         canAttack = false;
-        yield return new WaitForSeconds(attackCooldown);
+        yield return new WaitForSeconds(AttackSpeed.GetValue());
         if(!stun)
         {
            GameObject clone = Instantiate(ennemyHitBox, transform.position + (transform.forward * 2), transform.rotation);
@@ -126,7 +143,12 @@ public class Enemy : Actor
     protected override void Death() { 
         if (HealthCurrent <= 0)
         {
-            target.GetComponent<Player>().ExperienceCurrent += xpGive;
+            if (target != null)
+            {
+                target.GetComponent<Player>().ExperienceCurrent += xpGive;
+                target.GetComponent<Player>().IncreaseGold(goldReward);
+            }
+            GameManager.NumberOfEnemy--;
             Destroy(gameObject);
         }
     }

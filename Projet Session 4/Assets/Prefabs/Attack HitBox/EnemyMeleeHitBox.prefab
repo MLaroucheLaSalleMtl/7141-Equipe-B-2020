@@ -22,6 +22,11 @@ PrefabInstance:
       propertyPath: stunTimer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1976387493031531197, guid: 148c56d49ea49d140b44c15000205d8b,
+        type: 3}
+      propertyPath: baseDamage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2841876370889199891, guid: 148c56d49ea49d140b44c15000205d8b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -85,7 +90,7 @@ PrefabInstance:
     - target: {fileID: 3538059517524107755, guid: 148c56d49ea49d140b44c15000205d8b,
         type: 3}
       propertyPath: m_Name
-      value: EnnemyMeleeHitBox
+      value: EnemyMeleeHitBox
       objectReference: {fileID: 0}
     - target: {fileID: 3538059517524107755, guid: 148c56d49ea49d140b44c15000205d8b,
         type: 3}

@@ -25,8 +25,29 @@ PrefabInstance:
     - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
         type: 3}
       propertyPath: xpGive
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: goldReward
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: movementSpeed.baseValue
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: attackSpeed.baseValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: ennemyHitBox
+      value: 
+      objectReference: {fileID: 5058143730008013588, guid: 56244ff042731a64fa46360ecabbb946,
+        type: 3}
     - target: {fileID: 5506234446821428039, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
         type: 3}
       propertyPath: m_RootOrder
@@ -152,6 +173,17 @@ PrefabInstance:
       propertyPath: xpGive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: movementSpeed.baseValue
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: ennemyHitBox
+      value: 
+      objectReference: {fileID: 5058143730008013588, guid: 56244ff042731a64fa46360ecabbb946,
+        type: 3}
     - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -266,6 +298,17 @@ PrefabInstance:
       propertyPath: xpGive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: movementSpeed.baseValue
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: ennemyHitBox
+      value: 
+      objectReference: {fileID: 5058143730008013588, guid: 56244ff042731a64fa46360ecabbb946,
+        type: 3}
     - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -380,6 +423,17 @@ PrefabInstance:
       propertyPath: xpGive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: movementSpeed.baseValue
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: ennemyHitBox
+      value: 
+      objectReference: {fileID: 5058143730008013588, guid: 56244ff042731a64fa46360ecabbb946,
+        type: 3}
     - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -494,6 +548,17 @@ PrefabInstance:
       propertyPath: xpGive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: movementSpeed.baseValue
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: ennemyHitBox
+      value: 
+      objectReference: {fileID: 5058143730008013588, guid: 56244ff042731a64fa46360ecabbb946,
+        type: 3}
     - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
         type: 3}
       propertyPath: m_LocalPosition.x

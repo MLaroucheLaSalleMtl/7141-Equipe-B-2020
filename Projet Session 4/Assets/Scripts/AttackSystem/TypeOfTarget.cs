@@ -2,4 +2,4 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TypeOfTarget { Player, Enemy, Ground };
+public enum TypeOfTarget { Player, Enemy };

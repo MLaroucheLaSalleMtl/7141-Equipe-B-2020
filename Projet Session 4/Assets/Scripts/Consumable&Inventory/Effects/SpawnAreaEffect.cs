@@ -12,7 +12,10 @@ public class SpawnAreaEffect : ConsumableComponant
     {
         Vector3 playerPosition = new Vector3(caster.transform.position.x, caster.transform.position.y, caster.transform.position.z);
         Transform clone = Instantiate(areaOfEffect, playerPosition, Quaternion.identity);
-        clone.GetComponent<DamageComponant>().caster = caster;
+        if (clone.GetComponent<DamageStayComponant>() != null)
+        {
+            clone.GetComponent<DamageStayComponant>().caster = caster;
+        }
         clone.GetComponent<Transform>().localScale += new Vector3(width, 0, length);
 
     }

@@ -11,40 +11,42 @@ public class ConsumableComponant : MonoBehaviour
     [Header("Consumable Properties")]
     protected Player caster = null;
     [SerializeField] private GameObject consumable = null;
-    [SerializeField] private int charges = 0;
+    private int currentCharges = 0;
+    [SerializeField] private int maximumCharges = 0;
     [SerializeField] protected Text txtCharges = null;
     [SerializeField] private float cooldown = 0;
     [SerializeField] private Image imgCooldown = null;
+    [SerializeField] private int manaCost = 0;
     private float cooldownCountdown = 0;
+    private Transform dropPosition = null;
 
     [Header("Effect")]
     public UnityEvent useConsumableEffect;
 
-    public int Charges { get => charges; set => charges = value; }
+    public int CurrentCharges { get => currentCharges; set => currentCharges = value; }
     public float Cooldown { get => cooldown; set => cooldown = value; }
     public float CooldownCountdown { get => cooldownCountdown; set => cooldownCountdown = value; }
+    public int MaximumCharges { get => maximumCharges; set => maximumCharges = value; }
     #endregion
 
     #region Unity's Methods
 
     void Awake()
     {
+        currentCharges = maximumCharges;
         cooldownCountdown = cooldown;
     }
 
     void Start()
     {
-        txtCharges.text = charges.ToString();
+        txtCharges.text = currentCharges.ToString();
         caster = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        dropPosition = caster.transform.GetChild(1).transform;
     }
 
     void Update()
     {
         StartCooldown();       
-        /*if (Input.GetKeyDown(KeyCode.Q))
-        {
-            UseConsumable();
-        }*/
         if (Input.GetKeyDown(KeyCode.Z))
         {
             DropConsumable();
@@ -58,24 +60,35 @@ public class ConsumableComponant : MonoBehaviour
 
     public void DropConsumable()
     {
-        Vector3 playerPosition = new Vector3(caster.transform.position.x, caster.transform.position.y, caster.transform.position.z + 3);
-        GameObject clone = Instantiate(consumable, playerPosition, Quaternion.identity);
-        clone.GetComponent<Consumable>().AssignRetainedAttributs(cooldown, charges, cooldownCountdown);
+        if (caster == null) return;
+        GameObject clone = Instantiate(consumable, dropPosition.position, Quaternion.identity);
+        clone.GetComponent<Consumable>().AssignRetainedAttributs(cooldown, currentCharges, cooldownCountdown);
         Destroy(gameObject);
     }
-    // ETRE CAPABLE DE ECHANGER
+    
+    
     public void UseConsumable()
     {
-        if (cooldownCountdown != cooldown || charges == 0)
+        if (cooldownCountdown != cooldown || currentCharges == 0)
             return;
         useConsumableEffect.Invoke();
         cooldownCountdown = 0;
-        charges--;
-        txtCharges.text = charges.ToString();
+        currentCharges--;
+        txtCharges.text = currentCharges.ToString();
+    }
+    public void UseSkill()
+    {
+        if (cooldownCountdown != cooldown || caster.ManaCurrent < manaCost)
+            return;
+            useConsumableEffect.Invoke();
+            cooldownCountdown = 0;
+            caster.ManaCurrent -= manaCost;
     }
     public void RechargeConsumable()
     {
-        charges++;
+        currentCharges = maximumCharges;
+        txtCharges.text = currentCharges.ToString();
+
     }
 
     #endregion

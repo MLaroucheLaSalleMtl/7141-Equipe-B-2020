@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -1976387493031531197}
   - component: {fileID: -61580686858782928}
   - component: {fileID: 3226876950663955708}
+  - component: {fileID: -8773707501944097452}
   m_Layer: 0
   m_Name: BasicAttackBox
   m_TagString: meleeAttack
@@ -109,9 +110,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDamage: 20
-  damageRatio: 1
+  damageRatio: 0.5
   damageType: 0
   typeOfTarget: 1
+  caster: {fileID: 0}
 --- !u!114 &-61580686858782928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,3 +141,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stunTimer: 1.5
   typeOfTarget: 1
+--- !u!54 &-8773707501944097452
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3538059517524107755}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

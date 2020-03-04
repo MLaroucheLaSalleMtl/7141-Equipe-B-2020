@@ -44,6 +44,9 @@ public class Actor : MonoBehaviour
     [SerializeField] private Stat resistancePhysical = null;
     [SerializeField] private Stat resistanceMagical = null;
     [SerializeField] private Stat evasion = null;
+    protected const float damageImmunityDuration = 0.10f;
+    protected float damageImmunityCountdown = 0.10f;
+
     public Stat ResistanceDamage { get => resistanceDamage; set => resistanceDamage = value; }
     public Stat ResistancePhysical { get => resistancePhysical; set => resistancePhysical = value; }
     public Stat ResistanceMagical { get => resistanceMagical; set => resistanceMagical = value; }
@@ -150,11 +153,12 @@ public class Actor : MonoBehaviour
     }
     public void TakeDamage(float Amount, float _ArmorPenetration, float _CriticalChance, float _CriticalRatio, string _TypeOfDamage)
     {
+        if (damageImmunityCountdown != damageImmunityDuration) return;
         if (evasion.GetValue() > Random.Range(0, 101)) return;
         if (_CriticalChance > Random.Range(0, 101))
         {
             Amount *= _CriticalRatio;
-            print("Critical Strike!");
+
         }
        Amount = ApplyResistance(Amount,_ArmorPenetration, _TypeOfDamage);
 
@@ -173,7 +177,15 @@ public class Actor : MonoBehaviour
         {
         HealthCurrent -= Amount;
         }
+        damageImmunityCountdown = 0;
     }
+
+    public void StartDamageImmunityCooldown()
+    {
+        if (damageImmunityCountdown == damageImmunityDuration) { return; }
+        damageImmunityCountdown = Mathf.Clamp(damageImmunityCountdown += Time.deltaTime, 0, damageImmunityDuration);
+    }
+
     #endregion
 
     #region Armor and Resistance 
@@ -258,7 +270,7 @@ public class Actor : MonoBehaviour
     #endregion
 
     #region Level
-    protected void LevelUp()
+    public void LevelUp()
     {
         levelCurrent++;
     }

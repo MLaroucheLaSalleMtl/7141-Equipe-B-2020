@@ -40,11 +40,12 @@ public class Player : Actor
     public Stat Mind { get => mind; set => mind = value; }
     public Stat Resilience { get => resilience; set => resilience = value; }
     public Stat WillPower { get => willPower; set => willPower = value; }
+    public int SkillPoints { get => skillPoints; set => skillPoints = value; }
     #endregion
 
     #region Interaction
     private Transform target;
-    private float range = 2f;
+  //  private float range = 2f;
     [HideInInspector] public bool canInteract = false;
     #endregion
 
@@ -61,10 +62,6 @@ public class Player : Actor
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            StartCoroutine( Interaction());
-        }
         UpdateExperience();
         HealthCurrent = Regeneration(HealthCurrent, HealthMaximum, HealthRegenRatio);
         ManaCurrent = Regeneration(ManaCurrent, ManaMaximum, ManaRegenRatio);
@@ -79,7 +76,6 @@ public class Player : Actor
         if (CanMove)
         {
             playerRigidBody.MovePosition(playerRigidBody.position + (movementDirection * MovementSpeed.GetValue()) * DashSpeed * Time.fixedDeltaTime);
-            Rotation();
         }
     }
     #endregion
@@ -207,7 +203,7 @@ public class Player : Actor
 
     public void GainExperience(float Amount)
     {
-        experienceCurrent += Amount;
+        experienceCurrent += Amount * experienceRatio;
     }
 
     private void UpdateExperience()
@@ -229,11 +225,10 @@ public class Player : Actor
     {
         movementDirection = context.ReadValue<Vector2>();
     }
-    public void Look()
+    public void Look(InputAction.CallbackContext context)
     {
         Rotation();
     }
-
     public void Dash(InputAction.CallbackContext context)
     {
         if (context.started && DashCountdown >= DashCooldown.GetValue() && DashCurrent >= 1f)
@@ -241,6 +236,36 @@ public class Player : Actor
             StartCoroutine(UseDash());
         }
     }
+    public void UseItem(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if(GetComponent<InventoryComponant>().slot.GetComponentInChildren<ConsumableComponant>() != null)
+            GetComponent<InventoryComponant>().slot.GetComponentInChildren<ConsumableComponant>().UseConsumable();
+        }
+
+    }
+    public void Interaction(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            StartCoroutine(Interaction());
+        }
+    }
+    public void UseSkill1(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if(GetComponent<InventorySkill>().slots[0].GetComponentInChildren<ConsumableComponant>() != null)
+            {
+                GetComponent<InventorySkill>().slots[0].GetComponentInChildren<ConsumableComponant>().UseConsumable();
+            }
+        }
+    }
+
+
+
+
     #endregion
     protected override void Rotation() // Unity tutorial sur top down shooter ( voir documentation ) ** Aller revoir ** CREDIT : UNITY TUTORIAL
     {
@@ -265,6 +290,12 @@ public class Player : Actor
             playerRigidBody.MoveRotation(newRotation);
         }
     }
+    public void RotationController()
+    {
+        Vector3 lookDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        transform.rotation = Quaternion.LookRotation(lookDirection);
+    }
+
     protected override void Death() { if (HealthCurrent <= 0) Destroy(gameObject); }
     #endregion
 
@@ -283,7 +314,7 @@ public class Player : Actor
     public IEnumerator Interaction()
     {
         canInteract = true;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.05f);
         canInteract = false;
     }
 

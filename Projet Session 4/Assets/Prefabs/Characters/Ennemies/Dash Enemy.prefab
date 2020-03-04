@@ -50,6 +50,21 @@ PrefabInstance:
       propertyPath: dashSpeedRatio.baseValue
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: goldReward
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: movementSpeed.baseValue
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
         type: 3}
       propertyPath: m_LocalPosition.x

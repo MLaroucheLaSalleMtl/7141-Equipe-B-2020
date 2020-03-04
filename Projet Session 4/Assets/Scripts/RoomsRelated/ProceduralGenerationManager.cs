@@ -7,6 +7,9 @@ using UnityEditor;
 public class ProceduralGenerationManager : MonoBehaviour
 {
     #region Variables & Initialization 
+    [SerializeField] private int numberOfVillagePrefab = 0;
+    [SerializeField] private int numberOfForestPrefab = 0;
+    [SerializeField] private int numberOfPlainPrefab = 0;
     [SerializeField] private List<GameObject> waypoints = new List<GameObject>();
     private Actor actorManager;
 
@@ -56,6 +59,12 @@ public class ProceduralGenerationManager : MonoBehaviour
         GenerateRooms();
     }
 
+    public void ResetGame()
+    {
+        actorManager.IsAlive = false;
+        actorManager.transform.position = new Vector3(0, 1.17f, 0);
+        
+    }
 
     #region Randomize the Generation
     private void RandomizeAllArrays()
@@ -112,18 +121,18 @@ public class ProceduralGenerationManager : MonoBehaviour
 
             if (i < 24)
             {
-                InstantiateRooms(i,x, 0, villageRoomsType);
+                InstantiateRooms(i,x, Random.Range(0,numberOfVillagePrefab), villageRoomsType);
             }
             else if (i >= 24 && i < 80)
             {
                 if(x == 24 && i == 24) { x = 0; }
-                InstantiateRooms(i,x,1, forestRoomsType);
+                InstantiateRooms(i,x,numberOfForestPrefab + numberOfVillagePrefab -1, forestRoomsType);
 
             }
             else if (i > 79)
             {
                 if (x >= 55 && i == 80) { x = 0; }
-                InstantiateRooms(i, x, 2, plainRoomsType);
+                InstantiateRooms(i, x, numberOfForestPrefab + numberOfVillagePrefab + numberOfPlainPrefab -1, plainRoomsType);
             }
             x++;
         }

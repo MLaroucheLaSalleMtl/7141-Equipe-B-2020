@@ -48,9 +48,9 @@ MonoBehaviour:
   criticalDamage:
     baseValue: 0
   attackSpeed:
-    baseValue: 0
+    baseValue: 0.75
   movementSpeed:
-    baseValue: 0
+    baseValue: 4
   cooldownReduction:
     baseValue: 0
   bonusBuffRatio:
@@ -66,16 +66,13 @@ MonoBehaviour:
   dashSpeedRatio:
     baseValue: 0
   levelCurrent: 0
-  target: {fileID: 0}
-  ennemyHitBox: {fileID: 2845191619059603443, guid: 8f768e23121ad8849931a5574ac948b5,
+  xpGive: 30
+  goldReward: 3
+  ennemyHitBox: {fileID: 2897629663414043087, guid: c830229d0c428604c988db683aa755eb,
     type: 3}
-  img_EnnemyHealthBar: {fileID: 5884417747058200370}
-  attackCooldown: 1
-  xpGive: 5
-  rotationSpeed: 0.1
-  moveSpeed: 3
   attackDistance: 15
   raycastDistance: 3
+  img_EnnemyHealthBar: {fileID: 5884417747058200370}
 --- !u!1001 &7792412473369704761
 PrefabInstance:
   m_ObjectHideFlags: 0

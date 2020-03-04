@@ -5,8 +5,7 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     #region Variables
-    [Header("Access points")]
-    [SerializeField] private GameObject[] Doors = null;
+
 
     [Header("Room Related")]
     [SerializeField] private List<GameObject> envrionmentObjects = new List<GameObject>();
@@ -22,6 +21,7 @@ public class Room : MonoBehaviour
     {
         actorManager = GameObject.Find("Player").GetComponent<Actor>();
     }
+
     private void Update()
     {
         if (!actorManager.IsAlive)
@@ -31,15 +31,10 @@ public class Room : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnCollisionEnter(Collision collider)
     {
-
-        if (activeFog && collider.tag == "Player")
+        if (activeFog && collider.gameObject.tag == "Player" && GameManager.NumberOfEnemy == 0)
         {
-            foreach (GameObject door in Doors)
-            {
-                door.SetActive(false);
-            }
             foreach (GameObject obj in envrionmentObjects)
             {
                 if (obj != null)

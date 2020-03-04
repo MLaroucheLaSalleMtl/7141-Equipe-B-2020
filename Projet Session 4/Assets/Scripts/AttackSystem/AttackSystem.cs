@@ -9,6 +9,9 @@ public class AttackSystem : MonoBehaviour
     private Actor _actorManager;
     [SerializeField] private GameObject attackZone = null;
     private bool canAttack = true;
+
+    public bool CanAttack { get => canAttack; set => canAttack = value; }
+
     // private float delayBetweenAttack = 2.5f;
     #endregion
 
@@ -34,6 +37,9 @@ public class AttackSystem : MonoBehaviour
     }
     public void Fire(InputAction.CallbackContext context)
     {
+        // GetComponent<Player>().transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        GetComponent<Player>().GetComponent<Rigidbody>().freezeRotation = true;
+
         if (context.started && canAttack == true)
         {
             if (canAttack)
