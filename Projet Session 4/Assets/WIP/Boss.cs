@@ -37,11 +37,11 @@ public class Boss : Actor
         actionRoll = 1;
     }
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
 
         Death();
-        StartDamageImmunityCooldown();
         if (CanMove)
         {
             //Movement();
@@ -54,7 +54,6 @@ public class Boss : Actor
             actionRoll = Random.Range(0, 5);
             State(actionRoll);
         }
-        StartDamageImmunityCooldown();
     }
 
     public void State(int i)
@@ -71,9 +70,9 @@ public class Boss : Actor
     }
 
 
-    protected override void Death()
+    protected void Death()
     {
-        if (HealthCurrent <= 0)
+        if (Health.GetCurrentValue() <= 0)
         {
             if (target != null)
             {
@@ -85,12 +84,12 @@ public class Boss : Actor
         }
     }
 
-    protected override void Movement()
+    private void Movement()
     {
-        transform.position += transform.forward * MovementSpeed.GetValue() * DashSpeed * Time.deltaTime;
+        transform.position += transform.forward * MovementSpeed.GetBaseValue() * DashSpeed * Time.deltaTime;
     }
 
-    protected override void Rotation()
+    private  void Rotation()
     {
     }
 

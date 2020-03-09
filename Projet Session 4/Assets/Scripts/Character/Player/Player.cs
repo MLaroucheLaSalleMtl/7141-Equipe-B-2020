@@ -8,39 +8,39 @@ public class Player : Actor
 {
     #region Variables & Attributs
 
-    #region Movement & Rotation
-    Vector3 movementDirection;
+    #region Movement Properties
+    private Vector3 movementDirection;
     private int floorMask;
-    private Rigidbody playerRigidBody;
     private float cameraRange = 100f;
     #endregion
 
-    #region Level System
-    [Header("Level Componant")]
-    [SerializeField] private float experienceCurrent = 0f;
-    [SerializeField] private float experienceMaximum = 100f;
-    [SerializeField] private float experienceRatio = 1f;
-    [SerializeField] private float leveldifference = 1.15f;
+    #region Level Properties
+    [Header(" - - Level Properties - - ")]
     [SerializeField] private int skillPoints = 0;
     [SerializeField] private int characteristicsPoints = 0;
+    public int levelCurrent = 1;
+    private float experienceCurrent = 0f;
+    private float experienceMaximum = 100f;
+    private float experienceRatio = 1f;
+    private float leveldifference = 1.15f;
     [SerializeField] private GameObject LevelUpOnPlayer = null;
     [SerializeField] private GameObject CharacteristicPointsScreen = null;
     [SerializeField] private GameObject SkillPointsScreen = null;
 
+    public int LevelCurrent { get => levelCurrent; set => levelCurrent = value; }
     public int CharacteristicsPoints { get => characteristicsPoints; set => characteristicsPoints = value; }
     public float ExperienceCurrent { get => experienceCurrent; set => experienceCurrent = value; }
     public float ExperienceMaximum { get => experienceMaximum; set => experienceMaximum = value; }
     public int SkillPoints { get => skillPoints; set => skillPoints = value; }
     #endregion
 
-    #region Characteristics System
-    [Header("Characteristic Componant")]
+    #region Characteristics Properties
+    [Header(" - - Characteristics Properties - - ")]
     [SerializeField] private Stat power = null;
     [SerializeField] private Stat vigilance = null;
     [SerializeField] private Stat mind = null;
     [SerializeField] private Stat resilience = null;
     [SerializeField] private Stat willPower = null;
-
     public Stat Power { get => power; set => power = value; }
     public Stat Vigilance { get => vigilance; set => vigilance = value; }
     public Stat Mind { get => mind; set => mind = value; }
@@ -50,36 +50,50 @@ public class Player : Actor
 
     #region Interaction
     private Transform target;
-  //  private float range = 2f;
-    [HideInInspector] public bool canInteract = false;
+    [HideInInspector] public bool isInteracting = false;
     #endregion
 
     #region Skill
-    [SerializeField] private GameObject DamageBoostIcon = null;
-    [SerializeField] private GameObject FortitudeBoostIcon = null;
-    #endregion
+    //[SerializeField] private GameObject DamageBoostIcon = null;
+    //[SerializeField] private GameObject FortitudeBoostIcon = null;
 
-    #region Gold
-    [SerializeField] private int gold = 100;
-    public int Gold { get => gold; set => gold = value; }
-    #endregion
+    [Header(" - - Skills Upgrades - - ")]
+     public skill damageBuff = null;
+    [SerializeField] private int healLevel = 0;
+    [SerializeField] private int healLevelMax = 0;
+    [SerializeField] private int rootCircleLevel = 0;
+    [SerializeField] private int rootCircleLevelMax = 0;
+    [SerializeField] private int dashSkillLevel = 0;
+    [SerializeField] private int dashSkillLevelMax = 0;
+    [SerializeField] private int fireBallLevel = 0;
+    [SerializeField] private int fireBallLevelMax = 0;
+    private bool haveDashSkill = false;
 
+    public int HealLevel { get => healLevel; set => healLevel = value; }
+    public int HealLevelMax { get => healLevelMax; set => healLevelMax = value; }
+    public int RootCircleLevel { get => rootCircleLevel; set => rootCircleLevel = value; }
+    public int RootCircleLevelMax { get => rootCircleLevelMax; set => rootCircleLevelMax = value; }
+    public int DashSkillLevel { get => dashSkillLevel; set => dashSkillLevel = value; }
+    public int DashSkillLevelMax { get => dashSkillLevelMax; set => dashSkillLevelMax = value; }
+    public bool HaveDashSkill { get => haveDashSkill; set => haveDashSkill = value; }
+    public int FireBallLevel { get => fireBallLevel; set => fireBallLevel = value; }
+    public int FireBallLevelMax { get => fireBallLevelMax; set => fireBallLevelMax = value; }
+    #endregion
 
     #endregion
 
     #region Unity's Methods
     void Start()
     {
-        //InvokeRepeating("UpdateInteraction", 0f, 0.5f);
-        DamageBoostIcon.SetActive(false);
-        FortitudeBoostIcon.SetActive(false);
         floorMask = LayerMask.GetMask("Ground");
-        playerRigidBody = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+
+
+
+
         if (skillPoints > 0)
             SkillPointsScreen.SetActive(true);
         else
@@ -95,12 +109,8 @@ public class Player : Actor
         else
             LevelUpOnPlayer.SetActive(false);
 
-        UpdateExperience();
-        HealthCurrent = Regeneration(HealthCurrent, HealthMaximum, HealthRegenRatio);
-        ManaCurrent = Regeneration(ManaCurrent, ManaMaximum, ManaRegenRatio);
-        DashCurrent = Regeneration(DashCurrent, DashMaximum, DashRegenRatio);
-        StartDashCooldown();
-        StartDamageImmunityCooldown();
+
+
         Death();
         movementDirection.x = Input.GetAxisRaw("Horizontal");
         movementDirection.z = Input.GetAxisRaw("Vertical");
@@ -109,7 +119,7 @@ public class Player : Actor
     {
         if (CanMove)
         {
-            playerRigidBody.MovePosition(playerRigidBody.position + (movementDirection * MovementSpeed.GetValue()) * DashSpeed * Time.fixedDeltaTime);
+            rig.MovePosition(rig.position + (movementDirection * MovementSpeed.GetBaseValue()) * DashSpeed * Time.fixedDeltaTime);
         }
     }
     #endregion
@@ -123,20 +133,20 @@ public class Player : Actor
        
         if(characteristicsPoints > 0)
         {
-            if(power.GetValue() != 0)
+            if(power.GetBaseValue() != 0)
             {
-                PowerPhysical.RemoveModifier(2.5f * power.GetValue());
-                HealthRegenRatio.RemoveModifier(0.05f * power.GetValue());
-                CriticalDamage.RemoveModifier(0.05f * power.GetValue());
-                MovementSpeed.RemoveModifier(0.05f * power.GetValue());
+                PowerPhysical.RemoveModifier(2.5f * power.GetBaseValue());
+                Health.recoveryValue.RemoveModifier(0.05f * power.GetBaseValue());
+                CriticalDamage.RemoveModifier(0.05f * power.GetBaseValue());
+                MovementSpeed.RemoveModifier(0.05f * power.GetBaseValue());
             }
             characteristicsPoints--;
-            power.IncreaseCharacteristic();
+            power.AddModifier(1);
 
-            PowerPhysical.AddModifier(2.5f * power.GetValue());
-            HealthRegenRatio.AddModifier(0.05f * power.GetValue());
-            CriticalDamage.AddModifier(0.05f * power.GetValue());
-            MovementSpeed.AddModifier(0.05f * power.GetValue());
+            PowerPhysical.AddModifier(2.5f * power.GetBaseValue());
+            Health.recoveryValue.AddModifier(0.05f * power.GetBaseValue());
+            CriticalDamage.AddModifier(0.05f * power.GetBaseValue());
+            MovementSpeed.AddModifier(0.05f * power.GetBaseValue());
         }
     }
     public void IncreaseVigilance()
@@ -144,22 +154,23 @@ public class Player : Actor
 
         if (characteristicsPoints > 0)
         {
-            if (vigilance.GetValue() != 0)
+            if (vigilance.GetBaseValue() != 0)
             {
-                AttackSpeed.RemoveModifier(-0.005f * vigilance.GetValue());
-                Evasion.RemoveModifier(1f * vigilance.GetValue());
-                CriticalChance.RemoveModifier(0.5f * vigilance.GetValue());
-                DashRegenRatio.RemoveModifier(0.05f * vigilance.GetValue());
+                AttackSpeed.RemoveModifier(-0.005f * vigilance.GetBaseValue());
+                Evasion.RemoveModifier(1f * vigilance.GetBaseValue());
+                CriticalChance.RemoveModifier(0.5f * vigilance.GetBaseValue());
+                Dash.recoveryValue.RemoveModifier(0.05f * vigilance.GetBaseValue());
 
             }
             characteristicsPoints--;
-            vigilance.IncreaseCharacteristic();
+            vigilance.AddModifier(1);
 
 
-            AttackSpeed.AddModifier(-0.005f * vigilance.GetValue());
-            Evasion.AddModifier(1f * vigilance.GetValue());
-            CriticalChance.AddModifier(0.5f * vigilance.GetValue());
-            DashRegenRatio.AddModifier(0.05f * vigilance.GetValue());
+
+            AttackSpeed.AddModifier(-0.005f * vigilance.GetBaseValue());
+            Evasion.AddModifier(1f * vigilance.GetBaseValue());
+            CriticalChance.AddModifier(0.5f * vigilance.GetBaseValue());
+            Dash.recoveryValue.AddModifier(0.05f * vigilance.GetBaseValue());
         }
     }
     public void IncreaseMind()
@@ -167,21 +178,22 @@ public class Player : Actor
 
         if (characteristicsPoints > 0)
         {
-            if (mind.GetValue() != 0)
+            if (mind.GetBaseValue() != 0)
             {
-                PowerMagical.RemoveModifier(5 * mind.GetValue());
-                BarrierMaximum.RemoveModifier(10f * mind.GetValue());
-                DamagePenetration.RemoveModifier(1f * mind.GetValue());
-                ManaMaximum.RemoveModifier(5f * mind.GetValue());
+                PowerMagical.RemoveModifier(5 * mind.GetBaseValue());
+                Barrier.RemoveModifier(10f * mind.GetBaseValue());
+                DamagePenetration.RemoveModifier(1f * mind.GetBaseValue());
+                Mana.RemoveModifier(5f * mind.GetBaseValue());
 
             }
             characteristicsPoints--;
-            mind.IncreaseCharacteristic();
+            mind.AddModifier(1);
 
-            PowerMagical.AddModifier(5 * mind.GetValue());
-            BarrierMaximum.AddModifier(10f * mind.GetValue());
-            DamagePenetration.AddModifier(1f * mind.GetValue());
-            ManaMaximum.AddModifier(5f * mind.GetValue());
+
+            PowerMagical.AddModifier(5 * mind.GetBaseValue());
+            Barrier.AddModifier(10f * mind.GetBaseValue());
+            DamagePenetration.AddModifier(1f * mind.GetBaseValue());
+            Mana.AddModifier(5f * mind.GetBaseValue());
         }
     }
     public void IncreaseResilience()
@@ -189,21 +201,22 @@ public class Player : Actor
 
         if (characteristicsPoints > 0)
         {
-            if (resilience.GetValue() != 0)
+            if (resilience.GetBaseValue() != 0)
             {
-                DamageThorn.RemoveModifier(5f * resilience.GetValue());
-                ResistancePhysical.RemoveModifier(0.5f * resilience.GetValue());
-                HealthMaximum.RemoveModifier(5f * resilience.GetValue());
-                ResistanceDamage.RemoveModifier(0.2f * resilience.GetValue());
+                PowerThorn.RemoveModifier(5f * resilience.GetBaseValue());
+                ResistancePhysical.RemoveModifier(0.5f * resilience.GetBaseValue());
+                Health.RemoveModifier(5f * resilience.GetBaseValue());
+                ResistanceDamage.RemoveModifier(0.2f * resilience.GetBaseValue());
 
             }
             characteristicsPoints--;
-            resilience.IncreaseCharacteristic();
+            resilience.AddModifier(1);
 
-            DamageThorn.AddModifier(5f * resilience.GetValue());
-            ResistancePhysical.AddModifier(0.5f * resilience.GetValue());
-            HealthMaximum.AddModifier(5f * resilience.GetValue());
-            ResistanceDamage.AddModifier(0.2f * resilience.GetValue());
+
+            PowerThorn.AddModifier(5f * resilience.GetBaseValue());
+            ResistancePhysical.AddModifier(0.5f * resilience.GetBaseValue());
+            Health.AddModifier(5f * resilience.GetBaseValue());
+            ResistanceDamage.AddModifier(0.2f * resilience.GetBaseValue());
         }
     }
     public void IncreaseWillpower()
@@ -211,50 +224,57 @@ public class Player : Actor
 
         if (characteristicsPoints > 0)
         {
-            if (willPower.GetValue() != 0)
+            if (willPower.GetBaseValue() != 0)
             {
-                CooldownReduction.RemoveModifier(-0.01f * willPower.GetValue());
-                ResistanceMagical.RemoveModifier(1f * willPower.GetValue());
-                ManaRegenRatio.RemoveModifier(0.05f * willPower.GetValue());
-                BonusBuffRatio.RemoveModifier(0.02f * willPower.GetValue());
+                CooldownReduction.RemoveModifier(-0.01f * willPower.GetBaseValue());
+                ResistanceMagical.RemoveModifier(1f * willPower.GetBaseValue());
+                Mana.recoveryValue.RemoveModifier(0.05f * willPower.GetBaseValue());
+                BuffEnhancement.RemoveModifier(0.02f * willPower.GetBaseValue());
 
             }
             characteristicsPoints--;
-            willPower.IncreaseCharacteristic();
+            willPower.AddModifier(1);
 
-            CooldownReduction.AddModifier(-0.01f * willPower.GetValue());
-            ResistanceMagical.AddModifier(1f * willPower.GetValue());
-            ManaRegenRatio.AddModifier(0.05f * willPower.GetValue());
-            BonusBuffRatio.AddModifier(0.02f * willPower.GetValue());
+
+            CooldownReduction.AddModifier(-0.01f * willPower.GetBaseValue());
+            ResistanceMagical.AddModifier(1f * willPower.GetBaseValue());
+            Mana.recoveryValue.AddModifier(0.05f * willPower.GetBaseValue());
+            BuffEnhancement.AddModifier(0.02f * willPower.GetBaseValue());
         }
     }
-
-
-
     #endregion
 
     #region Level & Experience
-
-    public void GainExperience(float Amount)
+    public void LevelUp()
     {
-        experienceCurrent += Amount * experienceRatio;
+        skillPoints++;
+        characteristicsPoints += 3;
+        levelCurrent++;
     }
-
-    private void UpdateExperience()
+    public void IncreaseExperience(float Amount)
     {
-        if(experienceCurrent >= experienceMaximum)
+        experienceCurrent += (Amount * experienceRatio);
+
+        if (experienceCurrent >= experienceMaximum)
         {
             experienceCurrent = 0;
             experienceMaximum *= leveldifference;
-            skillPoints++;
-            characteristicsPoints += 3;
             LevelUp();
-
         }
     }
+
     #endregion
 
     #region Input and Control
+    public void Fire(InputAction.CallbackContext context)
+    {
+
+        if (context.started && CanAttack == true)
+        {
+                StartCoroutine(AttackRootEffect(0.15f));
+            UseBasicAttack();        
+        }
+    }
     public void Movement(InputAction.CallbackContext context)
     {
         movementDirection = context.ReadValue<Vector2>();
@@ -263,11 +283,13 @@ public class Player : Actor
     {
         Rotation();
     }
-    public void Dash(InputAction.CallbackContext context)
+    public void UseDash(InputAction.CallbackContext context)
     {
-        if (context.started && DashCountdown >= DashCooldown.GetValue() && DashCurrent >= 1f)
+        if (context.started && DashCooldown.IsFinish() && Dash.GetCurrentValue() >= 1f && haveDashSkill)
         {
-            StartCoroutine(UseDash());
+
+            StartCoroutine(ActivateDash());
+            DashCooldown.ResetCountdown();
         }
     }
     public void UseItem(InputAction.CallbackContext context)
@@ -278,13 +300,6 @@ public class Player : Actor
             GetComponent<InventoryComponant>().slot.GetComponentInChildren<ConsumableComponant>().UseConsumable();
         }
 
-    }
-    public void Interaction(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            StartCoroutine(Interaction());
-        }
     }
     public void Skill1(InputAction.CallbackContext context)
     {
@@ -318,11 +333,26 @@ public class Player : Actor
                 GetComponent<InventorySkill>().slots[3].GetComponentInChildren<ConsumableComponant>().UseSkill();
         }
     }
+    public void Interaction(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            StartCoroutine(Interaction());
+        }
+    }
+    public IEnumerator Interaction()
+    {
+        isInteracting = true;
+        yield return new WaitForSeconds(0.05f);
+        isInteracting = false;
+    }
 
 
 
     #endregion
-    protected override void Rotation() // Unity tutorial sur top down shooter ( voir documentation ) ** Aller revoir ** CREDIT : UNITY TUTORIAL
+
+    #region Movement & Rotation
+    private void Rotation() // Unity tutorial sur top down shooter ( voir documentation ) ** Aller revoir ** CREDIT : UNITY TUTORIAL
     {
         // Create a ray from the mouse cursor on screen in the direction of the camera.
         Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -342,7 +372,7 @@ public class Player : Actor
             Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
 
             // Set the player's rotation to this new rotation.
-            playerRigidBody.MoveRotation(newRotation);
+            rig.MoveRotation(newRotation);
         }
     }
     public void RotationController()
@@ -351,43 +381,11 @@ public class Player : Actor
         transform.rotation = Quaternion.LookRotation(lookDirection);
     }
 
-    protected override void Death() { }
+    #endregion
+    private void Death() { }
+
     #endregion
 
-    public IEnumerator TemporaryBoost(Stat stat, float Duration, float Value, float Cooldown, GameObject boostImage)
-    {
-        stat.AddModifier(Value);
-        boostImage.SetActive(true);
-        yield return new WaitForSeconds(Duration * BonusBuffRatio.GetValue());
-        stat.RemoveModifier(Value);
-        boostImage.SetActive(false);
-        yield return new WaitForSeconds(Cooldown * CooldownReduction.GetValue());
-    }
-    public IEnumerator TemporaryDebuff(Stat stat, float Duration, float Value)
-    {
-        stat.AddModifier(Value);
-        yield return new WaitForSeconds(Duration);
-        stat.RemoveModifier(Value);
-    }
-    public void PermanentBoost(Stat stat, float Value)
-    {
-        stat.AddModifier(Value);
-    }
 
-    public IEnumerator Interaction()
-    {
-        canInteract = true;
-        yield return new WaitForSeconds(0.05f);
-        canInteract = false;
-    }
 
-    public void IncreaseGold(int Amount)
-    {
-        gold += Amount;
-    }
-
-    public void DecreaseGold(int Amount)
-    {
-        gold -= Amount;
-    }
 }

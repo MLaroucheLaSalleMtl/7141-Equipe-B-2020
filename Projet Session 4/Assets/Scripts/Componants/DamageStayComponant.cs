@@ -18,7 +18,7 @@ public class DamageStayComponant : DamageComponant
         if (countdown != 0) return;
         if (other.gameObject.tag == typeOfTarget.ToString())
         {
-            Collider[] colliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale / 2, Quaternion.identity, LayerMask.GetMask("Target"));
+            Collider[] colliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale / 2, transform.rotation, LayerMask.GetMask("Target"));
 
             if (countdown == 0)
             {

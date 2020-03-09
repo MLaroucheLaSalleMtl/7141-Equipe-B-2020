@@ -40,7 +40,7 @@ public class Npc : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            if(other.GetComponent<Player>().canInteract == true)
+            if(other.GetComponent<Player>().isInteracting == true)
             {
                 interactionSprite.SetActive(false);
                 npcOptions.SetActive(true); 

@@ -24,10 +24,6 @@ public class Room : MonoBehaviour
 
     private void Update()
     {
-        if (!actorManager.IsAlive)
-        {
-            Destroy(gameObject);
-        }
     }
 
 

@@ -6,27 +6,27 @@ using UnityEngine.EventSystems;
 
 public class InteractionVsPlayer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    AttackSystem _attackSystem;
+    Actor _Actor;
 
     public void Start()
     {
-        _attackSystem = GameObject.Find("Player").GetComponent<AttackSystem>();
+        _Actor = GameObject.Find("Player").GetComponent<Actor>();
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _attackSystem.CanAttack = false;
+        _Actor.CanAttack = false;
 
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        _attackSystem.CanAttack = true;
+        _Actor.CanAttack = true;
 
     }
 
     void OnDestroy()
     {
-        _attackSystem.CanAttack = true;
+        _Actor.CanAttack = true;
 
     }
 }

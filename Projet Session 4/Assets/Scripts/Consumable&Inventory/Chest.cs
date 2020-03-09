@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
-    public GameObject interactionSprite;
+    [SerializeField] private GameObject interactionSprite = null;
     [SerializeField] private GameObject[] consumables = null;
 
     void OnTriggerStay(Collider collider)
@@ -14,7 +14,7 @@ public class Chest : MonoBehaviour
             if (interactionSprite != null)
                 interactionSprite.SetActive(true);
 
-            if (collider.GetComponent<Player>().canInteract == true)
+            if (collider.GetComponent<Player>().isInteracting == true)
             {
                 int randomIndex = Random.Range(0, consumables.Length);
                 Instantiate(consumables[randomIndex].gameObject, transform.position, Quaternion.identity);

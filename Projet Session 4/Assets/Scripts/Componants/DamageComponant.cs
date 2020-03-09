@@ -40,13 +40,13 @@ public class DamageComponant : MonoBehaviour
     void Start()
     {
         if (damageType == TypeOfDamage.Physical)
-            bonusDamage = caster.PowerPhysical.GetValue();
+            bonusDamage = caster.PowerPhysical.GetBaseValue();
         if (damageType == TypeOfDamage.Magical)
-            bonusDamage = caster.PowerMagical.GetValue();
+            bonusDamage = caster.PowerMagical.GetBaseValue();
 
-        armorPenetration = caster.DamagePenetration.GetValue();
-        criticalChance = caster.CriticalChance.GetValue();
-        criticalRatio = caster.CriticalChance.GetValue();
+        armorPenetration = caster.DamagePenetration.GetBaseValue();
+        criticalChance = caster.CriticalChance.GetBaseValue();
+        criticalRatio = caster.CriticalChance.GetBaseValue();
 
         calculatedDamage = baseDamage + (bonusDamage * damageRatio);
     }
@@ -55,8 +55,7 @@ public class DamageComponant : MonoBehaviour
     {
         if (other.gameObject.tag != typeOfTarget.ToString() || isDirty) return; 
 
-        Collider[] colliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale / 2, Quaternion.identity, LayerMask.GetMask("Target"));
-
+        Collider[] colliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale / 1.9f, transform.rotation, LayerMask.GetMask("Target"));
         DealDamage(colliders);
 
         if(numberOfTick == numberOfTickBeforeDirty)
@@ -74,11 +73,9 @@ public class DamageComponant : MonoBehaviour
     {
         foreach (Collider collider in _colliders)
         {
-
             if (collider.gameObject.tag == typeOfTarget.ToString())
-                collider.gameObject.GetComponent<Actor>().TakeDamage(calculatedDamage, armorPenetration, criticalChance, criticalRatio, damageType.ToString());
+                collider.gameObject.GetComponent<Actor>().TakeDamage(calculatedDamage, armorPenetration, collider.gameObject.GetComponent<Actor>().CriticalChance, criticalRatio, damageType.ToString());
 
         }
     }
-
 }

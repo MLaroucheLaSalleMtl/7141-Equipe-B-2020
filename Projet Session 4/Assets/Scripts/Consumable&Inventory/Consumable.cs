@@ -72,7 +72,7 @@ public class Consumable : MonoBehaviour
                 GiveRetainedAttributs(clone.GetComponent<ConsumableComponant>());
                 Destroy(gameObject);
             }
-            else if (inventory.isFull == true && collider.GetComponent<Player>().canInteract == true) // Switch Consumable
+            else if (inventory.isFull == true && collider.GetComponent<Player>().isInteracting == true) // Switch Consumable
             {
                 GameObject buttonInSlot = GameObject.Find("InventorySlot").transform.GetChild(0).gameObject;
                 buttonInSlot.GetComponent<ConsumableComponant>().DropConsumable();

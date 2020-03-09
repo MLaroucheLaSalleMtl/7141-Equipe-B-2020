@@ -78,11 +78,11 @@ public class ConsumableComponant : MonoBehaviour
     }
     public void UseSkill()
     {
-        if (cooldownCountdown != cooldown || caster.ManaCurrent < manaCost)
+        if (cooldownCountdown != cooldown || caster.Mana.GetCurrentValue() < manaCost)
             return;
             useConsumableEffect.Invoke();
             cooldownCountdown = 0;
-            caster.ManaCurrent -= manaCost;
+        caster.Mana.DecreaseCurrentValue(manaCost);
     }
     public void RechargeConsumable()
     {

@@ -9,8 +9,8 @@ using UnityEngine.EventSystems;
 public class UI_Manager : MonoBehaviour
 {
     private Player _Player;
+    private int currentPanel = -1;
 
-   // [SerializeField] private Text[] texts = null;
 
     [SerializeField] private Text txt_Power = null;
     [SerializeField] private Text txt_PhysicalPower = null;
@@ -46,23 +46,38 @@ public class UI_Manager : MonoBehaviour
 
     [Header("Character UI")]
     [SerializeField] private Image img_HealthBar = null;
+    [SerializeField] private Text txt_HealthBar = null
+        ;
     [SerializeField] private Image img_ManaBar = null;
+    [SerializeField] private Text txt_ManaBar = null;
+
     [SerializeField] private Image img_BarrierBar = null;
+    [SerializeField] private Text txt_BarrierBar = null;
+
     [SerializeField] private Image img_XpBar = null;
-    [SerializeField] private Text txt_NumbOfArmorStack = null;
     [SerializeField] private Text txt_Level = null;
+
+    [SerializeField] private Text txt_NumbOfArmorStack = null;
+
     [SerializeField] private Text txt_DashCount = null;
 
+    [SerializeField] private Text txt_Gold = null;
     [Header("Panel Toggle")]
     [SerializeField] private GameObject[] panels = null;
     [SerializeField] private Selectable[] defaultButtons = null;
+
+    [Header("Skill")]
+    [SerializeField] private Text txt_SkillPointsNumber = null;
+
     void Start()
     {
+        Time.timeScale = 1;
         _Player = GameObject.Find("Player").GetComponent<Player>();
     }
     void Update()
     {
-        
+        txt_Gold.text = _Player.Gold.ToString();
+
         txt_Power.text = _Player.Power.GetValue().ToString();
         txt_PhysicalPower.text = _Player.PowerPhysical.GetValue().ToString();
         txt_CriticalDamage.text = _Player.CriticalDamage.GetValue().ToString();
@@ -96,13 +111,22 @@ public class UI_Manager : MonoBehaviour
         txt_CharacteristicPoints.text = _Player.CharacteristicsPoints.ToString();
 
         img_HealthBar.fillAmount = _Player.HealthCurrent / _Player.HealthMaximum.GetValue();
+        txt_HealthBar.text = _Player.HealthCurrent.ToString("F0") + " / " + _Player.HealthMaximum.GetValue().ToString("F0");
+
         img_ManaBar.fillAmount = _Player.ManaCurrent / _Player.ManaMaximum.GetValue();
-        img_BarrierBar.fillAmount = _Player.BarrierCurrent / _Player.BarrierMaximum.GetValue();
+        txt_ManaBar.text = _Player.ManaCurrent.ToString("F0") + " / " + _Player.ManaMaximum.GetValue().ToString("F0");
+
+        img_BarrierBar.fillAmount = _Player.BarrierCurrent / _Player.HealthMaximum.GetValue();
+        txt_BarrierBar.text = _Player.BarrierCurrent.ToString("F0") + " / " + _Player.BarrierMaximum.GetValue().ToString("F0");
+
         txt_NumbOfArmorStack.text = ": " + _Player.ArmorStack.ToString();
         txt_DashCount.text = ": " + (int)_Player.DashCurrent;
 
         img_XpBar.fillAmount = _Player.ExperienceCurrent / _Player.ExperienceMaximum;
-        txt_Level.text = "Level " + _Player.LevelCurrent.ToString();
+
+        txt_Level.text = "Level : " + _Player.LevelCurrent.ToString();
+
+        txt_SkillPointsNumber.text = "SkillPoints: " + _Player.SkillPoints.ToString();
 
     }
 
@@ -112,14 +136,17 @@ public class UI_Manager : MonoBehaviour
         Input.ResetInputAxes();
         for (int i = 0; i < panels.Length; i++)
         {
+            
             panels[i].SetActive(position == i);
+            currentPanel = position;
             if (position == i)
             {
                 defaultButtons[i].Select();
             }
+            
 
         }
-        if(position >= 0 && position != 5)
+        if(position >= 0 && position != 5 && position != 7)
         {
             Time.timeScale = 0;
         }
@@ -127,16 +154,57 @@ public class UI_Manager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+        _Player.GetComponent<AttackSystem>().CanAttack = true;
     }
 
     public void Cancel(InputAction.CallbackContext context)
     {
+        if (GameManager.gameOver) return;
+        if (currentPanel == 0 && context.started)
+        {
+            PanelToggle(-1);
+            currentPanel = -1;
+            return;
+        }
+        else
         if (context.started)
         {
             PanelToggle(0);
+            return;
         }
     }
-
+    public void OpenCharacteristics(InputAction.CallbackContext context)
+    {
+        if (GameManager.gameOver) return;
+        if (currentPanel == 5 && context.started)
+        {
+            PanelToggle(-1);
+            currentPanel = -1;
+            return;
+        }
+        else
+        if (context.started)
+        {
+            PanelToggle(5);
+            return;
+        }
+    }
+    public void OpenSkill(InputAction.CallbackContext context)
+    {
+        if (GameManager.gameOver) return;
+        if (currentPanel == 7 && context.started)
+        {
+            PanelToggle(-1);
+            currentPanel = -1;
+            return;
+        }
+        else
+        if (context.started)
+        {
+            PanelToggle(7);
+            return;
+        }
+    }
     public void QuitGame()
     {
         Application.Quit();
@@ -144,6 +212,7 @@ public class UI_Manager : MonoBehaviour
 
     public void LoadScene(string level)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(level);
     }
 

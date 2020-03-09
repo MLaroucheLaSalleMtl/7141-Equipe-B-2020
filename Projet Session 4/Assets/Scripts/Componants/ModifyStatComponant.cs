@@ -12,7 +12,7 @@ public class ModifyStatComponant : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             _player = other.GetComponent<Player>();
-            StartCoroutine(_player.TemporaryDebuff(_player.MovementSpeed, duration, -_player.MovementSpeed.GetValue()));
+            StartCoroutine(_player.TemporaryBuff(_player.MovementSpeed, duration, -_player.MovementSpeed.GetBaseValue()));
             
         }
     }

@@ -14,8 +14,8 @@ public class Wish : MonoBehaviour
 
     public void IncreaseHealth(float Amount)
     {
-        listener.HealthMaximum.AddModifier(Amount);
-        listener.AddHealth(listener.HealthMaximum.GetValue());
+        listener.Health.AddModifier(Amount);
+        listener.Health.IncreaseCurrentValue(listener.Health.GetBaseValue());
 
         Destroy(GetComponentInParent<AncientSpirit>().gameObject);
     }
@@ -36,8 +36,8 @@ public class Wish : MonoBehaviour
     }
     public void IncreaseMana(float Amount)
     {
-        listener.ManaMaximum.AddModifier(Amount);
-        listener.AddMana(listener.ManaMaximum.GetValue());
+        listener.Mana.AddModifier(Amount);
+        listener.Mana.IncreaseCurrentValue(listener.Mana.GetBaseValue());
 
         Destroy(GetComponentInParent<AncientSpirit>().gameObject);
     }
@@ -62,7 +62,7 @@ public class Wish : MonoBehaviour
     public void CreateChest()
     {
         Instantiate(chest, new Vector3(transform.position.x,0.8f,transform.position.z), Quaternion.identity);
-        Instantiate(chest, new Vector3(-transform.position.x/2, 0.8f, transform.position.z), Quaternion.identity);
+        Instantiate(chest, new Vector3(-transform.position.x -2, 0.8f, transform.position.z), Quaternion.identity);
 
         Destroy(GetComponentInParent<AncientSpirit>().gameObject);
     }

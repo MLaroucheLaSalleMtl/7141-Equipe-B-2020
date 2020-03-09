@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RootComponant : MonoBehaviour
 {
+
+    // A REVOIR 
     [SerializeField] private TypeOfTarget typeOfTarget = 0;
     public bool root = false;
 
@@ -11,7 +13,7 @@ public class RootComponant : MonoBehaviour
     {
         if (collision.gameObject.tag == typeOfTarget.ToString())
         {
-            collision.gameObject.GetComponent<Enemy>().IsRoot();
+            collision.gameObject.GetComponent<Actor>().CanMove = false;
         }
     }
 }

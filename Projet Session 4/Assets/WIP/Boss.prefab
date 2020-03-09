@@ -200,26 +200,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22331245ce99834593ae6389627ba94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthCurrent: 2500
-  healthMaximum:
+  health:
     baseValue: 2500
-  healthRegenRatio:
+    recoveryValue:
+      baseValue: 1
+    canRecover: 1
+  mana:
     baseValue: 0
-  manaCurrent: 0
-  manaMaximum:
+    recoveryValue:
+      baseValue: 0
+    canRecover: 1
+  barrier:
     baseValue: 0
-  manaRegenRatio:
-    baseValue: 0
-  barrierCurrent: 0
-  barrierMaximum:
-    baseValue: 0
-  armorStack: 0
-  armorReductionRatio: 5
+    recoveryValue:
+      baseValue: 0
+    canRecover: 1
   resistanceDamage:
     baseValue: 0
   resistancePhysical:
     baseValue: 0
   resistanceMagical:
+    baseValue: 0
+  armorStack: 0
+  immunityFrame:
     baseValue: 0
   evasion:
     baseValue: 0
@@ -227,33 +230,36 @@ MonoBehaviour:
     baseValue: 0
   powerMagical:
     baseValue: 0
-  damageThorn:
+  powerThorn:
     baseValue: 0
   damagePenetration:
     baseValue: 5
+  attackSpeed:
+    baseValue: 1
   criticalChance:
     baseValue: 0
   criticalDamage:
     baseValue: 0
-  attackSpeed:
-    baseValue: 1
   movementSpeed:
     baseValue: 1
+  rotationSpeed:
+    baseValue: 0
   cooldownReduction:
     baseValue: 1
-  bonusBuffRatio:
-    baseValue: 1
-  dashCooldown:
+  buffEnhancement:
     baseValue: 0
-  dashCountdown: 0
-  dashCurrent: 0
-  dashMaximum:
-    baseValue: 0
-  dashRegenRatio:
-    baseValue: 0
+  gold: 0
   dashSpeedRatio:
     baseValue: 1
-  levelCurrent: 0
+  dash:
+    baseValue: 0
+    recoveryValue:
+      baseValue: 0
+    canRecover: 1
+  dashCooldown:
+    baseValue: 0
+  basicAttack: {fileID: 5058143730008013588, guid: 5d37abacd2177854e8ae03c0ec3a3c14,
+    type: 3}
   BossName: Not'So Tiny ( The Giant )
   timeBetweenAction: 0
   basicProjectile: {fileID: 2897629663414043087, guid: 1f9977acd496d7149828b5f13b1407a0,

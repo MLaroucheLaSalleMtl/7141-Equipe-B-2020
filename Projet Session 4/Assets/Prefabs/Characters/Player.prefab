@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &596210013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 596210014}
+  m_Layer: 0
+  m_Name: DropPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &596210014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596210013}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.76, z: 1.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2047724654532373239}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2047724653153711328
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +41,6 @@ GameObject:
   - component: {fileID: 2047724653153711332}
   - component: {fileID: 2047724653153711333}
   - component: {fileID: 2047724653153711330}
-  - component: {fileID: 2047724653153711331}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -80,19 +109,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &2047724653153711331
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2047724653153711328}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2047724654532373233
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,8 +122,9 @@ GameObject:
   - component: {fileID: 2047724654532373237}
   - component: {fileID: 2047724654532373234}
   - component: {fileID: 2047724654532373235}
-  - component: {fileID: 2047724654532373241}
-  - component: {fileID: 2047724654532373232}
+  - component: {fileID: 879979591}
+  - component: {fileID: 879979592}
+  - component: {fileID: 879979593}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -127,6 +144,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2047724653153711332}
+  - {fileID: 596210014}
   - {fileID: 7459659316610492750}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -207,22 +225,8 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 84
-  m_CollisionDetection: 0
---- !u!114 &2047724654532373241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2047724654532373233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 895944ac480f4294f9692d0565cec61d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackZone: {fileID: 3538059517524107755, guid: 148c56d49ea49d140b44c15000205d8b,
-    type: 3}
---- !u!114 &2047724654532373232
+  m_CollisionDetection: 2
+--- !u!114 &879979591
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,68 +238,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a36e5edcf1c8104fa596dc1025f096d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthCurrent: 100
-  healthMaximum:
-    baseValue: 100
-  healthRegenRatio:
-    baseValue: 0
-  manaCurrent: 0
-  manaMaximum:
-    baseValue: 0
-  manaRegenRatio:
-    baseValue: 0
-  barrierCurrent: 0
-  barrierMaximum:
-    baseValue: 0
-  armorStack: 0
-  armorReductionRatio: 5
+  health:
+    baseValue: 50
+    recoveryValue:
+      baseValue: 1
+    canRecover: 1
+  mana:
+    baseValue: 20
+    recoveryValue:
+      baseValue: 1
+    canRecover: 1
+  barrier:
+    baseValue: 50
+    recoveryValue:
+      baseValue: 1
+    canRecover: 0
   resistanceDamage:
     baseValue: 0
   resistancePhysical:
     baseValue: 0
   resistanceMagical:
     baseValue: 0
+  armorStack: 0
+  immunityFrame:
+    baseValue: 0.15
   evasion:
     baseValue: 0
   powerPhysical:
     baseValue: 0
   powerMagical:
     baseValue: 0
-  damageThorn:
+  powerThorn:
     baseValue: 0
   damagePenetration:
     baseValue: 0
+  attackSpeed:
+    baseValue: 0.3
   criticalChance:
     baseValue: 0
   criticalDamage:
-    baseValue: 0
-  attackSpeed:
-    baseValue: 0.3
+    baseValue: 1.25
   movementSpeed:
-    baseValue: 6
+    baseValue: 5
+  rotationSpeed:
+    baseValue: 5
   cooldownReduction:
-    baseValue: 0
-  bonusBuffRatio:
-    baseValue: 0
-  dashCooldown:
     baseValue: 1
-  dashCountdown: 1
-  dashCurrent: 3
-  dashMaximum:
-    baseValue: 3
-  dashRegenRatio:
-    baseValue: 0.5
+  buffEnhancement:
+    baseValue: 1
+  gold: 25
   dashSpeedRatio:
     baseValue: 5
-  levelCurrent: 0
-  experienceCurrent: 0
-  experienceMaximum: 100
-  experienceRatio: 1
-  leveldifference: 1.15
+  dash:
+    baseValue: 3
+    recoveryValue:
+      baseValue: 0.1
+    canRecover: 1
+  dashCooldown:
+    baseValue: 1
+  basicAttack: {fileID: 3538059517524107755, guid: 148c56d49ea49d140b44c15000205d8b,
+    type: 3}
   skillPoints: 0
   characteristicsPoints: 0
   LevelUpOnPlayer: {fileID: 6269426740479233020}
-  LevelUpOnScreen: {fileID: 0}
+  CharacteristicPointsScreen: {fileID: 0}
+  SkillPointsScreen: {fileID: 0}
   power:
     baseValue: 0
   vigilance:
@@ -306,10 +313,39 @@ MonoBehaviour:
     baseValue: 0
   willPower:
     baseValue: 0
-  canInteract: 0
-  DamageBoostIcon: {fileID: 0}
-  FortitudeBoostIcon: {fileID: 0}
-  gold: 100
+  isInteracting: 0
+--- !u!114 &879979592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047724654532373233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7160be4d1bea7ed4cb289abb28cf1130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFull: 0
+  slot: {fileID: 0}
+--- !u!114 &879979593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047724654532373233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a468cb33e8684634b978b72e53006115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFull: 00000000
+  slots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &3726059145916788235
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +456,7 @@ RectTransform:
   m_Children:
   - {fileID: 4638401782794913971}
   m_Father: {fileID: 2047724654532373239}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

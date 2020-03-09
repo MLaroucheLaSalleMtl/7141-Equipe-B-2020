@@ -913,8 +913,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 5973330645416126759, guid: 6bb116f2f23046e4e8e99ea5fdde8bcd, type: 3}
-  - {fileID: 5973330645416126759, guid: 6bb116f2f23046e4e8e99ea5fdde8bcd, type: 3}
+  - {fileID: 6626610148114451322, guid: f67befa71cd894042b96deed0839d90f, type: 3}
+  - {fileID: 4560029104617137763, guid: bec3aa4802d53754080e0358cd2ebada, type: 3}
   spawnPoints:
   - {fileID: 8326927102417798772}
   - {fileID: 4260127579425235328}

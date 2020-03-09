@@ -23,13 +23,13 @@ public class SacrificePit : MonoBehaviour
 
             if(rewardChance > roll)
             {
-                other.GetComponent<Player>().TakeDamage(20, 0, 0, 0, "True");
+                other.GetComponent<Player>().TakeDamage(20, 0, other.GetComponent<Player>().CriticalChance, 0, "True");
                 reward.SetActive(true);
                 delayBetweenTry = 1f;
             }
             else
             {
-                other.GetComponent<Player>().TakeDamage(20,0,0,0,"True");
+                other.GetComponent<Player>().TakeDamage(20,0, other.GetComponent<Player>().CriticalChance, 0,"True");
                 delayBetweenTry = 1f;
 
             }

@@ -602,9 +602,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 6164764531598514002, guid: dfbc1a8d808645645b30488d86ec4d34, type: 3}
-  - {fileID: 8741416134599142680, guid: 8018a80f0530be14bb38801847f54e17, type: 3}
-  - {fileID: 6164764531598514002, guid: dfbc1a8d808645645b30488d86ec4d34, type: 3}
+  - {fileID: 8553033267133059179, guid: f9c4f88d2bc62f543ab85617cad9b117, type: 3}
+  - {fileID: 8553033267133059179, guid: 1e6e4dd68f8157d46bc9e41e172b0801, type: 3}
+  - {fileID: 4560029104617137763, guid: bec3aa4802d53754080e0358cd2ebada, type: 3}
   spawnPoints:
   - {fileID: 7239721509912734890}
   - {fileID: 6443792357007010745}

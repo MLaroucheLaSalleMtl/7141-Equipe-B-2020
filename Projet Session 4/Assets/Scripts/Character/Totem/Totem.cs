@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class Totem : Actor
 {
-    [SerializeField] private GameObject attack = null;
     private Transform target;
     public float range = 15f;
-    private bool canAttack = true;
     
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
-    void Update()
+    protected override void Update()
     {
         if (target == null) return;
+        AttackSpeed.StartCooldown();
 
-        if(canAttack)
-        StartCoroutine(UseBasicAttack());
+        if (CanAttack)
+            UseBasicAttack(target);
 
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
@@ -51,15 +50,5 @@ public class Totem : Actor
         {
             target = null;
         }
-    }
-
-    public IEnumerator UseBasicAttack()
-    {
-        canAttack = false;
-        GameObject clone = Instantiate(attack, transform.position + (transform.forward), transform.rotation);
-        clone.GetComponent<DamageComponant>().caster = GetComponent<Actor>();
-        clone.GetComponent<MissileComponant>().target = target;
-        yield return new WaitForSeconds(AttackSpeed.GetValue());
-        canAttack = true;
     }
 }

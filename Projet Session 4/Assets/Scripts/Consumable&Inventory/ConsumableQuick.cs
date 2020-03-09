@@ -55,32 +55,33 @@ public class ConsumableQuick : MonoBehaviour
 
     public void Healing(float Amount)
     {
-        if (target.HealthCurrent != target.HealthMaximum.GetValue())
+        if (target.Health.GetCurrentValue() != target.Health.GetBaseValue())
         {
-            target.GetComponent<Player>().AddHealth(Amount);
+            target.GetComponent<Player>().Health.IncreaseCurrentValue(Amount);
             Destroy(gameObject);
         }
     }
     public void IncreaseBarrier(float Amount)
     {
-        if (target.BarrierCurrent != target.BarrierMaximum.GetValue())
+        if (target.Barrier.GetCurrentValue() != target.Barrier.GetBaseValue())
         {
-            target.GetComponent<Player>().AddBarrier(Amount);
+            target.GetComponent<Player>().Barrier.IncreaseCurrentValue(Amount);
             Destroy(gameObject);
         }
     }
     public void IncreaseExperience(float Amount)
     {
-        target.GetComponent<Player>().GainExperience(Amount);
+        target.GetComponent<Player>().IncreaseExperience(Amount);
         Destroy(gameObject);
 
     }
     public void IncreaseMana(float Amount)
     {
-        if (target.ManaCurrent != target.ManaMaximum.GetValue())
+        if (target.Mana.GetCurrentValue() != target.Mana.GetBaseValue())
         {
-            target.GetComponent<Player>().AddMana(Amount);
+            target.GetComponent<Player>().Mana.IncreaseCurrentValue(Amount);
             Destroy(gameObject);
         }
     }
+
 }

@@ -6,205 +6,213 @@ public class Actor : MonoBehaviour
 {
     #region Variables & Attributs
 
-    #region Health
-    [Header("Health & Recovery")]
-    [SerializeField] private float healthCurrent = 0;
-    [SerializeField] private Stat healthMaximum = null;
-    [SerializeField] private Stat healthRegenRatio = null;
-    private bool isAlive = true;
-    public float HealthCurrent { get => healthCurrent; protected set => healthCurrent = value; }
-    public Stat HealthMaximum { get => healthMaximum; protected set => healthMaximum = value; }
-    public Stat HealthRegenRatio { get => healthRegenRatio; protected set => healthRegenRatio = value; }
-    public bool IsAlive { get => isAlive;  set => isAlive = value; }
+    #region Basic Properties
+    [Header(" - - Basic Properties - - ")]
+    [SerializeField] private Recovery health = null;
+    [SerializeField] private Recovery mana = null;
+    [SerializeField] private Recovery barrier = null;
+    public Recovery Health { get => health; set => health = value; }
+    public Recovery Mana { get => mana; set => mana = value; }
+    public Recovery Barrier { get => barrier; set => barrier = value; }
+
     #endregion
 
-    #region Mana
-    [Header("Mana")]
-    [SerializeField] private float manaCurrent = 0;
-    [SerializeField] private Stat manaMaximum = null;
-    [SerializeField] private Stat manaRegenRatio = null;
-    public float ManaCurrent { get => manaCurrent; set => manaCurrent = value; }
-    public Stat ManaMaximum { get => manaMaximum; set => manaMaximum = value; }
-    public Stat ManaRegenRatio { get => manaRegenRatio; set => manaRegenRatio = value; }
-    #endregion
-
-    #region Barrier
-    [Header("Barrier")]
-    [SerializeField] private float barrierCurrent = 0;
-    [SerializeField] private Stat barrierMaximum = null;
-    public float BarrierCurrent { get => barrierCurrent; set => barrierCurrent = value; }
-    public Stat BarrierMaximum { get => barrierMaximum; set => barrierMaximum = value; }
-    #endregion
-
-    #region Resistances & Evasion
-    [Header("Resistances & Evasion")]
-    [SerializeField] private float armorStack = 0;
-    [SerializeField] private float armorReductionRatio = 5;
+    #region Defensive Properties
+    [Header(" - - Defensive Properties - - ")]
     [SerializeField] private Stat resistanceDamage = null;
     [SerializeField] private Stat resistancePhysical = null;
     [SerializeField] private Stat resistanceMagical = null;
+    [SerializeField] private float armorStack = 0;
+    [SerializeField] private const float armorReductionRatio = 5;
+    [SerializeField] private Cooldown immunityFrame = null;
+
+    [Header("Luck Based")]
     [SerializeField] private Stat evasion = null;
-    protected const float damageImmunityDuration = 0.10f;
-    protected float damageImmunityCountdown = 0.10f;
 
     public Stat ResistanceDamage { get => resistanceDamage; set => resistanceDamage = value; }
     public Stat ResistancePhysical { get => resistancePhysical; set => resistancePhysical = value; }
     public Stat ResistanceMagical { get => resistanceMagical; set => resistanceMagical = value; }
-    public Stat Evasion { get => evasion; set => evasion = value; }
     public float ArmorStack { get => armorStack; set => armorStack = value; }
+    public Cooldown ImmunityFrame { get => immunityFrame; set => immunityFrame = value; }
+    public Stat Evasion { get => evasion; set => evasion = value; }
     #endregion
 
-    #region Damage
-    [Header("Damage & Armor Penetration")]
+    #region Offensive Properties
+    [Header(" - - Offensive Properties - - ")]
     [SerializeField] private Stat powerPhysical = null;
     [SerializeField] private Stat powerMagical = null;
-    [SerializeField] private Stat damageThorn = null;
+    [SerializeField] private Stat powerThorn = null;
     [SerializeField] private Stat damagePenetration = null;
-    public Stat PowerPhysical { get => powerPhysical; set => powerPhysical = value; }
-    public Stat PowerMagical { get => powerMagical; set => powerMagical = value; }
-    public Stat DamageThorn { get => damageThorn; set => damageThorn = value; }
-    public Stat DamagePenetration { get => damagePenetration; set => damagePenetration = value; }
-    #endregion
+    [SerializeField] private Cooldown attackSpeed = null;
 
-    #region Critical
-    [Header("Critical Chance & Damage")]
+    [Header("Luck Based")]
     [SerializeField] private Stat criticalChance;
     [SerializeField] private Stat criticalDamage;
+    public Stat PowerPhysical { get => powerPhysical; set => powerPhysical = value; }
+    public Stat PowerMagical { get => powerMagical; set => powerMagical = value; }
+    public Stat PowerThorn { get => powerThorn; set => powerThorn = value; }
+    public Stat DamagePenetration { get => damagePenetration; set => damagePenetration = value; }
+    public Cooldown AttackSpeed { get => attackSpeed; set => attackSpeed = value; }
     public Stat CriticalChance { get => criticalChance; set => criticalChance = value; }
     public Stat CriticalDamage { get => criticalDamage; set => criticalDamage = value; }
     #endregion
 
-    #region AttackSpeed, Cooldown & MovementSpeed
-    [Header("Speed related Parameters")]
-    [SerializeField] private Stat attackSpeed = null;
+    #region Movement Properties
+    [Header(" - - Movement Properties - - ")]
     [SerializeField] private Stat movementSpeed = null;
+    [SerializeField] private Stat rotationSpeed = null;
     private bool canMove = true;
+
+    public Stat MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
+    public bool CanMove { get => canMove; set => canMove = value; }
+    public Stat RotationSpeed { get => rotationSpeed; set => rotationSpeed = value; }
+    #endregion
+
+    #region Managment Properties
+    [Header(" - - Managment Properties - - ")]
     [SerializeField] private Stat cooldownReduction = null;
-    [SerializeField] private Stat bonusBuffRatio = null;
-
-    public Stat AttackSpeed { get => attackSpeed; }
-    public Stat MovementSpeed { get => movementSpeed; protected set => movementSpeed = value; }
-    public bool CanMove { get => canMove; protected set => canMove = value; }
+    [SerializeField] private Stat buffEnhancement = null;
+    [SerializeField] private int gold = 0;
     public Stat CooldownReduction { get => cooldownReduction; set => cooldownReduction = value; }
-    public Stat BonusBuffRatio { get => bonusBuffRatio; set => bonusBuffRatio = value; }
+    public Stat BuffEnhancement { get => buffEnhancement; set => buffEnhancement = value; }
+    public int Gold { get => gold; set => gold = value; }
     #endregion
 
-    #region Dash
-    [Header("Dash related Parameters")]
-    [SerializeField] private Stat dashCooldown = null;
-    [SerializeField] private float dashCountdown = 5f;
-    private float dashDuration = 0.15f;
-    [SerializeField] private float dashCurrent = 0;
-    [SerializeField] private Stat dashMaximum = null;
-    [SerializeField] private Stat dashRegenRatio = null;
-    private float dashSpeed = 1f;
+    #region Dash Properties
+    [Header(" - - Dash Properties - - ")]
+    [SerializeField] private bool useDash = true;
     [SerializeField] private Stat dashSpeedRatio = null;
-   // private bool isdashing = false;
-    public Stat DashCooldown { get => dashCooldown; set => dashCooldown = value; }
-    public float DashCountdown { get => dashCountdown; set => dashCountdown = value; }
+    [SerializeField] private Recovery dash = null;
+    [SerializeField] private Cooldown dashCooldown = null;
+    private const float dashDuration = 0.15f;
+    private float dashSpeed = 1f;
     public float DashSpeed { get => dashSpeed; set => dashSpeed = value; }
-    public float DashCurrent { get => dashCurrent; set => dashCurrent = value; }
-    public Stat DashMaximum { get => dashMaximum; set => dashMaximum = value; }
-    public Stat DashRegenRatio { get => dashRegenRatio; set => dashRegenRatio = value; }
+    public Recovery Dash { get => dash; set => dash = value; }
+    public Cooldown DashCooldown { get => dashCooldown; set => dashCooldown = value; }
     #endregion
 
-    #region Experience & Level
-    [SerializeField] private int levelCurrent;
-    public int LevelCurrent { get => levelCurrent; set => levelCurrent = value; }
+    #region Combat Properties
+    [Header(" - - Combat Properties - - ")]
+    [SerializeField] private GameObject basicAttack = null;
+    [SerializeField] protected float distanceOfAttack = 1;
+    private const float stunMeterMaximumValue = 3;
+    private float stunMeterCurrentValue = 0;
+    private bool isStunned = false;
+    private bool canAttack = true;
+    public static float StunMeterMaximumValue => stunMeterMaximumValue;
+    public float StunMeterCurrentValue { get => stunMeterCurrentValue; set => stunMeterCurrentValue = value; }
+    public bool CanAttack { get => canAttack; set => canAttack = value; }
     #endregion
 
+    protected Rigidbody rig;
+
     #endregion
-    void Start()
+    void Awake()
     {
-        dashCountdown = dashCooldown.GetValue();
-    }
+        rig = GetComponent<Rigidbody>();
 
+        // Recovery Initialize
+        health.InitializeRecovery();
+        mana.InitializeRecovery();
+        barrier.InitializeRecovery();
+        dash.InitializeRecovery();
+
+        //Cooldown Initialize
+        immunityFrame.InitializeCountdown();
+        dashCooldown.InitializeCountdown();
+        attackSpeed.InitializeCountdown();
+    }
+    protected virtual void Update()
+    {
+        // Start Recovery
+        Health.StartRecovery();
+        Mana.StartRecovery();
+        Barrier.StartRecovery();
+        Dash.StartRecovery();
+
+        // Start Cooldown
+        ImmunityFrame.StartCooldown();
+        DashCooldown.StartCooldown();
+        AttackSpeed.StartCooldown();
+
+        UpdateStun();
+    }
 
     #region Methods
 
-    #region Recovery ( Health, Mana, Barrier )
-    public void AddHealth(float Amount)
-    {
-        HealthCurrent = Mathf.Clamp(HealthCurrent += Amount * BonusBuffRatio.GetValue(), 0, HealthMaximum.GetValue());
-    }
-    public void AddMana(float Amount)
-    {
-        manaCurrent = Mathf.Clamp(manaCurrent += Amount * BonusBuffRatio.GetValue(), 0, manaMaximum.GetValue());
-    }
-    public void AddBarrier(float Amount)
-    {
-       barrierCurrent = Mathf.Clamp(barrierCurrent += Amount * BonusBuffRatio.GetValue(), 0,barrierMaximum.GetValue());
-    }
-    public float Regeneration(float CurrentAmount, Stat MaximumAmount, Stat RatioPerSecond)
-    {
-        if (CurrentAmount >= MaximumAmount.GetValue()) return CurrentAmount;
-        CurrentAmount += RatioPerSecond.GetValue() * Time.deltaTime;
-        return Mathf.Clamp(CurrentAmount,0,MaximumAmount.GetValue());
-    }
-
-
-    #endregion
-
-    #region Damage
-
+    #region offensive Methods
     public void TakeThornDamage(float Amount)
     {
+        if (!immunityFrame.IsFinish()) return;
 
-    }
-    public void TakeDamage(float Amount, float _ArmorPenetration, float _CriticalChance, float _CriticalRatio, string _TypeOfDamage)
-    {
-        if (damageImmunityCountdown != damageImmunityDuration) return;
-        if (evasion.GetValue() > Random.Range(0, 101)) return;
-        if (_CriticalChance > Random.Range(0, 101))
-        {
-            Amount *= _CriticalRatio;
-
-        }
-       Amount = ApplyResistance(Amount,_ArmorPenetration, _TypeOfDamage);
-
-        if(barrierCurrent >= 0)
+        if (barrier.GetCurrentValue() >= 0)
         {
             float theLeftOver;
-            barrierCurrent -= Amount;
-            if(barrierCurrent < 0)
+            barrier.DecreaseCurrentValue(Amount);
+            if (barrier.GetCurrentValue() < 0)
             {
-                theLeftOver = Mathf.Abs(barrierCurrent);
-                HealthCurrent -= theLeftOver;
+                theLeftOver = Mathf.Abs(barrier.GetCurrentValue());
+                health.DecreaseCurrentValue(theLeftOver);
             }
 
         }
         else
         {
-        HealthCurrent -= Amount;
+            health.DecreaseCurrentValue(Amount);
         }
-        damageImmunityCountdown = 0;
-    }
 
-    public void StartDamageImmunityCooldown()
+        immunityFrame.InitializeCountdown();
+    }
+    public void TakeDamage(float Amount, float _ArmorPenetration, Stat _CriticalChance, float _CriticalRatio, string _TypeOfDamage)
     {
-        if (damageImmunityCountdown == damageImmunityDuration) { return; }
-        damageImmunityCountdown = Mathf.Clamp(damageImmunityCountdown += Time.deltaTime, 0, damageImmunityDuration);
+        if (!immunityFrame.IsFinish()) return;
+        if (evasion.RollADice()) return; 
+        if (_CriticalChance.RollADice())
+        {
+            Amount *= _CriticalRatio;
+        }
+
+       Amount = ApplyResistance(Amount,_ArmorPenetration, _TypeOfDamage);
+
+        if(barrier.GetCurrentValue() >= 0)
+        {
+            float theLeftOver;
+            barrier.DecreaseCurrentValue(Amount);
+            if(barrier.GetCurrentValue() < 0)
+            {
+                theLeftOver = Mathf.Abs(barrier.GetCurrentValue());
+                health.DecreaseCurrentValue(theLeftOver);
+            }
+
+        }
+        else
+        {
+            health.DecreaseCurrentValue(Amount);
+        }
+
+        immunityFrame.InitializeCountdown();
+
     }
 
     #endregion
 
-    #region Armor and Resistance 
+    #region Defensive Methods
     private float ApplyResistance( float DamageTaken, float _ArmorPenetration, string _TypeOfDamage)
     {
-        float pureReduction = (DamageTaken / 100) * resistanceDamage.GetValue();
+        float pureReduction = (DamageTaken / 100) * resistanceDamage.GetBaseValue();
         float purePenetration = (DamageTaken / 100) * _ArmorPenetration;
 
         switch (_TypeOfDamage)
         {
             case "Physical":
                 {
-                    float reduction = (DamageTaken / 100) * resistancePhysical.GetValue();
+                    float reduction = (DamageTaken / 100) * resistancePhysical.GetBaseValue();
 
                     return DamageTaken -= (reduction + pureReduction - purePenetration);
                 }
             case "Magical":
                 {
-                    float reduction = (DamageTaken / 100) * resistanceMagical.GetValue();
+                    float reduction = (DamageTaken / 100) * resistanceMagical.GetBaseValue();
                     return DamageTaken -= (reduction + pureReduction - purePenetration);  
                 }
             case "True": { return DamageTaken; }
@@ -234,56 +242,102 @@ public class Actor : MonoBehaviour
 
     #endregion
 
-    #region Attack Animation & Feeling
+    #region Dash Methods
+
+    public IEnumerator ActivateDash()
+    {
+        if (dash.GetCurrentValue() <= 0 || !useDash) { yield break; }
+        dashCooldown.ResetCountdown();
+        dash.DecreaseCurrentValue(1);
+        immunityFrame.ResetCountdown();
+        dashSpeed += dashSpeedRatio.GetBaseValue();
+        yield return new WaitForSeconds(dashDuration);
+        dashSpeed -= dashSpeedRatio.GetBaseValue();
+        yield return new WaitForSeconds(dashCooldown.GetBaseValue());
+
+
+    }
+
+    #endregion
+
+    #region Managment Methods
+    public IEnumerator TemporaryBuff(Stat stat, float Duration, float Value)
+    {
+        stat.AddModifier(Value);
+        yield return new WaitForSeconds(Duration * BuffEnhancement.GetBaseValue());
+        stat.RemoveModifier(Value);
+    }
+    public void PermanentBoost(Stat stat, float Value)
+    {
+        stat.AddModifier(Value);
+    }
+
+    public void IncreaseGold(int Amount)
+    {
+        Gold += Amount;
+    }
+    public void DecreaseGold(int Amount)
+    {
+        Gold -= Amount;
+    }
+    #endregion
+
+    #region Combat Methods
+    public void UseBasicAttack()
+    {
+        if (attackSpeed.IsFinish() && canAttack)
+        {
+            rig.freezeRotation = true;
+            GameObject clone = Instantiate(basicAttack, transform.position + (transform.forward * distanceOfAttack), transform.rotation);
+            clone.GetComponent<DamageComponant>().caster = GetComponent<Actor>();
+            attackSpeed.ResetCountdown();
+        }
+    }
+    public void UseBasicAttack(Transform target)
+    {
+        if (attackSpeed.IsFinish() && canAttack)
+        {
+            rig.freezeRotation = true;
+            GameObject clone = Instantiate(basicAttack, transform.position + (transform.forward * distanceOfAttack), transform.rotation);
+            clone.GetComponent<DamageComponant>().caster = GetComponent<Actor>();
+            if (clone.GetComponent<MissileComponant>() != null)
+                clone.GetComponent<MissileComponant>().target = target;
+            attackSpeed.ResetCountdown();
+
+        }
+    }
+
     public IEnumerator AttackRootEffect(float Duration)
     {
         CanMove = false;
         yield return new WaitForSeconds(Duration);
         CanMove = true;
     }
-    #endregion
 
-    #region Dash
-
-    public IEnumerator UseDash()
+    public void IncreaseStunMeter(float Amount)
     {
-        if (dashCurrent <= 0) { yield break; }
-        dashCountdown = 0f;
-        dashCurrent--;
-        dashSpeed += dashSpeedRatio.GetValue();
-        yield return new WaitForSeconds(dashDuration);
-        dashSpeed -= dashSpeedRatio.GetValue();
-        yield return new WaitForSeconds(dashCooldown.GetValue());
-
-
+        stunMeterCurrentValue = Mathf.Clamp(stunMeterCurrentValue += Amount, 0, stunMeterMaximumValue);
     }
-
-    public void StartDashCooldown()
+    public void UpdateStun()
     {
-            if (dashCountdown == dashCooldown.GetValue()) { return; }
-            dashCountdown = Mathf.Clamp(dashCountdown += Time.deltaTime, 0, dashCooldown.GetValue());
-    }
+        if(stunMeterCurrentValue != 0)
+        stunMeterCurrentValue = Mathf.Clamp(stunMeterCurrentValue -= Time.deltaTime, 0, stunMeterMaximumValue);
 
-
-
-
-    #endregion
-
-    #region Level
-    public void LevelUp()
-    {
-        levelCurrent++;
-    }
-    protected void SetLevel(int Value)
-    {
-        levelCurrent = Value;
+        if (stunMeterCurrentValue > 0)
+        {
+            canAttack = false;
+            canMove = false;
+            isStunned = true;
+        }
+        else if (stunMeterCurrentValue == 0 && isStunned)
+        {
+            canAttack = true;
+            canMove = true;
+            isStunned = false;
+        }
     }
 
     #endregion
-    protected virtual void Death() { if (HealthCurrent <= 0) Destroy(gameObject); }
-    protected virtual void Movement() { }
-    protected virtual void Rotation() { }
-
 
     #endregion
 

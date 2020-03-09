@@ -84,8 +84,6 @@ public class MissileComponant : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-
         if (other.gameObject.tag == "Environment")
         {
             Destroy(gameObject);

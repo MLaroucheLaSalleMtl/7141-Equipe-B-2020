@@ -28,63 +28,32 @@ public class ProceduralGenerationManager : MonoBehaviour
     [SerializeField] private GameObject[] puzzleRooms = null;
     [SerializeField] private GameObject[] bossRooms = null;
     [SerializeField] private GameObject[] altarRooms = null;
-  //  [SerializeField] private GameObject portalRooms = null;
-  //  private bool portalActive = false;
 
 
     #endregion
 
-    
-   // [SerializeField] private GameObject player = null;
 
     #endregion
 
     #region Unity's Methods
-    void Start()
-    {
-        actorManager = GameObject.Find("Player").GetComponent<Actor>();
-    }
-    void Update()
-    {
 
-    }
     #endregion
 
     #region Methods
 
-    public void InitializeGame()
+    public void GenerateTheDungeon()
     {
-        actorManager.IsAlive = true;
-        RandomizeAllArrays();
+        RandomizeAllListOfRoomsType();
         GenerateRooms();
     }
 
-    public void ResetGame()
-    {
-        actorManager.IsAlive = false;
-        actorManager.transform.position = new Vector3(0, 1.17f, 0);
-        
-    }
 
     #region Randomize the Generation
-    private void RandomizeAllArrays()
-    {
-        RandomizeRooms(villageRoomsType);
-        RandomizeRooms(forestRoomsType);
-        RandomizeRooms(plainRoomsType);
-
-    }
-    private void RandomizeRooms(int[] array)
+    private void GenerateTheListOfRoomType(int[] array)
     {
         array[0] = 2; // The first element is a treasure room
         array[1] = 3; // The second element is a shop room
         array[2] = 7; // The third element is an altar room
-        /*if (portalActive)
-        {
-            Debug.Log("Array : " + array[3].ToString());
-            array[3] = 8; // Portal 
-        }*/
-
 
         for (int i = 3; i < array.Length; i++)
         {
@@ -110,6 +79,13 @@ public class ProceduralGenerationManager : MonoBehaviour
             array[ranNumber] = rNB;
         }
     }
+    private void RandomizeAllListOfRoomsType()
+    {
+        GenerateTheListOfRoomType(villageRoomsType);
+        GenerateTheListOfRoomType(forestRoomsType);
+        GenerateTheListOfRoomType(plainRoomsType);
+
+    }
 
     #endregion
     private void GenerateRooms()
@@ -121,23 +97,23 @@ public class ProceduralGenerationManager : MonoBehaviour
 
             if (i < 24)
             {
-                InstantiateRooms(i,x, Random.Range(0,numberOfVillagePrefab), villageRoomsType);
+                AssignRoomTypes(i,x, Random.Range(0,numberOfVillagePrefab), villageRoomsType);
             }
             else if (i >= 24 && i < 80)
             {
                 if(x == 24 && i == 24) { x = 0; }
-                InstantiateRooms(i,x,numberOfForestPrefab + numberOfVillagePrefab -1, forestRoomsType);
+                AssignRoomTypes(i,x,numberOfForestPrefab + numberOfVillagePrefab -1, forestRoomsType);
 
             }
             else if (i > 79)
             {
                 if (x >= 55 && i == 80) { x = 0; }
-                InstantiateRooms(i, x, numberOfForestPrefab + numberOfVillagePrefab + numberOfPlainPrefab -1, plainRoomsType);
+                AssignRoomTypes(i, x, numberOfForestPrefab + numberOfVillagePrefab + numberOfPlainPrefab -1, plainRoomsType);
             }
             x++;
         }
     }
-    private void InstantiateRooms(int WaypointIndex ,int ArrayIndex, int RoomID, int[] array )
+    private void AssignRoomTypes(int WaypointIndex ,int ArrayIndex, int RoomID, int[] array )
     {
         switch (array[ArrayIndex])
         {
@@ -149,8 +125,6 @@ public class ProceduralGenerationManager : MonoBehaviour
             case 5: { Instantiate(puzzleRooms[RoomID], waypoints[WaypointIndex].transform.position, Quaternion.identity); } break;
             case 6: { Instantiate(bossRooms[RoomID], waypoints[WaypointIndex].transform.position, Quaternion.identity); } break;
             case 7: { Instantiate(altarRooms[RoomID], waypoints[WaypointIndex].transform.position, Quaternion.identity); } break;
-           // case 8: { Instantiate(portalRooms, waypoints[WaypointIndex].transform.position, Quaternion.identity); } break;
-
 
         }
     }
