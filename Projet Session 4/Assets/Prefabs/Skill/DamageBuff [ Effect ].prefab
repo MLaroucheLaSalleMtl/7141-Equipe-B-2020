@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 1985915201760463611}
   - component: {fileID: 3743562022594557761}
   - component: {fileID: 6715341599000721848}
+  - component: {fileID: -6198944133675156019}
   m_Layer: 5
   m_Name: DamageBuff [ Effect ]
   m_TagString: Untagged
@@ -165,17 +166,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc4b61ad384b6043ba178615a11ece7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumable: {fileID: 0}
-  maximumCharges: 0
-  txtCharges: {fileID: 9175460875400556998}
-  cooldown: 4
+  levels:
+  - duration: 3
+    value: 25
+  - duration: 5
+    value: 30
+  - duration: 7
+    value: 35
+  - duration: 9
+    value: 45
+--- !u!114 &-6198944133675156019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2290053335798932563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7eed8b558a9944ba26ae98cd74ab46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown:
+    baseValue: 5
   imgCooldown: {fileID: 930698719627919283}
   manaCost: 10
-  useConsumableEffect:
+  nameOfTheSkill: Wrath
+  OnUseEffect:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6715341599000721848}
-        m_MethodName: DamageBoost
+        m_MethodName: ModifyStats
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -185,12 +206,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  duration: 10
-  value: 30
-  duration2: 10
-  value2: 45
-  duration3: 15
-  value3: 60
 --- !u!1 &2371783641218783807
 GameObject:
   m_ObjectHideFlags: 0

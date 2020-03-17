@@ -86,6 +86,7 @@ public class Actor : MonoBehaviour
     [SerializeField] private Cooldown dashCooldown = null;
     private const float dashDuration = 0.15f;
     private float dashSpeed = 1f;
+    public bool canDash = false;
     public float DashSpeed { get => dashSpeed; set => dashSpeed = value; }
     public Recovery Dash { get => dash; set => dash = value; }
     public Cooldown DashCooldown { get => dashCooldown; set => dashCooldown = value; }
@@ -118,9 +119,9 @@ public class Actor : MonoBehaviour
         dash.InitializeRecovery();
 
         //Cooldown Initialize
-        immunityFrame.InitializeCountdown();
-        dashCooldown.InitializeCountdown();
-        attackSpeed.InitializeCountdown();
+        immunityFrame.ResetCountdown();
+        dashCooldown.ResetCountdown();
+        attackSpeed.ResetCountdown();
     }
     protected virtual void Update()
     {
@@ -161,7 +162,7 @@ public class Actor : MonoBehaviour
             health.DecreaseCurrentValue(Amount);
         }
 
-        immunityFrame.InitializeCountdown();
+        immunityFrame.ResetCountdown();
     }
     public void TakeDamage(float Amount, float _ArmorPenetration, Stat _CriticalChance, float _CriticalRatio, string _TypeOfDamage)
     {
@@ -190,7 +191,7 @@ public class Actor : MonoBehaviour
             health.DecreaseCurrentValue(Amount);
         }
 
-        immunityFrame.InitializeCountdown();
+        immunityFrame.ResetCountdown();
 
     }
 

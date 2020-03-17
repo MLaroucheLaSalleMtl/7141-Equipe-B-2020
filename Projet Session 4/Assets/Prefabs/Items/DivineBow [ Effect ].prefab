@@ -165,30 +165,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d7ac0ae2d285f4d8ba4feb8c430a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumable: {fileID: 5885983763199492588, guid: 837a11db21e612a4abf4314d9d9a17b7,
-    type: 3}
-  maximumCharges: 5
-  txtCharges: {fileID: 9175460875400556998}
-  cooldown: 0.5
-  imgCooldown: {fileID: 930698719627919283}
-  useConsumableEffect:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 767272942440206312}
-        m_MethodName: Use
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  projectile: {fileID: 7665272333326386691, guid: f8b83128d78a2d74e99dc4872aee9498,
-    type: 3}
-  numberOfProjectile: 1
-  delayBetweenShot: 0
+  ObjectPrefab:
+  - {fileID: 0}
+  manaCost: 
+  numberOfProjectile: 00000000
+  delayBetweenShot:
+  - 0
+  level: 0
 --- !u!1 &2371783641218783807
 GameObject:
   m_ObjectHideFlags: 0

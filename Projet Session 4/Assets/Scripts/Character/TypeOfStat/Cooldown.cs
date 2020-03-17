@@ -7,15 +7,11 @@ using UnityEngine;
 public class Cooldown : Stat
 {
     private float countdownValue;
-
-    public void InitializeCountdown()
-    {
-        countdownValue = GetBaseValue();
-    }
     public void StartCooldown()
     {
-        if (countdownValue == 0) { return; }
-        countdownValue = Mathf.Clamp(countdownValue -= Time.deltaTime, 0, GetBaseValue());
+        if (countdownValue == 0) return;
+        else
+            countdownValue = Mathf.Clamp(countdownValue -= Time.deltaTime, 0, GetBaseValue());
     }
     public float GetCountdownValue()
     {

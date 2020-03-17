@@ -8,16 +8,16 @@ using UnityEngine.UI;
 public class ConsumableComponant : MonoBehaviour
 {
     #region Variables & Attributs
+    private Actor caster = null;
     [Header("Consumable Properties")]
-    protected Player caster = null;
     [SerializeField] private GameObject consumable = null;
-    private int currentCharges = 0;
     [SerializeField] private int maximumCharges = 0;
-    [SerializeField] protected Text txtCharges = null;
+    private int currentCharges = 0;
     [SerializeField] private float cooldown = 0;
-    [SerializeField] private Image imgCooldown = null;
-    [SerializeField] private int manaCost = 0;
     private float cooldownCountdown = 0;
+    [Header("Consumable UI & Others")]
+    [SerializeField] protected Text txtCharges = null;
+    [SerializeField] private Image imgCooldown = null;
     private Transform dropPosition = null;
 
     [Header("Effect")]
@@ -27,6 +27,7 @@ public class ConsumableComponant : MonoBehaviour
     public float Cooldown { get => cooldown; set => cooldown = value; }
     public float CooldownCountdown { get => cooldownCountdown; set => cooldownCountdown = value; }
     public int MaximumCharges { get => maximumCharges; set => maximumCharges = value; }
+    public Actor Caster { get => caster; set => caster = value; }
     #endregion
 
     #region Unity's Methods
@@ -76,14 +77,7 @@ public class ConsumableComponant : MonoBehaviour
         currentCharges--;
         txtCharges.text = currentCharges.ToString();
     }
-    public void UseSkill()
-    {
-        if (cooldownCountdown != cooldown || caster.Mana.GetCurrentValue() < manaCost)
-            return;
-            useConsumableEffect.Invoke();
-            cooldownCountdown = 0;
-        caster.Mana.DecreaseCurrentValue(manaCost);
-    }
+
     public void RechargeConsumable()
     {
         currentCharges = maximumCharges;

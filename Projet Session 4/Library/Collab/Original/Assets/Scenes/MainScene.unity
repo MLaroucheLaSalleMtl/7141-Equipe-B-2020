@@ -18290,6 +18290,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 879979591, guid: a07a4dbd9fd93584594ba7cf942d5cd3, type: 3}
+      propertyPath: damageBuff.description.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 879979591, guid: a07a4dbd9fd93584594ba7cf942d5cd3, type: 3}
       propertyPath: CharacteristicPointsScreen
       value: 
       objectReference: {fileID: 1929080221}
@@ -18320,6 +18324,18 @@ PrefabInstance:
     - target: {fileID: 879979591, guid: a07a4dbd9fd93584594ba7cf942d5cd3, type: 3}
       propertyPath: fireBallLevelMax
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 879979591, guid: a07a4dbd9fd93584594ba7cf942d5cd3, type: 3}
+      propertyPath: damageBuff.description.Array.data[0]
+      value: Sup
+      objectReference: {fileID: 0}
+    - target: {fileID: 879979591, guid: a07a4dbd9fd93584594ba7cf942d5cd3, type: 3}
+      propertyPath: damageBuff.description.Array.data[1]
+      value: Hey
+      objectReference: {fileID: 0}
+    - target: {fileID: 879979591, guid: a07a4dbd9fd93584594ba7cf942d5cd3, type: 3}
+      propertyPath: damageBuff.description.Array.data[2]
+      value: level 3
       objectReference: {fileID: 0}
     - target: {fileID: 879979592, guid: a07a4dbd9fd93584594ba7cf942d5cd3, type: 3}
       propertyPath: slot
@@ -27732,8 +27748,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Give you the ability to dash during a short time, you have 3 dash that
-    regenerate over time, Press Space to use it
+  m_Text: Give you the ability to dash during a short time, you have 3 dash that regenerate
+    over time, Press Space to use it
 --- !u!222 &1309849153
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36666,14 +36682,14 @@ PrefabInstance:
     - target: {fileID: 2950501152763427806, guid: 1c81e98f955d53246bbc5d713ce509c0,
         type: 3}
       propertyPath: dialogue.texts.Array.data[4]
-      value: Enemy will also try to attack you so you might want to learn how to
-        dodge. You can press ' Space ' to dodge.
+      value: Enemy will also try to attack you so you might want to learn how to dodge.
+        You can press ' Space ' to dodge.
       objectReference: {fileID: 0}
     - target: {fileID: 2950501152763427806, guid: 1c81e98f955d53246bbc5d713ce509c0,
         type: 3}
       propertyPath: dialogue.texts.Array.data[5]
-      value: You can find items, consumables and chest while running around, use
-        the key ' E ' to interact with them.
+      value: You can find items, consumables and chest while running around, use the
+        key ' E ' to interact with them.
       objectReference: {fileID: 0}
     - target: {fileID: 2950501152763427806, guid: 1c81e98f955d53246bbc5d713ce509c0,
         type: 3}
@@ -39495,7 +39511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1928899511}
   m_Layer: 0
-  m_Name: ---------------------[Manager]
+  m_Name: '---------------------[Manager]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

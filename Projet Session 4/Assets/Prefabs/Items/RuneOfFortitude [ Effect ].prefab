@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 1985915201760463611}
   - component: {fileID: 3743562022594557761}
   - component: {fileID: 6495485834241336106}
+  - component: {fileID: -4361974953384687518}
   m_Layer: 5
   m_Name: RuneOfFortitude [ Effect ]
   m_TagString: Untagged
@@ -165,11 +166,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc4b61ad384b6043ba178615a11ece7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levels:
+  - duration: 10
+    value: 35
+--- !u!114 &-4361974953384687518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2290053335798932563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8909b46548d2b45bde841fea994270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   consumable: {fileID: 5885983763199492588, guid: a7752889f0d71be40a083b720e701d9f,
     type: 3}
-  maximumCharges: 2
+  maximumCharges: 3
   txtCharges: {fileID: 9175460875400556998}
-  cooldown: 20
+  cooldown: 3
   imgCooldown: {fileID: 930698719627919283}
   manaCost: 0
   useConsumableEffect:
@@ -186,10 +202,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  duration: 15
-  value: 50
-  boostImage: {fileID: 1624668292845895964, guid: e187722b880a0d84fbeebb08c9c6c9e5,
-    type: 3}
 --- !u!1 &2371783641218783807
 GameObject:
   m_ObjectHideFlags: 0

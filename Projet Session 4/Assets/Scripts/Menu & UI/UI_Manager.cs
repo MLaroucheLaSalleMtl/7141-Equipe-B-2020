@@ -75,11 +75,6 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private Text txt_SkillPointsNumber = null;
     [SerializeField] private Text txt_LevelSkill = null;
     [SerializeField] private Image img_XpBarSkill = null;
-    [SerializeField] private Text txt_DamageBuffUpgradeNumber = null;
-    [SerializeField] private Text txt_HealUpgradeNumber = null;
-    [SerializeField] private Text txt_RootUpgradeNumber = null;
-    [SerializeField] private Text txt_DashUpgradeNumber = null;
-    [SerializeField] private Text txt_FireBallUpgradeNumber = null;
     [SerializeField] private GameObject dashUI = null;
 
     void Start()
@@ -144,15 +139,7 @@ public class UI_Manager : MonoBehaviour
         txt_LevelSkill.text = "Level : " + _Player.LevelCurrent.ToString();
         img_XpBarSkill.fillAmount = _Player.ExperienceCurrent / _Player.ExperienceMaximum;
         txt_SkillPointsNumber.text = "SkillPoints: " + _Player.SkillPoints.ToString();
-        txt_DamageBuffUpgradeNumber.text = _Player.damageBuff.currentUpgrade.ToString() + "/3";
-        txt_HealUpgradeNumber.text = _Player.HealLevel.ToString() + "/3";
-        txt_RootUpgradeNumber.text = _Player.RootCircleLevel.ToString() + "/3";
-        txt_DashUpgradeNumber.text = _Player.DashSkillLevel.ToString() + "/3";
-        txt_FireBallUpgradeNumber.text = _Player.FireBallLevel.ToString() + "/3";
-        if (_Player.HaveDashSkill)
-        {
-            dashUI.SetActive(true);
-        }
+        dashUI.SetActive(true);
     }
 
     #region Methods

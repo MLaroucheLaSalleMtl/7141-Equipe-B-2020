@@ -3,43 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ModifyStatsEffect : ConsumableComponant
+public class ModifyStatsEffect : MonoBehaviour
 {
-    [Header("Level 1")]
-    [SerializeField] private float duration = 0;
-    [SerializeField] private float value = 0;
-
-    [Header("Level 2")]
-    [SerializeField] private float duration2 = 0;
-    [SerializeField] private float value2 = 0;
-
-    [Header("Level 3")]
-    [SerializeField] private float duration3 = 0;
-    [SerializeField] private float value3 = 0;
+    [Header("Use StatsModifcations Effect")]
+    private int level = 0;
+    public int[] duration = null;
+    public float[] value = null;
 
 
-    //[SerializeField] private GameObject boostImage = null;
-
+    void Update()
+    {
+        
+        if (GetComponent<SkillComponant>() != null)
+            level = GetComponent<SkillComponant>().Skill.CurrentUpgrade;
+    }
     public void ModifyStats()
     {
-       StartCoroutine( caster.TemporaryBuff(caster.ResistanceDamage, duration, value));
-    }
-    public void DamageBoost()
-    {
-        if(caster.damageBuff.currentUpgrade == 1)
-        {
-            StartCoroutine(caster.TemporaryBuff(caster.PowerPhysical, duration, value));
-            StartCoroutine(caster.TemporaryBuff(caster.PowerMagical, duration, value));
-        }
-        if (caster.damageBuff.currentUpgrade == 2)
-        {
-            StartCoroutine(caster.TemporaryBuff(caster.PowerPhysical, duration2, value2));
-            StartCoroutine(caster.TemporaryBuff(caster.PowerMagical, duration2, value2));
-        }
-        if (caster.damageBuff.currentUpgrade == 3)
-        {
-            StartCoroutine(caster.TemporaryBuff(caster.PowerPhysical, duration3, value3));
-            StartCoroutine(caster.TemporaryBuff(caster.PowerMagical, duration3, value3));
-        }        
+        Actor caster = null;
+
+        if (GetComponent<ConsumableComponant>() != null)
+            caster = GetComponent<ConsumableComponant>().Caster;
+        else if (GetComponent<SkillComponant>() != null)
+            caster = GetComponent<SkillComponant>().Caster;
+
+        StartCoroutine(caster.TemporaryBuff(caster.ResistanceDamage, duration[level], value[level]));
     }
 }

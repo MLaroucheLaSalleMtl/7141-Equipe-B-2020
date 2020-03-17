@@ -54,30 +54,7 @@ public class Player : Actor
     #endregion
 
     #region Skill
-    //[SerializeField] private GameObject DamageBoostIcon = null;
-    //[SerializeField] private GameObject FortitudeBoostIcon = null;
 
-    [Header(" - - Skills Upgrades - - ")]
-     public skill damageBuff = null;
-    [SerializeField] private int healLevel = 0;
-    [SerializeField] private int healLevelMax = 0;
-    [SerializeField] private int rootCircleLevel = 0;
-    [SerializeField] private int rootCircleLevelMax = 0;
-    [SerializeField] private int dashSkillLevel = 0;
-    [SerializeField] private int dashSkillLevelMax = 0;
-    [SerializeField] private int fireBallLevel = 0;
-    [SerializeField] private int fireBallLevelMax = 0;
-    private bool haveDashSkill = false;
-
-    public int HealLevel { get => healLevel; set => healLevel = value; }
-    public int HealLevelMax { get => healLevelMax; set => healLevelMax = value; }
-    public int RootCircleLevel { get => rootCircleLevel; set => rootCircleLevel = value; }
-    public int RootCircleLevelMax { get => rootCircleLevelMax; set => rootCircleLevelMax = value; }
-    public int DashSkillLevel { get => dashSkillLevel; set => dashSkillLevel = value; }
-    public int DashSkillLevelMax { get => dashSkillLevelMax; set => dashSkillLevelMax = value; }
-    public bool HaveDashSkill { get => haveDashSkill; set => haveDashSkill = value; }
-    public int FireBallLevel { get => fireBallLevel; set => fireBallLevel = value; }
-    public int FireBallLevelMax { get => fireBallLevelMax; set => fireBallLevelMax = value; }
     #endregion
 
     #endregion
@@ -90,9 +67,6 @@ public class Player : Actor
     protected override void Update()
     {
         base.Update();
-
-
-
 
         if (skillPoints > 0)
             SkillPointsScreen.SetActive(true);
@@ -285,7 +259,7 @@ public class Player : Actor
     }
     public void UseDash(InputAction.CallbackContext context)
     {
-        if (context.started && DashCooldown.IsFinish() && Dash.GetCurrentValue() >= 1f && haveDashSkill)
+        if (context.started && DashCooldown.IsFinish() && Dash.GetCurrentValue() >= 1f && canDash == true)
         {
 
             StartCoroutine(ActivateDash());
@@ -305,32 +279,32 @@ public class Player : Actor
     {
         if (context.started)
         {
-            if (GetComponent<InventorySkill>().slots[0].GetComponentInChildren<ConsumableComponant>() != null)
-                GetComponent<InventorySkill>().slots[0].GetComponentInChildren<ConsumableComponant>().UseSkill();
+            if (GetComponent<InventorySkill>().slots[0].GetComponentInChildren<SkillComponant>() != null)
+                GetComponent<InventorySkill>().slots[0].GetComponentInChildren<SkillComponant>().UseSkill();
         }
     }
     public void Skill2(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            if (GetComponent<InventorySkill>().slots[1].GetComponentInChildren<ConsumableComponant>() != null)
-                GetComponent<InventorySkill>().slots[1].GetComponentInChildren<ConsumableComponant>().UseSkill();
+            if (GetComponent<InventorySkill>().slots[1].GetComponentInChildren<SkillComponant>() != null)
+                GetComponent<InventorySkill>().slots[1].GetComponentInChildren<SkillComponant>().UseSkill();
         }
     }
     public void Skill3(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            if (GetComponent<InventorySkill>().slots[2].GetComponentInChildren<ConsumableComponant>() != null)
-                GetComponent<InventorySkill>().slots[2].GetComponentInChildren<ConsumableComponant>().UseSkill();
+            if (GetComponent<InventorySkill>().slots[2].GetComponentInChildren<SkillComponant>() != null)
+                GetComponent<InventorySkill>().slots[2].GetComponentInChildren<SkillComponant>().UseSkill();
         }
     }
     public void Skill4(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            if (GetComponent<InventorySkill>().slots[3].GetComponentInChildren<ConsumableComponant>() != null)
-                GetComponent<InventorySkill>().slots[3].GetComponentInChildren<ConsumableComponant>().UseSkill();
+            if (GetComponent<InventorySkill>().slots[3].GetComponentInChildren<SkillComponant>() != null)
+                GetComponent<InventorySkill>().slots[3].GetComponentInChildren<SkillComponant>().UseSkill();
         }
     }
     public void Interaction(InputAction.CallbackContext context)
@@ -382,6 +356,7 @@ public class Player : Actor
     }
 
     #endregion
+
     private void Death() { }
 
     #endregion
