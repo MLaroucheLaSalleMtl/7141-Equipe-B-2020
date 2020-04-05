@@ -23,6 +23,7 @@ public class Enemy : Actor
     #region OnDeath
     [Header("OnDeath")]
     public int ExperienceReward;
+    public GameObject ChestReward;
     #endregion
 
     #region Others
@@ -31,7 +32,10 @@ public class Enemy : Actor
     int layerMask = 1 << 10;
     RaycastHit hit;
     bool inFrontOfObstacles = false;
+    private Player _Player;
     #endregion
+
+
 
     #endregion
     #region Unity's Methods
@@ -39,14 +43,21 @@ public class Enemy : Actor
     private void Start()
     {
         transform.parent = null;
-        GameManager.NumberOfEnemy++;
+        if (gameObject.tag != "Ally")
+        {
+            GameManager.NumberOfEnemy++;
+        }
     }
     protected override void Update()
     {
         base.Update();
-        img_Health.fillAmount = Health.GetCurrentValue() / Health.GetBaseValue();
-        img_StunMeter.fillAmount = StunMeterCurrentValue / StunMeterMaximumValue;
-        img_Barrier.fillAmount = Barrier.GetCurrentValue() / Health.GetBaseValue();
+
+        if (!isABoss)
+        {
+            img_Health.fillAmount = Health.GetCurrentValue() / Health.GetBaseValue();
+            img_StunMeter.fillAmount = StunMeterCurrentValue / StunMeterMaximumValue;
+            img_Barrier.fillAmount = Barrier.GetCurrentValue() / Health.GetBaseValue();
+        }
 
         UpdateDetection();
 
@@ -123,7 +134,18 @@ public class Enemy : Actor
 
         foreach (Collider collider in colliders)
         {
-            if (collider.tag == "Player")
+            if(gameObject.tag != "Ally")
+            {
+                if (collider.tag == "Player")
+                {
+                    target = collider.transform;
+                }
+                if (collider.tag == "Ally")
+                {
+                    target = collider.transform;
+                }
+            }
+            else if (collider.tag == "Enemy")
             {
                 target = collider.transform;
             }
@@ -140,6 +162,8 @@ public class Enemy : Actor
                 target.GetComponent<Player>().IncreaseGold(Random.Range(Gold,Gold*2));
             }
             GameManager.NumberOfEnemy--;
+            if (isABoss)
+                Instantiate(ChestReward, transform.position + new Vector3(0, -0.5f, 0), transform.rotation);
             Destroy(gameObject);
         }
     }

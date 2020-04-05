@@ -10,13 +10,6 @@ public class ModifyStatsEffect : MonoBehaviour
     public int[] duration = null;
     public float[] value = null;
 
-
-    void Update()
-    {
-        
-        if (GetComponent<SkillComponant>() != null)
-            level = GetComponent<SkillComponant>().Skill.CurrentUpgrade;
-    }
     public void ModifyStats()
     {
         Actor caster = null;
@@ -24,7 +17,10 @@ public class ModifyStatsEffect : MonoBehaviour
         if (GetComponent<ConsumableComponant>() != null)
             caster = GetComponent<ConsumableComponant>().Caster;
         else if (GetComponent<SkillComponant>() != null)
+        {
             caster = GetComponent<SkillComponant>().Caster;
+            level = GetComponent<SkillComponant>().Skill.CurrentUpgrade;
+        }
 
         StartCoroutine(caster.TemporaryBuff(caster.ResistanceDamage, duration[level], value[level]));
     }

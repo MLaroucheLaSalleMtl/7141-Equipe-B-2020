@@ -52,8 +52,8 @@ public class Consumable : MonoBehaviour
     }
     private void GiveRetainedAttributs(ConsumableComponant consumable)
     {
-        consumable.Cooldown = cooldown;
-        consumable.CooldownCountdown = cooldownCountdown;
+        consumable.Cooldown.StartCooldown();
+        consumable.Cooldown.ResetCountdown();
         consumable.CurrentCharges = charges;
     }
 

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3690147943086317058
+--- !u!114 &3152786356478384629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healingAmount:
-  - 5
-  - 10
-  - 15
+  - 3
+  - 6
+  - 9
   manaAmount:
   - 0
   - 0
@@ -153,22 +153,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
         type: 3}
-      propertyPath: OnUseEffect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: -3690147943086317058}
-    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
-        type: 3}
-      propertyPath: OnUseEffect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Restoration
+      propertyPath: manaCost.Array.data[0]
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
         type: 3}
-      propertyPath: OnUseEffect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      propertyPath: manaCost.Array.data[1]
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
         type: 3}
-      propertyPath: cooldown.baseValue
+      propertyPath: manaCost.Array.data[2]
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
@@ -178,18 +173,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
         type: 3}
-      propertyPath: manaCost.Array.data[0]
-      value: 15
+      propertyPath: cooldown.baseValue
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
         type: 3}
-      propertyPath: manaCost.Array.data[1]
-      value: 13
+      propertyPath: OnUseEffect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3152786356478384629}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: OnUseEffect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restoration
       objectReference: {fileID: 0}
     - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
         type: 3}
-      propertyPath: manaCost.Array.data[2]
-      value: 11
+      propertyPath: OnUseEffect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 495358123ca33e94c963cad2849fc37d, type: 3}

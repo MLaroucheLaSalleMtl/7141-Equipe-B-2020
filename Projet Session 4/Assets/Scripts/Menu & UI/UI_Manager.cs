@@ -59,8 +59,11 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private Text txt_Level = null;
 
     [SerializeField] private Text txt_NumbOfArmorStack = null;
+    [SerializeField] private Image img_ArmorStack = null;
+
 
     [SerializeField] private Text txt_DashCount = null;
+    [SerializeField] private Image img_DashCount = null;
 
     [SerializeField] private Text txt_Gold = null;
 
@@ -129,6 +132,29 @@ public class UI_Manager : MonoBehaviour
         txt_BarrierBar.text = _Player.Barrier.GetCurrentValue().ToString("F0") + " / " + _Player.Barrier.GetBaseValue().ToString("F0");
 
         txt_NumbOfArmorStack.text = ": " + _Player.ArmorStack.ToString();
+
+        switch (_Player.ArmorStack)
+        {
+            case 0: { img_ArmorStack.fillAmount = 0; } break;
+            case 1: { img_ArmorStack.fillAmount = 0.21f; } break;
+            case 2: { img_ArmorStack.fillAmount = 0.41f; } break;
+            case 3: { img_ArmorStack.fillAmount = 0.61f; } break;
+            case 4: { img_ArmorStack.fillAmount = 0.81f; } break;
+            case 5: { img_ArmorStack.fillAmount = 1; } break;
+
+        }
+
+        switch ((int)_Player.Dash.GetCurrentValue())
+        {
+            case 0: { img_DashCount.fillAmount = 0; } break;
+            case 1: { img_DashCount.fillAmount = 0.21f; } break;
+            case 2: { img_DashCount.fillAmount = 0.41f; } break;
+            case 3: { img_DashCount.fillAmount = 0.61f; } break;
+            case 4: { img_DashCount.fillAmount = 0.81f; } break;
+            case 5: { img_DashCount.fillAmount = 1; } break;
+
+        }
+
         txt_DashCount.text = ": " + (int)_Player.Dash.GetCurrentValue();
 
         img_XpBar.fillAmount = _Player.ExperienceCurrent / _Player.ExperienceMaximum;

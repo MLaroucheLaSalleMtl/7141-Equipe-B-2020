@@ -28,4 +28,6 @@ public class Chest : MonoBehaviour
         if (interactionSprite != null)
             interactionSprite.SetActive(false);
     }
+
+
 }

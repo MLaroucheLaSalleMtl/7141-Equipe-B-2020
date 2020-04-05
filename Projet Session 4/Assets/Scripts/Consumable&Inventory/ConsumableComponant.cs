@@ -13,8 +13,9 @@ public class ConsumableComponant : MonoBehaviour
     [SerializeField] private GameObject consumable = null;
     [SerializeField] private int maximumCharges = 0;
     private int currentCharges = 0;
-    [SerializeField] private float cooldown = 0;
-    private float cooldownCountdown = 0;
+    [SerializeField] private Cooldown cooldown = null;
+   // [SerializeField] private float cooldown = 0;
+  //  private float cooldownCountdown = 0;
     [Header("Consumable UI & Others")]
     [SerializeField] protected Text txtCharges = null;
     [SerializeField] private Image imgCooldown = null;
@@ -24,8 +25,7 @@ public class ConsumableComponant : MonoBehaviour
     public UnityEvent useConsumableEffect;
 
     public int CurrentCharges { get => currentCharges; set => currentCharges = value; }
-    public float Cooldown { get => cooldown; set => cooldown = value; }
-    public float CooldownCountdown { get => cooldownCountdown; set => cooldownCountdown = value; }
+    public Cooldown Cooldown { get => cooldown; set => cooldown = value; }
     public int MaximumCharges { get => maximumCharges; set => maximumCharges = value; }
     public Actor Caster { get => caster; set => caster = value; }
     #endregion
@@ -35,7 +35,6 @@ public class ConsumableComponant : MonoBehaviour
     void Awake()
     {
         currentCharges = maximumCharges;
-        cooldownCountdown = cooldown;
     }
 
     void Start()
@@ -47,7 +46,9 @@ public class ConsumableComponant : MonoBehaviour
 
     void Update()
     {
-        StartCooldown();       
+        cooldown.StartCooldown();
+        imgCooldown.fillAmount = cooldown.GetCountdownValue() / cooldown.GetBaseValue();
+
         if (Input.GetKeyDown(KeyCode.Z))
         {
             DropConsumable();
@@ -63,17 +64,17 @@ public class ConsumableComponant : MonoBehaviour
     {
         if (caster == null) return;
         GameObject clone = Instantiate(consumable, dropPosition.position, Quaternion.identity);
-        clone.GetComponent<Consumable>().AssignRetainedAttributs(cooldown, currentCharges, cooldownCountdown);
+        clone.GetComponent<Consumable>().AssignRetainedAttributs(cooldown.GetBaseValue(), currentCharges, cooldown.GetCountdownValue());
         Destroy(gameObject);
     }
     
     
     public void UseConsumable()
     {
-        if (cooldownCountdown != cooldown || currentCharges == 0)
+        if (!cooldown.IsFinish() || currentCharges == 0)
             return;
         useConsumableEffect.Invoke();
-        cooldownCountdown = 0;
+        cooldown.ResetCountdown();
         currentCharges--;
         txtCharges.text = currentCharges.ToString();
     }
@@ -87,16 +88,12 @@ public class ConsumableComponant : MonoBehaviour
 
     #endregion
 
-    public void StartCooldown()
+   /* public void StartCooldown()
     {
-        if (cooldownCountdown == cooldown) { return; }
-        cooldownCountdown = Mathf.Clamp(cooldownCountdown += Time.deltaTime, 0, cooldown);
+        if (cooldownCountdown != cooldown) { return; }
+        cooldownCountdown = Mathf.Clamp(cooldownCountdown -= Time.deltaTime, 0, cooldown);
         imgCooldown.fillAmount = cooldownCountdown / cooldown;
-        if(imgCooldown.fillAmount == 1)
-        {
-            imgCooldown.fillAmount = 0;
-        }
-    }
+    }*/
 
 
     #endregion

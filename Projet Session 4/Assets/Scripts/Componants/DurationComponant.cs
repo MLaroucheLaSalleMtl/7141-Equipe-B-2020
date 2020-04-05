@@ -8,7 +8,9 @@ public class DurationComponant : MonoBehaviour
     void Update()
     {
         expirationTime -= 1 * Time.deltaTime;
-        if (expirationTime <= 0)
+            if (transform.parent != null && expirationTime <= 0)
+                Destroy(transform.parent.gameObject);
+            else if (expirationTime <= 0)
             Destroy(gameObject);
     }
 }

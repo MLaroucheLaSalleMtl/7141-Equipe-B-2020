@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2201312179562974922
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3428570459226832720, guid: ec10caaec6c9c8049bfa317c7afc368e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428570459226832720, guid: ec10caaec6c9c8049bfa317c7afc368e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428570459226832720, guid: ec10caaec6c9c8049bfa317c7afc368e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428570459226832720, guid: ec10caaec6c9c8049bfa317c7afc368e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428570459226832720, guid: ec10caaec6c9c8049bfa317c7afc368e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428570459226832720, guid: ec10caaec6c9c8049bfa317c7afc368e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428570459226832720, guid: ec10caaec6c9c8049bfa317c7afc368e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428570459226832720, guid: ec10caaec6c9c8049bfa317c7afc368e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428570459226832720, guid: ec10caaec6c9c8049bfa317c7afc368e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428570459226832720, guid: ec10caaec6c9c8049bfa317c7afc368e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428570459226832720, guid: ec10caaec6c9c8049bfa317c7afc368e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146064420062109248, guid: ec10caaec6c9c8049bfa317c7afc368e,
+        type: 3}
+      propertyPath: m_Name
+      value: '[ShopItem] RecoveryPotion'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7769929163485434027, guid: ec10caaec6c9c8049bfa317c7afc368e,
+        type: 3}
+      propertyPath: consumableButton
+      value: 
+      objectReference: {fileID: 7796509097837816693, guid: 55abe207e07e0e9499fa78d76642bf65,
+        type: 3}
+    - target: {fileID: 7769929163485434027, guid: ec10caaec6c9c8049bfa317c7afc368e,
+        type: 3}
+      propertyPath: cost
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7769929163485434027, guid: ec10caaec6c9c8049bfa317c7afc368e,
+        type: 3}
+      propertyPath: shopName
+      value: Recovery
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec10caaec6c9c8049bfa317c7afc368e, type: 3}

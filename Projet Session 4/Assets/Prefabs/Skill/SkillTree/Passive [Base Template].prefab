@@ -907,4 +907,4 @@ MonoBehaviour:
   infoPanel: {fileID: 2604473028665016175}
   lockIcon: {fileID: 2604473029819470102}
   skillIcon: {fileID: 2604473028155074903}
-  skillLevelRequire: {fileID: 2604473028092239893}
+  skillLevelRequire: {fileID: 2161412647944391637}

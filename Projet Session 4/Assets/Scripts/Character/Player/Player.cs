@@ -32,6 +32,7 @@ public class Player : Actor
     public float ExperienceCurrent { get => experienceCurrent; set => experienceCurrent = value; }
     public float ExperienceMaximum { get => experienceMaximum; set => experienceMaximum = value; }
     public int SkillPoints { get => skillPoints; set => skillPoints = value; }
+    public float ExperienceRatio { get => experienceRatio; set => experienceRatio = value; }
     #endregion
 
     #region Characteristics Properties
@@ -227,7 +228,7 @@ public class Player : Actor
     }
     public void IncreaseExperience(float Amount)
     {
-        experienceCurrent += (Amount * experienceRatio);
+        experienceCurrent += (Amount * ExperienceRatio);
 
         if (experienceCurrent >= experienceMaximum)
         {

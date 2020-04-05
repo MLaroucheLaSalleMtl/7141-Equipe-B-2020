@@ -11,6 +11,7 @@ public class Actor : MonoBehaviour
     [SerializeField] private Recovery health = null;
     [SerializeField] private Recovery mana = null;
     [SerializeField] private Recovery barrier = null;
+    [SerializeField] public bool isInvulnerable = false;
     public Recovery Health { get => health; set => health = value; }
     public Recovery Mana { get => mana; set => mana = value; }
     public Recovery Barrier { get => barrier; set => barrier = value; }
@@ -42,6 +43,7 @@ public class Actor : MonoBehaviour
     [SerializeField] private Stat powerPhysical = null;
     [SerializeField] private Stat powerMagical = null;
     [SerializeField] private Stat powerThorn = null;
+    [SerializeField] private Stat lifeSteal = null;
     [SerializeField] private Stat damagePenetration = null;
     [SerializeField] private Cooldown attackSpeed = null;
 
@@ -51,6 +53,7 @@ public class Actor : MonoBehaviour
     public Stat PowerPhysical { get => powerPhysical; set => powerPhysical = value; }
     public Stat PowerMagical { get => powerMagical; set => powerMagical = value; }
     public Stat PowerThorn { get => powerThorn; set => powerThorn = value; }
+    public Stat LifeSteal { get => lifeSteal; set => lifeSteal = value; }
     public Stat DamagePenetration { get => damagePenetration; set => damagePenetration = value; }
     public Cooldown AttackSpeed { get => attackSpeed; set => attackSpeed = value; }
     public Stat CriticalChance { get => criticalChance; set => criticalChance = value; }
@@ -105,6 +108,9 @@ public class Actor : MonoBehaviour
     public bool CanAttack { get => canAttack; set => canAttack = value; }
     #endregion
 
+    [Header("Boss Properties")]
+    [SerializeField] protected bool isABoss = false;
+
     protected Rigidbody rig;
 
     #endregion
@@ -144,7 +150,6 @@ public class Actor : MonoBehaviour
     #region offensive Methods
     public void TakeThornDamage(float Amount)
     {
-        if (!immunityFrame.IsFinish()) return;
 
         if (barrier.GetCurrentValue() >= 0)
         {
@@ -162,10 +167,10 @@ public class Actor : MonoBehaviour
             health.DecreaseCurrentValue(Amount);
         }
 
-        immunityFrame.ResetCountdown();
     }
     public void TakeDamage(float Amount, float _ArmorPenetration, Stat _CriticalChance, float _CriticalRatio, string _TypeOfDamage)
     {
+        if (isInvulnerable) return;
         if (!immunityFrame.IsFinish()) return;
         if (evasion.RollADice()) return; 
         if (_CriticalChance.RollADice())
@@ -321,6 +326,7 @@ public class Actor : MonoBehaviour
     }
     public void UpdateStun()
     {
+        if (isABoss) return;
         if(stunMeterCurrentValue != 0)
         stunMeterCurrentValue = Mathf.Clamp(stunMeterCurrentValue -= Time.deltaTime, 0, stunMeterMaximumValue);
 

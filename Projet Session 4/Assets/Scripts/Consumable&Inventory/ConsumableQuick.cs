@@ -9,6 +9,7 @@ public class ConsumableQuick : MonoBehaviour
     [Header("Collectable Related")]
     [SerializeField] private UnityEvent effect = null;
     private Player target = null;
+    private InventoryRelic inventoryRelic = null;
 
     [Header("Shop Related")]
     [SerializeField] private bool locked = false;
@@ -21,6 +22,7 @@ public class ConsumableQuick : MonoBehaviour
 
     void Start()
     {
+        inventoryRelic = GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryRelic>();
         if (locked != false)
         {
             costText.text = cost.ToString();
@@ -83,5 +85,20 @@ public class ConsumableQuick : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void AddRelicToInventory(string godName)
+    {
+        foreach (Relic relic in inventoryRelic.relics)
+        {
+            if(godName == relic._name && relic.isLocked == true)
+            {
+                relic.UnlockTheRelic();
+                relic.lockedVisual.SetActive(false);
+                Destroy(gameObject);
+                break;
+            }
+        }
+    }
+
 
 }

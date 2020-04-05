@@ -19,7 +19,10 @@ public class SpawnAreaEffect : MonoBehaviour
         if (GetComponent<ConsumableComponant>() != null)
             caster = GetComponent<ConsumableComponant>().Caster;
         else if (GetComponent<SkillComponant>() != null)
+        {
             caster = GetComponent<SkillComponant>().Caster;
+            level = GetComponent<SkillComponant>().Skill.CurrentUpgrade;
+        }
 
         Vector3 playerPosition = new Vector3(caster.transform.position.x, caster.transform.position.y, caster.transform.position.z);
 

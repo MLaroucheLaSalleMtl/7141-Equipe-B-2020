@@ -270,6 +270,8 @@ MonoBehaviour:
     baseValue: 0
   powerThorn:
     baseValue: 0
+  lifeSteal:
+    baseValue: 0
   damagePenetration:
     baseValue: 0
   attackSpeed:
@@ -287,6 +289,7 @@ MonoBehaviour:
   buffEnhancement:
     baseValue: 1
   gold: 25
+  useDash: 1
   dashSpeedRatio:
     baseValue: 5
   dash:
@@ -296,10 +299,13 @@ MonoBehaviour:
     canRecover: 1
   dashCooldown:
     baseValue: 1
+  canDash: 0
   basicAttack: {fileID: 3538059517524107755, guid: 148c56d49ea49d140b44c15000205d8b,
     type: 3}
+  distanceOfAttack: 1
   skillPoints: 0
   characteristicsPoints: 0
+  levelCurrent: 1
   LevelUpOnPlayer: {fileID: 6269426740479233020}
   CharacteristicPointsScreen: {fileID: 0}
   SkillPointsScreen: {fileID: 0}
@@ -346,6 +352,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  skillsBook: []
+  spiritWolf: {fileID: 4351904211953040468, guid: aebe1b35c08de1e49a8250cdb3e8d0ad,
+    type: 3}
 --- !u!1 &3726059145916788235
 GameObject:
   m_ObjectHideFlags: 0

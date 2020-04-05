@@ -7,145 +7,150 @@ using UnityEngine.UI;
 public class Enemy : Actor
 {
     #region Variables
-    [SerializeField] protected Transform target;
-    [SerializeField] protected GameObject ennemyHitBox = null;
-    [SerializeField] private Image img_EnnemyHealthBar = null;
+    [Header("HealthBar")]
+    [SerializeField] private Image img_Health = null;
+    [SerializeField] private Image img_StunMeter = null;
+    [SerializeField] private Image img_Barrier = null;
 
-    public float attackCooldown = 0f;
-    public int xpGive;
-    bool canAttack = true;
-    bool stun = false;
-    public bool root = false;
+    #region Combat Properties
+    [Header("Combat properties")]
+    [SerializeField] private float detectionRadius = 15f;
+    public float attackRangeDetection;
+    public float walkBackRangeDetection;
+    private Transform target;
+    #endregion
 
-    public float rotationSpeed = 3.0f;
-    public float moveSpeed = 3.0f;
-    public float attackDistance;
-    bool ennemyDetect = false;
+    #region OnDeath
+    [Header("OnDeath")]
+    public int ExperienceReward;
+    #endregion
 
+    #region Others
+    [Header("Others")]
     public float raycastDistance;
     int layerMask = 1 << 10;
     RaycastHit hit;
     bool inFrontOfObstacles = false;
     #endregion
 
-    private void Awake()
+    #endregion
+    #region Unity's Methods
+
+    private void Start()
     {
         transform.parent = null;
         GameManager.NumberOfEnemy++;
     }
-
-    void Update()
+    protected override void Update()
     {
-        img_EnnemyHealthBar.fillAmount = gameObject.GetComponent<Enemy>().HealthCurrent / gameObject.GetComponent<Enemy>().HealthMaximum.GetValue();
-        if (ennemyDetect)
+        base.Update();
+        img_Health.fillAmount = Health.GetCurrentValue() / Health.GetBaseValue();
+        img_StunMeter.fillAmount = StunMeterCurrentValue / StunMeterMaximumValue;
+        img_Barrier.fillAmount = Barrier.GetCurrentValue() / Health.GetBaseValue();
+
+        UpdateDetection();
+
+        if (target != null)
         {
-            if(root == false)
+            if(CanMove)
             {
                 AvoidObstacles();
                 ChasePlayer();
             }
-            DashCurrent = Regeneration(DashCurrent, DashMaximum, DashRegenRatio);
+            
         }
-        StartDamageImmunityCooldown();
+        
         Death();
     }
 
+    #endregion
     #region Methods For Move
     private void LookAt()
-    {      
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position), rotationSpeed);
+    {
+        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position), RotationSpeed.GetBaseValue());
+        Vector3 dir = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * RotationSpeed.GetBaseValue()).eulerAngles;
+        transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
     private void MoveTo()
     {
-        transform.position += transform.forward * moveSpeed * DashSpeed * Time.deltaTime;
+        if (Vector3.Distance(target.transform.position, transform.position) <= walkBackRangeDetection)
+            transform.position += transform.forward * -MovementSpeed.GetBaseValue() * DashSpeed * Time.deltaTime;
+        else
+            transform.position += transform.forward * MovementSpeed.GetBaseValue() * DashSpeed * Time.deltaTime;
     }
-
     private void ChasePlayer()
     {
         if (!inFrontOfObstacles)
         {
-            if (Vector3.Distance(target.transform.position, transform.position) <= attackDistance)
+            if (Vector3.Distance(target.transform.position, transform.position) <= attackRangeDetection && Vector3.Distance(target.transform.position, transform.position) > walkBackRangeDetection)
             {
                 LookAt();
-                if (canAttack && !stun)
-                    StartCoroutine(EnnemyAttack());
+                if (CanAttack)
+                    UseBasicAttack(target);
+
             }
-            else
+            else 
             {
+                LookAt();
+                MoveTo();
+                if (DashCooldown.IsFinish())
                 {
-                    LookAt();
-                    MoveTo();
+                    StartCoroutine(ActivateDash());
                 }
             }
         }
     }
-
     private void AvoidObstacles()
     {
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, raycastDistance, layerMask))
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            transform.position += transform.right * moveSpeed * Time.deltaTime;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position), rotationSpeed);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
+            transform.position += transform.right * MovementSpeed.GetBaseValue() * Time.deltaTime;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position), RotationSpeed.GetBaseValue());
             inFrontOfObstacles = true;
         }      
         else
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 100, Color.white);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 100, Color.green);
             inFrontOfObstacles = false;
         }
     }
-        
+    public void UpdateDetection()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRadius, LayerMask.GetMask("Target"));
 
-    public void EnemyDetected()
-    {
-        target = GameObject.Find("Player").GetComponent<Transform>();
-        ennemyDetect = true;
-    }
-    public void IsRoot()
-    {
-        StartCoroutine(EnemyIsRoot());
-    }
-    private IEnumerator EnemyIsRoot()
-    {
-        root = true;
-        yield return new WaitForSeconds(3f);
-        root = false;
-    }
-    #endregion
-
-    #region Methods for Attack
-    public void IsStun(float stunTimer)
-    {
-        StartCoroutine(StunDuration(stunTimer));
-    }
-
-    public IEnumerator StunDuration(float stunTimer)
-    {
-        stun = true;
-        yield return new WaitForSeconds(stunTimer);
-        stun = false;
-    }
-    private IEnumerator EnnemyAttack()
-    {
-        canAttack = false;
-        yield return new WaitForSeconds(attackCooldown);
-        if(!stun)
+        foreach (Collider collider in colliders)
         {
-           GameObject clone = Instantiate(ennemyHitBox, transform.position + (transform.forward * 2), transform.rotation);
-            if(clone.GetComponent<DamageComponant>() != null)
-            clone.GetComponent<DamageComponant>().caster = GetComponent<Actor>();
+            if (collider.tag == "Player")
+            {
+                target = collider.transform;
+            }
         }
-        canAttack = true;
     }
     #endregion
-    protected override void Death() { 
-        if (HealthCurrent <= 0)
+
+    protected void Death() { 
+        if (Health.CurrentIsEmpty())
         {
             if (target != null)
-            target.GetComponent<Player>().ExperienceCurrent += xpGive;
+            {
+                target.GetComponent<Player>().IncreaseExperience(ExperienceReward);
+                target.GetComponent<Player>().IncreaseGold(Random.Range(Gold,Gold*2));
+            }
             GameManager.NumberOfEnemy--;
             Destroy(gameObject);
         }
+    }
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.grey;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRangeDetection);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, walkBackRangeDetection);
+
     }
 }
