@@ -10,7 +10,8 @@ public class DialogueManager : MonoBehaviour // Brackeys Tuto
     public Text dialogueText;
     public Image image;
     public GameObject dialogueBox = null;
-    private float timeBetweenLetter = 0.05f;
+    private float timeBetweenLetter = 0f;
+   // private bool skip = false;
 
     void Start()
     {
@@ -43,9 +44,11 @@ public class DialogueManager : MonoBehaviour // Brackeys Tuto
             return;
         }
 
-        string text = texts.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeText(text));
+            string text = texts.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeText(text));
+        
+
     }
     IEnumerator TypeText (string text)
     {

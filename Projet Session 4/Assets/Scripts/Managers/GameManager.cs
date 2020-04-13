@@ -11,8 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject altarPortal = null;
     public static int NumberOfActiveAltar = 0;
     private int NumberOfAltar = 1;
-    public bool victory = false;
+    public static bool victory = false;
     public static bool gameOver = false;
+    private bool endGame = false;
     ProceduralGenerationManager _PGM;
     UI_Manager _UIM;
     void Awake()
@@ -29,18 +30,37 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_Player.Health.CurrentIsEmpty())
+        if (_Player.Health.CurrentIsEmpty() && !gameOver)
         {
             GameOver();
+            gameOver = true;
         }
-        if(NumberOfActiveAltar == NumberOfAltar)
+        if (victory && !endGame)
+        {
+            Victory();
+            endGame = true;
+        }
+
+        if (NumberOfActiveAltar == NumberOfAltar)
         SummonPortal(altarPortal);
     }
-
+    public static void GameInitialization()
+    {
+        gameOver = false;
+        victory = false;
+        NumberOfEnemy = 0;
+        NumberOfActiveAltar = 0;
+    }
     public void GameOver()
     {
         NumberOfEnemy = 0;
-        _UIM.PanelToggle(8);
+        _UIM.PanelToggle(3);
+    }
+
+    public void Victory()
+    {
+        NumberOfEnemy = 0;
+        _UIM.PanelToggle(4);
     }
 
     public void SummonPortal(GameObject portal)

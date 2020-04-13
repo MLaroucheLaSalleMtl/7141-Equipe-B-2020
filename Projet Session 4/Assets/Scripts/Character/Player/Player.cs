@@ -86,7 +86,6 @@ public class Player : Actor
 
 
 
-        Death();
         movementDirection.x = Input.GetAxisRaw("Horizontal");
         movementDirection.z = Input.GetAxisRaw("Vertical");
     }
@@ -204,7 +203,7 @@ public class Player : Actor
                 CooldownReduction.RemoveModifier(-0.01f * willPower.GetBaseValue());
                 ResistanceMagical.RemoveModifier(1f * willPower.GetBaseValue());
                 Mana.recoveryValue.RemoveModifier(0.05f * willPower.GetBaseValue());
-                BuffEnhancement.RemoveModifier(0.02f * willPower.GetBaseValue());
+                LifeSteal.RemoveModifier(0.05f * willPower.GetBaseValue());
 
             }
             characteristicsPoints--;
@@ -214,7 +213,7 @@ public class Player : Actor
             CooldownReduction.AddModifier(-0.01f * willPower.GetBaseValue());
             ResistanceMagical.AddModifier(1f * willPower.GetBaseValue());
             Mana.recoveryValue.AddModifier(0.05f * willPower.GetBaseValue());
-            BuffEnhancement.AddModifier(0.02f * willPower.GetBaseValue());
+            LifeSteal.AddModifier(0.05f * willPower.GetBaseValue());
         }
     }
     #endregion

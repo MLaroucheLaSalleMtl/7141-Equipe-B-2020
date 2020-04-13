@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5650000897668008826
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3647222629226957530, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e4dc62cac2aacde40a33e575bdc39172,
+        type: 3}
+    - target: {fileID: 6456148679883008257, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_Name
+      value: '[Skill] Empower'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148679883008268, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: nameOfTheSkill
+      value: Empower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148679883008268, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: skillPrefab
+      value: 
+      objectReference: {fileID: 429058130371656095, guid: acfed7bf40a74954fb1e062b30fb849e,
+        type: 3}
+    - target: {fileID: 6456148679947471169, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_Text
+      value: Damage Buff
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680747948188, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Damage
+
+        Buff'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680747948188, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680747948188, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680747948188, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680755213512, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_Text
+      value: Give a Damage Buff to the player but the player lose 10 hp.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680797462890, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456148680852220588, guid: 7e657321f9facf046a8d5182e413be8c,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7e657321f9facf046a8d5182e413be8c, type: 3}

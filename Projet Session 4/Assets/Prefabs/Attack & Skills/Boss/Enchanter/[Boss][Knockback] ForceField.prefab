@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   growingScale: 0.1
   growingRate: 0.1
+  notY: 0
 --- !u!114 &4928044296207652137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7187952234308443188}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: '[Boss][Knockback] ForceField'
   m_TagString: Untagged
   m_Icon: {fileID: 0}

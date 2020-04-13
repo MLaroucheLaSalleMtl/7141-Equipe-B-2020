@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3978715524896076434}
   - component: {fileID: 8032969015780126828}
   - component: {fileID: -3495749099219239758}
-  m_Layer: 0
-  m_Name: CircleOfFire
+  m_Layer: 13
+  m_Name: '[Zone] CircleOfFire'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,9 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679942845f9c0264caf47cdf36785390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  caster: {fileID: 0}
   baseDamage: 1
   damageRatio: 1
   damageType: 1
   typeOfTarget: 1
+  numberOfTickBeforeDirty: 0
+  caster: {fileID: 0}
   timeBetweenTick: 0.5

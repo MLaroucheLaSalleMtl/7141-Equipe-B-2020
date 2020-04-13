@@ -1,0 +1,195 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3347536697768570709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8294918787811349961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d7ac0ae2d285f4d8ba4feb8c430a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectPrefab:
+  - {fileID: 7665272333326386691, guid: d9a09dbeda84c7e4d9044727edc8e8f2, type: 3}
+  - {fileID: 4047175987988756256, guid: d3506af187d254c4da579ada1b65fab4, type: 3}
+  - {fileID: 4878576678665817542, guid: bc9ea223804a2564095f14ab2c69e4cb, type: 3}
+  numberOfProjectile: 060000000c00000012000000
+  delayBetweenShot:
+  - 0.1
+  - 0.1
+  - 0.1
+  level: 0
+--- !u!1001 &5163505651372054817
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2966348345371843185, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_Text
+      value: SeedThrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797956945721511144, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_Name
+      value: '[SkillEffect] Volley of Seed'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6496650901475353119, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c1586e531cc85d543ab78f209c4f8959,
+        type: 3}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: manaCost.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: cooldown.baseValue
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: nameOfTheSkill
+      value: Volley of Seed
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: manaCost.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: manaCost.Array.data[1]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: manaCost.Array.data[2]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: OnUseEffect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3347536697768570709}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: OnUseEffect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Use
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: OnUseEffect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 495358123ca33e94c963cad2849fc37d, type: 3}
+--- !u!1 &8294918787811349961 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3797956945721511144, guid: 495358123ca33e94c963cad2849fc37d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5163505651372054817}
+  m_PrefabAsset: {fileID: 0}

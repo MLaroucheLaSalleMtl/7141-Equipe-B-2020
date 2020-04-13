@@ -5,15 +5,22 @@ using UnityEngine;
 public class OnImpactCreate : MonoBehaviour
 {
     [SerializeField] private GameObject objectToCreate = null;
-    [HideInInspector] public Actor caster = null;
+    public Actor caster = null;
+    public TypeOfTarget type;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Ground")
+
+        if(other.tag == "Ground" || other.tag == type.ToString())
         {
-           GameObject clone = Instantiate(objectToCreate, transform.position,Quaternion.identity);
+
+            GameObject clone = Instantiate(objectToCreate, transform.position,Quaternion.identity);
             clone.GetComponentInChildren<DamageComponant>().caster = this.caster;
+            Destroy(gameObject);
+
         }
-        Destroy(gameObject);
+        if ( other.tag == "Environment")
+            Destroy(gameObject);
+        
     }
 }

@@ -1,0 +1,195 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1083763864889173226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194183993632349418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d7ac0ae2d285f4d8ba4feb8c430a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectPrefab:
+  - {fileID: 8497209302712823047, guid: 142430d60eb718f4799ba80c664b5fe7, type: 3}
+  - {fileID: 7057222068629858031, guid: ff5cacf1a113446458b110bec89984d2, type: 3}
+  - {fileID: 5939966830415746864, guid: 952358d487c7d2c4b9a997b679c69571, type: 3}
+  numberOfProjectile: 010000000100000001000000
+  delayBetweenShot:
+  - 0
+  - 0
+  - 0
+  level: 0
+--- !u!1001 &2605215543558180866
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2966348345371843185, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_Text
+      value: ShieldThrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797956945721511144, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_Name
+      value: '[SkillEffect] Bouncing Shield'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6496650901475353119, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 92719670cdd61d94d882822ab7d1481f,
+        type: 3}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: manaCost.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: cooldown.baseValue
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: nameOfTheSkill
+      value: Bouncing Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: manaCost.Array.data[0]
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: manaCost.Array.data[1]
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: manaCost.Array.data[2]
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: OnUseEffect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1083763864889173226}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: OnUseEffect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Use
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: OnUseEffect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 495358123ca33e94c963cad2849fc37d, type: 3}
+--- !u!1 &1194183993632349418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3797956945721511144, guid: 495358123ca33e94c963cad2849fc37d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2605215543558180866}
+  m_PrefabAsset: {fileID: 0}

@@ -47,7 +47,7 @@ public class BossBehaviour_Beamer : Boss
         for (int i = 0; i < numberOfStrike; i++)
         {
             GameObject clone = Instantiate(orbitalBeam, new Vector3(transform.position.x + Random.Range(-distanceOfStrike, distanceOfStrike), Random.Range(7,16),
-                transform.position.x + Random.Range(-distanceOfStrike, distanceOfStrike)), transform.rotation);
+                transform.position.z + Random.Range(-distanceOfStrike, distanceOfStrike)), transform.rotation);
             clone.GetComponent<OnImpactCreate>().caster = GetComponent<Actor>();
             clone.GetComponent<DamageComponant>().caster = GetComponent<Actor>();
             if(!secondStageActive)

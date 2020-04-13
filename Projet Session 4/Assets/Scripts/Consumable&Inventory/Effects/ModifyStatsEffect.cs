@@ -6,14 +6,19 @@ using UnityEngine.UI;
 public class ModifyStatsEffect : MonoBehaviour
 {
     [Header("Use StatsModifcations Effect")]
-    private int level = 0;
     public int[] duration = null;
+    private Actor caster;
+    private int level = 0;
     public float[] value = null;
+    public GameObject imageDamageBoost;
+    public GameObject imageDefenseBoost;
+    public GameObject imageSpeedBoost;
 
-    public void ModifyStats()
+
+
+
+    void Start()
     {
-        Actor caster = null;
-
         if (GetComponent<ConsumableComponant>() != null)
             caster = GetComponent<ConsumableComponant>().Caster;
         else if (GetComponent<SkillComponant>() != null)
@@ -21,7 +26,20 @@ public class ModifyStatsEffect : MonoBehaviour
             caster = GetComponent<SkillComponant>().Caster;
             level = GetComponent<SkillComponant>().Skill.CurrentUpgrade;
         }
+    }
 
-        StartCoroutine(caster.TemporaryBuff(caster.ResistanceDamage, duration[level], value[level]));
+    public void ModifyStats()
+    {
+        StartCoroutine(caster.TemporaryBuff(caster.ResistanceDamage, duration[level], value[level], imageDefenseBoost));
+    }
+    public void BuffDamage()
+    {
+        StartCoroutine(caster.TemporaryBuff(caster.PowerPhysical, duration[level], value[level], imageDamageBoost));
+    }
+
+    public void BuffSpeed()
+    {
+        StartCoroutine(caster.TemporaryBuff(caster.MovementSpeed, duration[level], value[level], imageSpeedBoost));
+
     }
 }

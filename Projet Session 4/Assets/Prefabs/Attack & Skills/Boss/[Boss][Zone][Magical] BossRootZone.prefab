@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 7241365545445212605}
   - component: {fileID: 5063251579086032971}
   - component: {fileID: 6387108647606526164}
-  m_Layer: 0
-  m_Name: '[Enemy][Zone][Magical] BossRootZone'
+  m_Layer: 13
+  m_Name: '[Boss][Zone][Magical] BossRootZone'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   growingScale: 0.1
   growingRate: 0.05
+  notY: 0
 --- !u!114 &6387108647606526164
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class Npc : MonoBehaviour
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 
-    void OnTriggerEnter(Collider other)
+     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -34,6 +34,7 @@ public class Npc : MonoBehaviour
         npcOptions.SetActive(false);
         interactionSprite.SetActive(false);
         FindObjectOfType<DialogueManager>().EndDialogue();
+
     }
 
     void OnTriggerStay(Collider other)
@@ -47,4 +48,5 @@ public class Npc : MonoBehaviour
             }
         }
     }
+
 }

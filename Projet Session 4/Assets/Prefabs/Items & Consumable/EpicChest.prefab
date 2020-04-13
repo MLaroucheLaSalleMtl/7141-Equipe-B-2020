@@ -183,13 +183,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionSprite: {fileID: 8869938175091964127}
   consumables:
-  - {fileID: 5885983763199492588, guid: 713dba9b9d9a06d48908e2c6de124ba1, type: 3}
-  - {fileID: 5885983763199492588, guid: e01f0d286d4e3604894b0ba9935b1904, type: 3}
-  - {fileID: 5885983763199492588, guid: eeaf8d6ae3399a446b68f173fcbffbdf, type: 3}
-  - {fileID: 5885983763199492588, guid: c9bd3fd80cbf0f24b8efdac351f2706b, type: 3}
-  - {fileID: 1903482228163106605, guid: 2d76ee7488dfdf14e895ac7f2954e2a1, type: 3}
-  - {fileID: 8965659446816338764, guid: 06779b9412f90e94486d5c31efb75ca7, type: 3}
-  - {fileID: 6928837098258666338, guid: 4272b8c0ce47da645874abfdef6e47af, type: 3}
   - {fileID: 7130127340768216514, guid: 17b267b8a1365a14099b2f5884cfcc94, type: 3}
   - {fileID: 5725591428155025421, guid: c8d2fe1a3cf72ee468a3b05eccaa93c2, type: 3}
   - {fileID: 8939260774900197147, guid: 291cca95570644e4f9ec9b9e45aa50f9, type: 3}

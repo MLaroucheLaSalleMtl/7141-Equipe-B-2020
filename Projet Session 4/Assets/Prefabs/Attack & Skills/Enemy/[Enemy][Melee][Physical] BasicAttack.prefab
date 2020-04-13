@@ -100,7 +100,7 @@ PrefabInstance:
     - target: {fileID: 3538059517524107755, guid: 148c56d49ea49d140b44c15000205d8b,
         type: 3}
       propertyPath: m_Name
-      value: EnemyMeleeHitBox
+      value: '[Enemy][Melee][Physical] BasicAttack'
       objectReference: {fileID: 0}
     - target: {fileID: 3538059517524107755, guid: 148c56d49ea49d140b44c15000205d8b,
         type: 3}

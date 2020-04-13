@@ -22,5 +22,11 @@ public class SummonEffect : MonoBehaviour
 
         Vector3 playerPosition = new Vector3(caster.transform.position.x, caster.transform.position.y, caster.transform.position.z);
         Transform clone = Instantiate(ObjectPrefab[level], playerPosition, caster.transform.rotation);
+        if (clone.GetComponent<DamageComponant>() != null)
+            clone.GetComponent<DamageComponant>().caster = caster;
+
+        if (clone.GetComponent<DamageStayComponant>() != null)
+            clone.GetComponent<DamageStayComponant>().caster = caster;
+
     }
 }

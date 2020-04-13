@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4038996700500118099}
   - component: {fileID: 4038996700500118098}
   - component: {fileID: 9213874191285373079}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: OrbitalFall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,6 +127,7 @@ MonoBehaviour:
   objectToCreate: {fileID: 18531451032820378, guid: 8813b9fa7fe3155448bf25edd98a9f8b,
     type: 3}
   caster: {fileID: 0}
+  type: 0
 --- !u!114 &9213874191285373079
 MonoBehaviour:
   m_ObjectHideFlags: 0

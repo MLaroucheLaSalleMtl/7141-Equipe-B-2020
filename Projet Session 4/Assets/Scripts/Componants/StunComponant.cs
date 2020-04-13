@@ -8,14 +8,25 @@ public class StunComponant : MonoBehaviour
     [SerializeField] private TypeOfTarget typeOfTarget = 0;
     private bool isDirty = false;
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == typeOfTarget.ToString() && !isDirty)
+        if (other.gameObject.tag != typeOfTarget.ToString() || isDirty) return;
+
+        Collider[] colliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale, transform.rotation, LayerMask.GetMask("Target"));
+        StunTarget(colliders);
+
+        isDirty = true;
+    }
+
+    public void StunTarget(Collider[] _colliders)
+    {
+        foreach (Collider collider in _colliders)
         {
-            if (collision.gameObject.GetComponent<Actor>() != null)
-                collision.gameObject.GetComponent<Actor>().IncreaseStunMeter(stunDuration);
-            
-            isDirty = true;
+            if (collider.gameObject.tag == typeOfTarget.ToString())
+            {
+                collider.gameObject.GetComponent<Actor>().IncreaseStunMeter(stunDuration);
+            }
+
         }
     }
 }

@@ -42,9 +42,15 @@ public class SpawnAreaEffect : MonoBehaviour
         else if (GetComponent<SkillComponant>() != null)
             caster = GetComponent<SkillComponant>().Caster;
 
+
         if (clone.GetComponent<DamageStayComponant>() != null)
-        {
             clone.GetComponent<DamageStayComponant>().caster = caster;
-        }
+
+        if (clone.GetComponent<DamageComponant>() != null)
+            clone.GetComponent<DamageComponant>().caster = caster;
+
+        if (clone.GetComponent<RecoverOnHit>() != null)
+            clone.GetComponent<RecoverOnHit>().caster = caster;
+
     }
 }

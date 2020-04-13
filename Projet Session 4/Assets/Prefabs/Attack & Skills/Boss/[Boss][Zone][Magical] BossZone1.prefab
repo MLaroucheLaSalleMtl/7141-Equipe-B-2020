@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3468877350677885778}
   - component: {fileID: 3468877350677885782}
   - component: {fileID: 7241365545445212605}
-  m_Layer: 0
-  m_Name: '[Enemy][Zone][Magical] BossZone1'
+  m_Layer: 13
+  m_Name: '[Boss][Zone][Magical] BossZone1'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

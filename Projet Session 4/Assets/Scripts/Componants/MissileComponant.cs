@@ -46,7 +46,7 @@ public class MissileComponant : MonoBehaviour
         if (isHoming)
         {
            // rig.velocity = transform.forward * velocity;
-            transform.Translate(projectile_Direction * Time.deltaTime * velocity);
+            transform.Translate(projectile_Direction * Time.deltaTime * velocity/2);
             gameObject.transform.LookAt(target);
         }
         else
@@ -65,7 +65,7 @@ public class MissileComponant : MonoBehaviour
         if (isHoming && !isDirty)
         {
             
-            Collider[] colliders = Physics.OverlapSphere(origin, range);
+            Collider[] colliders = Physics.OverlapSphere(origin, range*2);
             RandomizeArray(colliders);
             foreach (Collider collider in colliders)
             {
@@ -110,7 +110,9 @@ public class MissileComponant : MonoBehaviour
             piercingNumber--;
 
             if (piercingNumber <= 0 )
+            {
                 Destroy(gameObject);
+            }
         }
     }
 

@@ -136,8 +136,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7010427214915679556}
-  m_Layer: 0
-  m_Name: '[Enemy][Melee][Magical] LongerBeam'
+  m_Layer: 13
+  m_Name: '[Boss][Zone][Magical] LongerBeam'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

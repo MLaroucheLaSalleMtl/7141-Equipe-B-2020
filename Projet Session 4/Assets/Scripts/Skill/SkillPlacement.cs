@@ -9,6 +9,7 @@ public class SkillPlacement : MonoBehaviour
     #region Variables
     [Header("Skill Properties")]
     public GameObject skillPrefab;
+    public GameObject resetButton;
     public string nameOfTheSkill = null;
     private skill skill = null;
 
@@ -38,6 +39,12 @@ public class SkillPlacement : MonoBehaviour
 
     void Update()
     {
+        if (resetButton.GetComponent<ResetAllSkills>().resetON)
+        {
+            infoPanel.GetComponent<InfoBox>().Skill = skill;
+            infoPanel.GetComponent<InfoBox>().UpdateReset();
+        }
+
         if (!skill.IsLocked()) return;
 
         if (_Player.levelCurrent >= skill.LevelRequierement)
@@ -68,7 +75,8 @@ public class SkillPlacement : MonoBehaviour
     //Le meme code mais on demande un skill au lieu de rentrer tous manuellement
     private void UpgradeSkill(skill _skill)
     {
-        if (_Player.SkillPoints <= 0 || _skill.IsMaxLevel()) return;
+        if (_Player.SkillPoints <= 0 || _skill.IsMaxLevel() || _Player.GetComponent<InventorySkill>().isFull[3] == true) 
+            return;
 
         if (_skill.Learned)
             _skill.CurrentUpgrade++;

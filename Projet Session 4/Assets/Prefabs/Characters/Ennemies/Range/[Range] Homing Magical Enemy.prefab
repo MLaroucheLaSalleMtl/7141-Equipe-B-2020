@@ -38,6 +38,16 @@ PrefabInstance:
       propertyPath: walkBackRangeDetection
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: f9c4f88d2bc62f543ab85617cad9b117,
+        type: 3}
+      propertyPath: movementSpeed.baseValue
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: f9c4f88d2bc62f543ab85617cad9b117,
+        type: 3}
+      propertyPath: rotationSpeed.baseValue
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8553033267133059171, guid: f9c4f88d2bc62f543ab85617cad9b117,
         type: 3}
       propertyPath: m_LocalPosition.x

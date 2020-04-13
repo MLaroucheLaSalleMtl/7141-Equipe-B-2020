@@ -8,6 +8,10 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour 
 {
     #region Variables
+
+
+
+
     [Header("Panel Toggle")]
     [SerializeField] private GameObject[] panels = null;
     [SerializeField] private Selectable[] defaultButtons = null;
@@ -35,7 +39,14 @@ public class MainMenu : MonoBehaviour
 
     public void LoadScene(string level)
     {
-        SceneManager.LoadScene(level);
+        StartCoroutine(LoadAsynch(level));
     }
+
+    IEnumerator LoadAsynch(string level)
+    {
+       AsyncOperation async = SceneManager.LoadSceneAsync(level);
+        yield return null;
+    }
+
     #endregion
 }

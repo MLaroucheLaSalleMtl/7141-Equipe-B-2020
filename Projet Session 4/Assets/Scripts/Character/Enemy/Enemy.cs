@@ -14,10 +14,11 @@ public class Enemy : Actor
 
     #region Combat Properties
     [Header("Combat properties")]
+    public TypeOfTarget typeOfTarget = 0;
     [SerializeField] private float detectionRadius = 15f;
     public float attackRangeDetection;
     public float walkBackRangeDetection;
-    private Transform target;
+    private Transform target = null;
     #endregion
 
     #region OnDeath
@@ -28,22 +29,29 @@ public class Enemy : Actor
 
     #region Others
     [Header("Others")]
-    public float raycastDistance;
-    int layerMask = 1 << 10;
-    RaycastHit hit;
-    bool inFrontOfObstacles = false;
+   // public float raycastDistance;
+  //  int layerMask = 1 << 10;
+  //  RaycastHit hit;
+   // bool inFrontOfObstacles = false;
     private Player _Player;
     #endregion
 
-
+    #region NavMesh
+    private NavMeshAgent navMeshAgent;
+    private Vector3 destination;
+    #endregion
 
     #endregion
     #region Unity's Methods
-
+    
     private void Start()
     {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        destination = navMeshAgent.destination;
+        navMeshAgent.stoppingDistance = attackRangeDetection;
+        target = GameObject.Find("Player").transform;
         transform.parent = null;
-        if (gameObject.tag != "Ally")
+        if(gameObject.tag != "Ally")
         {
             GameManager.NumberOfEnemy++;
         }
@@ -58,98 +66,91 @@ public class Enemy : Actor
             img_StunMeter.fillAmount = StunMeterCurrentValue / StunMeterMaximumValue;
             img_Barrier.fillAmount = Barrier.GetCurrentValue() / Health.GetBaseValue();
         }
-
-        UpdateDetection();
-
-        if (target != null)
+        if (target == null) return;
+        if (Vector3.Distance(target.transform.position, transform.position) <= attackRangeDetection && Vector3.Distance(target.transform.position, transform.position) > walkBackRangeDetection && TargetDetection())
         {
-            if(CanMove)
+            RaycastHit hitray;
+
+            Rotation();
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hitray, 1000) && CanAttack)
             {
-                AvoidObstacles();
-                ChasePlayer();
+                if(hitray.collider.tag == typeOfTarget.ToString())
+                UseBasicAttack(target);
+                Debug.DrawLine(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.yellow);
             }
             
+
         }
-        
+        else
+        {
+            if(TargetDetection())
+            {
+            Rotation();
+            }
+
+            if(CanMove)
+            Movement();
+
+            if (DashCooldown.IsFinish())
+            {
+                StartCoroutine(ActivateDash());
+            }
+        }
+
         Death();
     }
 
     #endregion
     #region Methods For Move
-    private void LookAt()
+
+   
+    private void Rotation()
     {
-        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position), RotationSpeed.GetBaseValue());
-        Vector3 dir = target.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 direction = target.transform.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
         Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * RotationSpeed.GetBaseValue()).eulerAngles;
         transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
-    private void MoveTo()
+    private bool TargetDetection()
     {
+        Vector3 direction = target.transform.position - transform.position;
+        RaycastHit hit;
+        int layerMask = 1 << 13;
+        layerMask = ~layerMask;
+
+        if (Physics.Raycast(transform.position, direction, out hit, 1000,layerMask))
+        {
+
+
+            if (hit.collider.gameObject.tag == "Environment")
+            {
+                 Debug.DrawLine(transform.position, target.position, Color.red);
+                return false;
+            }
+
+            if (hit.collider.gameObject.tag == "Player")
+            {
+
+                 Debug.DrawLine(transform.position, target.position, Color.green);
+                return true;
+            }
+
+
+        }
+        return false;
+    }
+    private void Movement()
+    {
+        Vector3 origin = transform.position;
+        navMeshAgent.destination = target.transform.position;
+
+
         if (Vector3.Distance(target.transform.position, transform.position) <= walkBackRangeDetection)
             transform.position += transform.forward * -MovementSpeed.GetBaseValue() * DashSpeed * Time.deltaTime;
         else
             transform.position += transform.forward * MovementSpeed.GetBaseValue() * DashSpeed * Time.deltaTime;
-    }
-    private void ChasePlayer()
-    {
-        if (!inFrontOfObstacles)
-        {
-            if (Vector3.Distance(target.transform.position, transform.position) <= attackRangeDetection && Vector3.Distance(target.transform.position, transform.position) > walkBackRangeDetection)
-            {
-                LookAt();
-                if (CanAttack)
-                    UseBasicAttack(target);
 
-            }
-            else 
-            {
-                LookAt();
-                MoveTo();
-                if (DashCooldown.IsFinish())
-                {
-                    StartCoroutine(ActivateDash());
-                }
-            }
-        }
-    }
-    private void AvoidObstacles()
-    {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, raycastDistance, layerMask))
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
-            transform.position += transform.right * MovementSpeed.GetBaseValue() * Time.deltaTime;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position), RotationSpeed.GetBaseValue());
-            inFrontOfObstacles = true;
-        }      
-        else
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 100, Color.green);
-            inFrontOfObstacles = false;
-        }
-    }
-    public void UpdateDetection()
-    {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRadius, LayerMask.GetMask("Target"));
 
-        foreach (Collider collider in colliders)
-        {
-            if(gameObject.tag != "Ally")
-            {
-                if (collider.tag == "Player")
-                {
-                    target = collider.transform;
-                }
-                if (collider.tag == "Ally")
-                {
-                    target = collider.transform;
-                }
-            }
-            else if (collider.tag == "Enemy")
-            {
-                target = collider.transform;
-            }
-        }
     }
     #endregion
 

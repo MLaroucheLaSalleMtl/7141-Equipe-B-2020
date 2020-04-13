@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 5080117070681389193}
   - component: {fileID: -1838996115255330056}
   - component: {fileID: -138392648297453449}
-  m_Layer: 0
-  m_Name: '[Summon] Totem'
+  m_Layer: 13
+  m_Name: '[Ally][Summon] Totem'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
     recoveryValue:
       baseValue: 0
     canRecover: 1
+  isInvulnerable: 0
   resistanceDamage:
     baseValue: 0
   resistancePhysical:
@@ -140,6 +141,8 @@ MonoBehaviour:
   powerMagical:
     baseValue: 0
   powerThorn:
+    baseValue: 0
+  lifeSteal:
     baseValue: 0
   damagePenetration:
     baseValue: 0
@@ -168,9 +171,11 @@ MonoBehaviour:
     canRecover: 1
   dashCooldown:
     baseValue: 0
+  canDash: 0
   basicAttack: {fileID: 2897629663414043087, guid: e6c4156e27e1395409450a5849526dcf,
     type: 3}
   distanceOfAttack: 1
+  isABoss: 0
   range: 30
 --- !u!114 &-1838996115255330056
 MonoBehaviour:

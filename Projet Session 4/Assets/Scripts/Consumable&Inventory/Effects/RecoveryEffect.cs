@@ -7,6 +7,8 @@ public class RecoveryEffect : MonoBehaviour
     public float[] healingAmount = null;
     public float[] manaAmount = null;
     public float[] barrierAmount = null;
+    [Range(0,2)]
+    public float magicalRatio = 0;
    [HideInInspector] private int level = 0;
 
 
@@ -21,9 +23,9 @@ public class RecoveryEffect : MonoBehaviour
             level = GetComponent<SkillComponant>().Skill.CurrentUpgrade;
         }
 
-        caster.Health.IncreaseCurrentValue(healingAmount[level]);
-            caster.Mana.IncreaseCurrentValue(manaAmount[level]);
-            caster.Barrier.IncreaseCurrentValue(barrierAmount[level]);
+        caster.Health.IncreaseCurrentValue(healingAmount[level] + (caster.PowerMagical.GetBaseValue() * magicalRatio));
+            caster.Mana.IncreaseCurrentValue(manaAmount[level] + (caster.PowerMagical.GetBaseValue() * magicalRatio));
+            caster.Barrier.IncreaseCurrentValue(barrierAmount[level] + (caster.PowerMagical.GetBaseValue() * magicalRatio));
 
     }
 }

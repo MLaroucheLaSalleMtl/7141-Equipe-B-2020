@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7790470793546846423}
   - component: {fileID: -9165316650760105016}
   - component: {fileID: 1761727040438121619}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: '[Boss][Projectile][Magical] GrowingSphere'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,3 +179,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   growingScale: 0.05
   growingRate: 0.1
+  notY: 0

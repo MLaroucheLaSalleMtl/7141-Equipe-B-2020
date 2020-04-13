@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9156327277678816371}
   - component: {fileID: 1914187483203212931}
   - component: {fileID: 4092083740613034853}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: '[AreaOfEffect] Beamer'
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,9 +10,7 @@ public class KnockBackComponant : MonoBehaviour
    {
         if (other.gameObject.tag == typeOfTarget.ToString())
         {
-            Vector3 dir = other.transform.position - transform.position;
-            other.GetComponent<Rigidbody>().AddForce(dir.normalized * knockbackDistance, ForceMode.Impulse);
-            StartCoroutine(KnockBackStun(other.transform));
+                StartCoroutine(KnockBackStun(other.transform));
         }
 
 
@@ -20,9 +18,10 @@ public class KnockBackComponant : MonoBehaviour
 
     public IEnumerator KnockBackStun(Transform target)
     {
-        target.GetComponent<Actor>().CanMove = false;
-        yield return new WaitForSeconds(1f);
-        target.GetComponent<Actor>().CanMove = true;
+        Vector3 dir = target.transform.position - transform.position;
 
+        target.GetComponent<Actor>().IncreaseStunMeter(1);
+        target.GetComponent<Rigidbody>().AddForce(dir.normalized * knockbackDistance, ForceMode.VelocityChange);
+        yield return new WaitForSeconds(1f);
     }
 }

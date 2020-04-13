@@ -1,0 +1,192 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4218137160060053613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109032094129312178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac385ae63923b04a8bab2dd0797e03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width:
+  - 7
+  - 7
+  - 7
+  length:
+  - 7
+  - 7
+  - 7
+  ObjectPrefab:
+  - {fileID: 6576650823286187944, guid: f096f3d457a81aa49afb5620b1302f8c, type: 3}
+  - {fileID: 9084869562762904400, guid: ff9f9d21a2a60964f970a3ed7936d1c5, type: 3}
+  - {fileID: 5109902575311664360, guid: e3a8201c8b15017428a4e71c81eadde7, type: 3}
+--- !u!1001 &3834341900157230426
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3797956945721511144, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_Name
+      value: '[SkillEffect] Warcry'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176292292817034340, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6496650901475353119, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 65636911bbbc96c45a1aaf9f963abd98,
+        type: 3}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: manaCost.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: nameOfTheSkill
+      value: Warcry
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: cooldown.baseValue
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: manaCost.Array.data[0]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: manaCost.Array.data[1]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: manaCost.Array.data[2]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: OnUseEffect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4218137160060053613}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: OnUseEffect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpawnArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097603600390363714, guid: 495358123ca33e94c963cad2849fc37d,
+        type: 3}
+      propertyPath: OnUseEffect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 495358123ca33e94c963cad2849fc37d, type: 3}
+--- !u!1 &109032094129312178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3797956945721511144, guid: 495358123ca33e94c963cad2849fc37d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3834341900157230426}
+  m_PrefabAsset: {fileID: 0}

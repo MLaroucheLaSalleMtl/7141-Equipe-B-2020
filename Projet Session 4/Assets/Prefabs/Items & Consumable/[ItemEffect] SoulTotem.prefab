@@ -21,6 +21,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2187795312634177127, guid: b486c8b2974341f4da027fa80d036bd2,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 13c810d1c9924a643a22705cf9af76bd,
+        type: 3}
     - target: {fileID: 3284958865695124464, guid: b486c8b2974341f4da027fa80d036bd2,
         type: 3}
       propertyPath: m_Text
@@ -95,16 +101,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5839633422391471589, guid: b486c8b2974341f4da027fa80d036bd2,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 130
-      objectReference: {fileID: 0}
-    - target: {fileID: 5839633422391471589, guid: b486c8b2974341f4da027fa80d036bd2,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 5839633422391471589, guid: b486c8b2974341f4da027fa80d036bd2,
         type: 3}

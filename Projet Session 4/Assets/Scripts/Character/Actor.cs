@@ -178,7 +178,7 @@ public class Actor : MonoBehaviour
             Amount *= _CriticalRatio;
         }
 
-       Amount = ApplyResistance(Amount,_ArmorPenetration, _TypeOfDamage);
+        Amount = ApplyResistance(Amount,_ArmorPenetration, _TypeOfDamage);
 
         if(barrier.GetCurrentValue() >= 0)
         {
@@ -267,9 +267,10 @@ public class Actor : MonoBehaviour
     #endregion
 
     #region Managment Methods
-    public IEnumerator TemporaryBuff(Stat stat, float Duration, float Value)
+    public IEnumerator TemporaryBuff(Stat stat, float Duration, float Value, GameObject image)
     {
         stat.AddModifier(Value);
+        GetComponent<EffectsComponant>().AddEffect(Duration,image);
         yield return new WaitForSeconds(Duration * BuffEnhancement.GetBaseValue());
         stat.RemoveModifier(Value);
     }

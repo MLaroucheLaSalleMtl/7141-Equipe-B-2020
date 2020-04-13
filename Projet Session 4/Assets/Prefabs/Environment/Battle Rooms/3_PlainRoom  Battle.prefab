@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 0.099999994, y: 6, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 3862164911846955062}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6811835920863262382
 MeshFilter:
@@ -168,8 +168,13 @@ PrefabInstance:
     - target: {fileID: 3414864419760287670, guid: ae2787ebbb33d2841b2c2c2526b4e59f,
         type: 3}
       propertyPath: m_Name
-      value: PlainRoom  Battle
+      value: 3_PlainRoom  Battle
       objectReference: {fileID: 0}
+    - target: {fileID: 3737645830396880851, guid: ae2787ebbb33d2841b2c2c2526b4e59f,
+        type: 3}
+      propertyPath: newMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 97147ca3cc2993d43a66c1d91ee1ea0d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae2787ebbb33d2841b2c2c2526b4e59f, type: 3}
 --- !u!4 &3862164911846955062 stripped

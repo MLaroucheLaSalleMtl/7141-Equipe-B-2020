@@ -41,7 +41,7 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private Text txt_CooldownReduction = null;
     [SerializeField] private Text txt_MagicalResistance = null;
     [SerializeField] private Text txt_ManaRegeneration = null;
-    [SerializeField] private Text txt_BuffEnhancement = null;
+    [SerializeField] private Text txt_LifeSteal = null;
     // Start is called before the first frame update
     [SerializeField] private Text txt_CharacteristicPoints = null;
 
@@ -118,7 +118,7 @@ public class UI_Manager : MonoBehaviour
         txt_CooldownReduction.text = _Player.CooldownReduction.GetBaseValue().ToString();
         txt_MagicalResistance.text = _Player.ResistanceMagical.GetBaseValue().ToString();
         txt_ManaRegeneration.text = _Player.Mana.recoveryValue.GetBaseValue().ToString();
-        txt_BuffEnhancement.text = _Player.BuffEnhancement.GetBaseValue().ToString();
+        txt_LifeSteal.text = _Player.LifeSteal.GetBaseValue().ToString();
 
         txt_CharacteristicPoints.text = _Player.CharacteristicsPoints.ToString();
 
@@ -184,13 +184,13 @@ public class UI_Manager : MonoBehaviour
             
 
         }
-        if(position >= 0 && position != 5 && position != 7)
-        {
-            Time.timeScale = 0;
-        }
-        else
+        if(position < 0)
         {
             Time.timeScale = 1;
+        }
+        else if ( position != 2)
+        {
+            Time.timeScale = 0;
         }
         _Player.GetComponent<Actor>().CanAttack = true;
     }
@@ -202,7 +202,6 @@ public class UI_Manager : MonoBehaviour
             panelsSkill[i].SetActive(positionSkill == i);
             currentPanelSkill = positionSkill;
         }
-        Time.timeScale = 0;
     }
 
     public void Cancel(InputAction.CallbackContext context)
@@ -212,6 +211,7 @@ public class UI_Manager : MonoBehaviour
         {
             PanelToggle(-1);
             currentPanel = -1;
+            Time.timeScale = 1;
             return;
         }
         else
@@ -224,35 +224,19 @@ public class UI_Manager : MonoBehaviour
     public void OpenCharacteristics(InputAction.CallbackContext context)
     {
         if (GameManager.gameOver) return;
-        if (currentPanel == 5 && context.started)
+        if (currentPanel == 1 && context.started)
         {
             PanelToggle(-1);
-            currentPanel = -1;
             return;
         }
         else
         if (context.started)
         {
-            PanelToggle(5);
+            PanelToggle(1);
             return;
         }
     }
-    public void OpenSkill(InputAction.CallbackContext context)
-    {
-        if (GameManager.gameOver) return;
-        if (currentPanel == 7 && context.started)
-        {
-            PanelToggle(-1);
-            currentPanel = -1;
-            return;
-        }
-        else
-        if (context.started)
-        {
-            PanelToggle(7);
-            return;
-        }
-    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -260,10 +244,13 @@ public class UI_Manager : MonoBehaviour
 
     public void LoadScene(string level)
     {
+        GameManager.GameInitialization();
+
         Time.timeScale = 1;
         GameManager.NumberOfEnemy = 0;
         SceneManager.LoadScene(level);
     }
+
 
     #endregion
 }

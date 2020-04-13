@@ -6,11 +6,11 @@ public class EffectsComponant : MonoBehaviour
 {
     [SerializeField] private Transform[] slots = null;
     [SerializeField] private bool[] isFull = null;
-    [SerializeField] private GameObject image = null;
-    [SerializeField] private float duration = 5;
+   // [SerializeField] private GameObject image = null;
+   // [SerializeField] private float duration = 5;
 
-    public GameObject Image { get => image; set => image = value; }
-    public float Duration { get => duration; set => duration = value; }
+   // public GameObject Image { get => image; set => image = value; }
+  //  public float Duration { get => duration; set => duration = value; }
 
     // [SerializeField] private int numberOfActiveEffect = 0;
 
@@ -22,10 +22,10 @@ public class EffectsComponant : MonoBehaviour
 
 
 
-    public void AddEffect()
+    public void AddEffect(float duration,GameObject image)
     {
         if (isFull[5] == true) return;
-        StartCoroutine(ShowTheEffect(Duration, Image));
+        StartCoroutine(ShowTheEffect(duration, image));
     }
 
 
@@ -41,7 +41,7 @@ public class EffectsComponant : MonoBehaviour
             {
                 isFull[i] = true;
 
-                clone = Instantiate(this.Image, slots[i].transform.position, Quaternion.identity, slots[i]);
+                clone = Instantiate(Image, slots[i].transform.position, Quaternion.identity, slots[i]);
                 break;
             }
         }

@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 4343308935898887604}
   - component: {fileID: 4343308935898887611}
   - component: {fileID: 4343308935898887610}
+  - component: {fileID: 2714267275213376978}
   m_Layer: 9
   m_Name: The Charger
   m_TagString: Enemy
@@ -274,7 +275,6 @@ MonoBehaviour:
   ExperienceReward: 1000
   ChestReward: {fileID: 3125331563489428209, guid: ae397431aa8a43f479bc1650d7463498,
     type: 3}
-  raycastDistance: 7
 --- !u!114 &4343308935898887610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +294,28 @@ MonoBehaviour:
   baseProjectile: {fileID: 2897629663414043087, guid: 274b331f97bde514ebe2c16b97d9624b,
     type: 3}
   amountOfProjectile: 60
+--- !u!195 &2714267275213376978
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4343308935898887609}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 1
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &4343308936324970849
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4796879469190526229}
   - component: {fileID: 7790470793546846423}
   - component: {fileID: -9165316650760105016}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: '[Boss][Projectile][Physical] BulletHell'
   m_TagString: Untagged
   m_Icon: {fileID: 0}

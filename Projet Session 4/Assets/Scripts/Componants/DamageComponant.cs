@@ -48,7 +48,7 @@ public class DamageComponant : MonoBehaviour
 
         armorPenetration = caster.DamagePenetration.GetBaseValue();
         criticalChance = caster.CriticalChance.GetBaseValue();
-        criticalRatio = caster.CriticalChance.GetBaseValue();
+        criticalRatio = caster.CriticalDamage.GetBaseValue();
         lifeSteal = caster.LifeSteal.GetBaseValue() * 0.01f;
 
         calculatedDamage = baseDamage + (bonusDamage * damageRatio);
@@ -98,10 +98,10 @@ public class DamageComponant : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
+    /*void OnDrawGizmos()
     {
         // Draw a semitransparent blue cube at the transforms position
         Gizmos.color = Color.blue;
         Gizmos.DrawCube(transform.position, transform.localScale);
-    }
+    }*/
 }

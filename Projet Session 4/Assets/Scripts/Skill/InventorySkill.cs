@@ -53,6 +53,43 @@ public class InventorySkill : MonoBehaviour
         _Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         _Player.Barrier.AddModifier(50);
         _Player.Barrier.IncreaseCurrentValue(50);
+        _Player.ResistanceMagical.AddModifier(10);
+
+    }
+    public void EnableBlessingOfTheNature()
+    {
+        _Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        _Player.CooldownReduction.AddModifier(-0.25f); 
+        _Player.PowerMagical.AddModifier(25);
+        _Player.Mana.AddModifier(10);
+
+    }
+    public void EnableBearSkin()
+    {
+        _Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        _Player.Health.AddModifier(_Player.Health.GetBaseValue() * 0.5f);
+        _Player.Health.IncreaseCurrentValue(_Player.Health.GetBaseValue() * 0.5f);
+        _Player.ResistancePhysical.AddModifier(10);
+    }
+    public void EnableBerserkerBlood()
+    {
+        _Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        _Player.LifeSteal.AddModifier(25);
+    }
+    public void EnableBerserkFury()
+    {
+        _Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        _Player.AttackSpeed.AddModifier(-0.25f);
+    }
+    public void EnableValkyrieArmor()
+    {
+        _Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        _Player.IncreaseArmorStack(2);
+    }
+    public void EnableFleetFoot()
+    {
+        _Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        _Player.MovementSpeed.AddModifier(2);
     }
     #endregion
 }

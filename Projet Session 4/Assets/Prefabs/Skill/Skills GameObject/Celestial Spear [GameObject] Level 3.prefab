@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5764240040909866408
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 96600474902823681, guid: 1e1dca4f93fbbbd4c9a93af8a28cdd75,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 96600474902823681, guid: 1e1dca4f93fbbbd4c9a93af8a28cdd75,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 96600474902823681, guid: 1e1dca4f93fbbbd4c9a93af8a28cdd75,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 96600474902823681, guid: 1e1dca4f93fbbbd4c9a93af8a28cdd75,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 96600474902823681, guid: 1e1dca4f93fbbbd4c9a93af8a28cdd75,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 96600474902823681, guid: 1e1dca4f93fbbbd4c9a93af8a28cdd75,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 96600474902823681, guid: 1e1dca4f93fbbbd4c9a93af8a28cdd75,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 96600474902823681, guid: 1e1dca4f93fbbbd4c9a93af8a28cdd75,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 96600474902823681, guid: 1e1dca4f93fbbbd4c9a93af8a28cdd75,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 96600474902823681, guid: 1e1dca4f93fbbbd4c9a93af8a28cdd75,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 96600474902823681, guid: 1e1dca4f93fbbbd4c9a93af8a28cdd75,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2254620459299065335, guid: 1e1dca4f93fbbbd4c9a93af8a28cdd75,
+        type: 3}
+      propertyPath: baseDamage
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480329666180901001, guid: 1e1dca4f93fbbbd4c9a93af8a28cdd75,
+        type: 3}
+      propertyPath: explosioRadius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969555815728644695, guid: 1e1dca4f93fbbbd4c9a93af8a28cdd75,
+        type: 3}
+      propertyPath: m_Name
+      value: Celestial Spear [GameObject] Level 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e1dca4f93fbbbd4c9a93af8a28cdd75, type: 3}
