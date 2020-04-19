@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6587208791942594680}
   - component: {fileID: 2600948194148605387}
   - component: {fileID: 3787666843672274818}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: '[AreaOfEffect]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3843222674568117601}
   - component: {fileID: 6480329666180901001}
   - component: {fileID: 3450894116633401768}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Celestial Spear [GameObject] Level 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

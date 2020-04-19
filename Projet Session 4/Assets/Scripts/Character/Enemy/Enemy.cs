@@ -14,7 +14,6 @@ public class Enemy : Actor
 
     #region Combat Properties
     [Header("Combat properties")]
-    public TypeOfTarget typeOfTarget = 0;
     [SerializeField] private float detectionRadius = 15f;
     public float attackRangeDetection;
     public float walkBackRangeDetection;
@@ -25,6 +24,7 @@ public class Enemy : Actor
     [Header("OnDeath")]
     public int ExperienceReward;
     public GameObject ChestReward;
+    public GameObject moneyText = null;
     #endregion
 
     #region Others
@@ -49,7 +49,7 @@ public class Enemy : Actor
         navMeshAgent = GetComponent<NavMeshAgent>();
         destination = navMeshAgent.destination;
         navMeshAgent.stoppingDistance = attackRangeDetection;
-        target = GameObject.Find("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         transform.parent = null;
         if(gameObject.tag != "Ally")
         {
@@ -67,15 +67,15 @@ public class Enemy : Actor
             img_Barrier.fillAmount = Barrier.GetCurrentValue() / Health.GetBaseValue();
         }
         if (target == null) return;
-        if (Vector3.Distance(target.transform.position, transform.position) <= attackRangeDetection && Vector3.Distance(target.transform.position, transform.position) > walkBackRangeDetection && TargetDetection())
+        if (Vector3.Distance(target.transform.position, transform.position) <= attackRangeDetection && Vector3.Distance(target.transform.position, transform.position) > walkBackRangeDetection )
         {
             RaycastHit hitray;
 
-            Rotation();
+                Rotation();
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hitray, 1000) && CanAttack)
             {
-                if(hitray.collider.tag == typeOfTarget.ToString())
-                UseBasicAttack(target);
+                if(hitray.collider.tag == "Player")
+                 UseBasicAttack(target);
                 Debug.DrawLine(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.yellow);
             }
             
@@ -84,12 +84,12 @@ public class Enemy : Actor
         else
         {
             if(TargetDetection())
-            {
-            Rotation();
-            }
+                Rotation();
+            
 
-            if(CanMove)
-            Movement();
+
+            if (CanMove)
+             Movement();
 
             if (DashCooldown.IsFinish())
             {
@@ -113,12 +113,12 @@ public class Enemy : Actor
     }
     private bool TargetDetection()
     {
-        Vector3 direction = target.transform.position - transform.position;
+        Vector3 vecDirection = target.transform.position - transform.position;
         RaycastHit hit;
         int layerMask = 1 << 13;
         layerMask = ~layerMask;
 
-        if (Physics.Raycast(transform.position, direction, out hit, 1000,layerMask))
+        if (Physics.Raycast(transform.position, vecDirection, out hit, 1000,layerMask))
         {
 
 
@@ -161,6 +161,9 @@ public class Enemy : Actor
             {
                 target.GetComponent<Player>().IncreaseExperience(ExperienceReward);
                 target.GetComponent<Player>().IncreaseGold(Random.Range(Gold,Gold*2));
+               GameObject canvas = Instantiate(moneyText, transform.position + new Vector3(0, 1.5f, 0), transform.rotation);
+                canvas.GetComponentInChildren<Text>().text = "+ " +Gold.ToString() + "G";
+                canvas.transform.SetParent(null);
             }
             GameManager.NumberOfEnemy--;
             if (isABoss)

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 651564370621487016}
   - component: {fileID: 4465159851121524039}
   - component: {fileID: 3388345574678939083}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: ShieldWall [GameObject]
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c16b0e46ce274b24c8a2b28603bf208a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

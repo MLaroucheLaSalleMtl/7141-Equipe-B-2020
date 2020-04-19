@@ -16,6 +16,7 @@ public class PassivePlacement : MonoBehaviour
     [SerializeField] private GameObject infoPanel = null;
     [SerializeField] private GameObject lockIcon = null;
     [SerializeField] private GameObject skillIcon = null;
+    [SerializeField] private GameObject levelIcons = null;
     [SerializeField] private Text skillLevelRequire = null;
 
 
@@ -53,7 +54,6 @@ public class PassivePlacement : MonoBehaviour
             lockIcon.SetActive(true);
             skillIcon.SetActive(false);
         }
-
     }
 
 
@@ -75,8 +75,7 @@ public class PassivePlacement : MonoBehaviour
         _skill.LearnSkill();
         ActivatePassiveOnUse.Invoke();
         _Player.SkillPoints--;
-        
-
+        levelIcons.SetActive(true);
         infoPanel.GetComponent<InfoBox>().UpdateInfoBox();
     }
 

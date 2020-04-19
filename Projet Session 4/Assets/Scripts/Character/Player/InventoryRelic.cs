@@ -19,6 +19,8 @@ public class InventoryRelic : MonoBehaviour
 
     [Header("Odin")]
     public Cooldown odinBlessingCD = null;
+    public GameObject iconOdin = null;
+
     [Header("Loki")]
     public Cooldown lokiBlessingCD = null;
     private bool lokiDamageReady = false;
@@ -62,6 +64,8 @@ public class InventoryRelic : MonoBehaviour
                     {
                         OdinBlessing();
                         divinityDescription.text = relics[0]._description;
+                        iconOdin.SetActive(true);
+
                     }
 
                 } break;
@@ -120,6 +124,11 @@ public class InventoryRelic : MonoBehaviour
                 {
                     relic.isActive = false;
                     relic.activeVisual.SetActive(false);
+
+                    if(relic._name == "Odin")
+                    {
+                        iconOdin.SetActive(false);
+                    }
 
                     if (relic._name == "Loki")
                     {

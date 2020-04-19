@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 2486418574923821488, guid: 142430d60eb718f4799ba80c664b5fe7,
         type: 3}
       propertyPath: numberOfTickBeforeDirty
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2486418574923821488, guid: 142430d60eb718f4799ba80c664b5fe7,
         type: 3}
@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 7755379934522082040, guid: 142430d60eb718f4799ba80c664b5fe7,
         type: 3}
       propertyPath: piercingNumber
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7755379934522082040, guid: 142430d60eb718f4799ba80c664b5fe7,
         type: 3}

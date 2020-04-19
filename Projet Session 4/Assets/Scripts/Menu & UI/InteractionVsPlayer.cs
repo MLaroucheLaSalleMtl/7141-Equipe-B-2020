@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class InteractionVsPlayer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class InteractionVsPlayer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
     Actor _Actor;
 
@@ -15,7 +15,6 @@ public class InteractionVsPlayer : MonoBehaviour, IPointerEnterHandler, IPointer
     public void OnPointerEnter(PointerEventData eventData)
     {
         _Actor.CanAttack = false;
-
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -24,9 +23,20 @@ public class InteractionVsPlayer : MonoBehaviour, IPointerEnterHandler, IPointer
 
     }
 
+    void OnDisable()
+    {
+        _Actor.CanAttack = true;
+    }
+
     void OnDestroy()
     {
         _Actor.CanAttack = true;
+
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        _Actor.CanAttack = false;
 
     }
 }

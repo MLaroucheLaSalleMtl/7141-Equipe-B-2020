@@ -31,6 +31,7 @@ public class SkillComponant : MonoBehaviour
     void Start()
     {
         caster = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        cooldown.AddModifier(-(1 - caster.CooldownReduction.GetBaseValue()) * cooldown.GetBaseValue());
         InventorySkill skillInventory = caster.GetComponent<InventorySkill>();
         skill = skillInventory.GetASkill(nameOfTheSkill);
         InvokeRepeating("UpdateMana", 0, 0.1f);

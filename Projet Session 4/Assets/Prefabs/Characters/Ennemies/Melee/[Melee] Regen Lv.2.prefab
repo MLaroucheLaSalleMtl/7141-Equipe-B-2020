@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1596108641983030817
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: health.baseValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: health.canRecover
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: attackSpeed.baseValue
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: movementSpeed.baseValue
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: gold
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: basicAttack
+      value: 
+      objectReference: {fileID: 9201750389463428609, guid: db94a775042e2d2488891c0a0c30dca9,
+        type: 3}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: ExperienceReward
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 995319867226609099, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: m_Text
+      value: Regener
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.5490456
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.667493
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553033267133059179, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: m_Name
+      value: '[Melee] Regen Lv.2'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e6e4dd68f8157d46bc9e41e172b0801, type: 3}

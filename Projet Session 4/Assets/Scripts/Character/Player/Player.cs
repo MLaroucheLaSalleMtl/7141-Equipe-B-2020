@@ -23,9 +23,10 @@ public class Player : Actor
     private float experienceMaximum = 100f;
     private float experienceRatio = 1f;
     private float leveldifference = 1.15f;
-    [SerializeField] private GameObject LevelUpOnPlayer = null;
-    [SerializeField] private GameObject CharacteristicPointsScreen = null;
-    [SerializeField] private GameObject SkillPointsScreen = null;
+    [SerializeField] private ParticleSystem particle = null;
+    //[SerializeField] private GameObject LevelUpOnPlayer = null;
+    [SerializeField] private GameObject LevelUpPop = null;
+
 
     public int LevelCurrent { get => levelCurrent; set => levelCurrent = value; }
     public int CharacteristicsPoints { get => characteristicsPoints; set => characteristicsPoints = value; }
@@ -69,20 +70,16 @@ public class Player : Actor
     {
         base.Update();
 
-        if (skillPoints > 0)
-            SkillPointsScreen.SetActive(true);
-        else
-            SkillPointsScreen.SetActive(false);
-
-        if (characteristicsPoints > 0)
-            CharacteristicPointsScreen.SetActive(true);
-        else
-            CharacteristicPointsScreen.SetActive(false);
-
         if (skillPoints > 0 || characteristicsPoints > 0)
-            LevelUpOnPlayer.SetActive(true);
+        {
+            LevelUpPop.SetActive(true);
+           // LevelUpOnPlayer.SetActive(true);
+        }
         else
-            LevelUpOnPlayer.SetActive(false);
+        {
+            LevelUpPop.SetActive(false);
+            //LevelUpOnPlayer.SetActive(false);
+        }
 
 
 
@@ -109,16 +106,16 @@ public class Player : Actor
         {
             if(power.GetBaseValue() != 0)
             {
-                PowerPhysical.RemoveModifier(2.5f * power.GetBaseValue());
-                Health.recoveryValue.RemoveModifier(0.05f * power.GetBaseValue());
+                PowerPhysical.RemoveModifier(1.5f * power.GetBaseValue());
+                Health.recoveryValue.RemoveModifier(0.01f * power.GetBaseValue());
                 CriticalDamage.RemoveModifier(0.05f * power.GetBaseValue());
                 MovementSpeed.RemoveModifier(0.05f * power.GetBaseValue());
             }
             characteristicsPoints--;
             power.AddModifier(1);
 
-            PowerPhysical.AddModifier(2.5f * power.GetBaseValue());
-            Health.recoveryValue.AddModifier(0.05f * power.GetBaseValue());
+            PowerPhysical.AddModifier(1.5f * power.GetBaseValue());
+            Health.recoveryValue.AddModifier(0.01f * power.GetBaseValue());
             CriticalDamage.AddModifier(0.05f * power.GetBaseValue());
             MovementSpeed.AddModifier(0.05f * power.GetBaseValue());
         }
@@ -130,10 +127,10 @@ public class Player : Actor
         {
             if (vigilance.GetBaseValue() != 0)
             {
-                AttackSpeed.RemoveModifier(-0.005f * vigilance.GetBaseValue());
+                AttackSpeed.RemoveModifier(-0.01f * vigilance.GetBaseValue());
                 Evasion.RemoveModifier(1f * vigilance.GetBaseValue());
                 CriticalChance.RemoveModifier(0.5f * vigilance.GetBaseValue());
-                Dash.recoveryValue.RemoveModifier(0.05f * vigilance.GetBaseValue());
+                Dash.recoveryValue.RemoveModifier(0.01f * vigilance.GetBaseValue());
 
             }
             characteristicsPoints--;
@@ -141,10 +138,10 @@ public class Player : Actor
 
 
 
-            AttackSpeed.AddModifier(-0.005f * vigilance.GetBaseValue());
+            AttackSpeed.AddModifier(-0.01f * vigilance.GetBaseValue());
             Evasion.AddModifier(1f * vigilance.GetBaseValue());
             CriticalChance.AddModifier(0.5f * vigilance.GetBaseValue());
-            Dash.recoveryValue.AddModifier(0.05f * vigilance.GetBaseValue());
+            Dash.recoveryValue.AddModifier(0.01f * vigilance.GetBaseValue());
         }
     }
     public void IncreaseMind()
@@ -154,7 +151,7 @@ public class Player : Actor
         {
             if (mind.GetBaseValue() != 0)
             {
-                PowerMagical.RemoveModifier(5 * mind.GetBaseValue());
+                PowerMagical.RemoveModifier(1.5f * mind.GetBaseValue());
                 Barrier.RemoveModifier(10f * mind.GetBaseValue());
                 DamagePenetration.RemoveModifier(1f * mind.GetBaseValue());
                 Mana.RemoveModifier(5f * mind.GetBaseValue());
@@ -164,7 +161,7 @@ public class Player : Actor
             mind.AddModifier(1);
 
 
-            PowerMagical.AddModifier(5 * mind.GetBaseValue());
+            PowerMagical.AddModifier(1.5f * mind.GetBaseValue());
             Barrier.AddModifier(10f * mind.GetBaseValue());
             DamagePenetration.AddModifier(1f * mind.GetBaseValue());
             Mana.AddModifier(5f * mind.GetBaseValue());
@@ -177,7 +174,7 @@ public class Player : Actor
         {
             if (resilience.GetBaseValue() != 0)
             {
-                PowerThorn.RemoveModifier(5f * resilience.GetBaseValue());
+                PowerThorn.RemoveModifier(0.5f * resilience.GetBaseValue());
                 ResistancePhysical.RemoveModifier(0.5f * resilience.GetBaseValue());
                 Health.RemoveModifier(5f * resilience.GetBaseValue());
                 ResistanceDamage.RemoveModifier(0.2f * resilience.GetBaseValue());
@@ -187,7 +184,7 @@ public class Player : Actor
             resilience.AddModifier(1);
 
 
-            PowerThorn.AddModifier(5f * resilience.GetBaseValue());
+            PowerThorn.AddModifier(0.5f * resilience.GetBaseValue());
             ResistancePhysical.AddModifier(0.5f * resilience.GetBaseValue());
             Health.AddModifier(5f * resilience.GetBaseValue());
             ResistanceDamage.AddModifier(0.2f * resilience.GetBaseValue());
@@ -201,9 +198,9 @@ public class Player : Actor
             if (willPower.GetBaseValue() != 0)
             {
                 CooldownReduction.RemoveModifier(-0.01f * willPower.GetBaseValue());
-                ResistanceMagical.RemoveModifier(1f * willPower.GetBaseValue());
-                Mana.recoveryValue.RemoveModifier(0.05f * willPower.GetBaseValue());
-                LifeSteal.RemoveModifier(0.05f * willPower.GetBaseValue());
+                ResistanceMagical.RemoveModifier(0.5f * willPower.GetBaseValue());
+                Mana.recoveryValue.RemoveModifier(0.01f * willPower.GetBaseValue());
+                LifeSteal.RemoveModifier(0.1f * willPower.GetBaseValue());
 
             }
             characteristicsPoints--;
@@ -211,9 +208,9 @@ public class Player : Actor
 
 
             CooldownReduction.AddModifier(-0.01f * willPower.GetBaseValue());
-            ResistanceMagical.AddModifier(1f * willPower.GetBaseValue());
-            Mana.recoveryValue.AddModifier(0.05f * willPower.GetBaseValue());
-            LifeSteal.AddModifier(0.05f * willPower.GetBaseValue());
+            ResistanceMagical.AddModifier(0.5f * willPower.GetBaseValue());
+            Mana.recoveryValue.AddModifier(0.01f * willPower.GetBaseValue());
+            LifeSteal.AddModifier(0.1f * willPower.GetBaseValue());
         }
     }
     #endregion
@@ -221,6 +218,7 @@ public class Player : Actor
     #region Level & Experience
     public void LevelUp()
     {
+        particle.Play();
         skillPoints++;
         characteristicsPoints += 3;
         levelCurrent++;
@@ -245,7 +243,6 @@ public class Player : Actor
 
         if (context.started && CanAttack == true)
         {
-                StartCoroutine(AttackRootEffect(0.15f));
             UseBasicAttack();        
         }
     }

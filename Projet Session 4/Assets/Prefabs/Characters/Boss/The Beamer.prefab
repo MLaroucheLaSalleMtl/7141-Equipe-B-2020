@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4862378722044784797}
   - component: {fileID: 5087877662102805635}
   - component: {fileID: 2985761359820224023}
+  - component: {fileID: 7695941352727361552}
   m_Layer: 9
   m_Name: The Beamer
   m_TagString: Enemy
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 59ad009d8b24c3b408901c450a3f5e29, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -177,7 +178,7 @@ MonoBehaviour:
     baseValue: 1
   buffEnhancement:
     baseValue: 1
-  gold: 0
+  gold: 100
   useDash: 0
   dashSpeedRatio:
     baseValue: 0
@@ -200,7 +201,9 @@ MonoBehaviour:
   attackRangeDetection: 4
   walkBackRangeDetection: 0
   ExperienceReward: 1000
-  ChestReward: {fileID: 3125331563489428209, guid: ae397431aa8a43f479bc1650d7463498,
+  ChestReward: {fileID: 1525757553292882559, guid: c4d9bd203540b6644950e05c8c2b6b33,
+    type: 3}
+  moneyText: {fileID: 1704037874003482379, guid: 100a59a1e8417ff49957702440ab6838,
     type: 3}
 --- !u!114 &4862378722044784797
 MonoBehaviour:
@@ -343,3 +346,16 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7695941352727361552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4862378722044784796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1a1ab753a847c478efd65b4a7512a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newMusic: {fileID: 8300000, guid: 97147ca3cc2993d43a66c1d91ee1ea0d, type: 3}

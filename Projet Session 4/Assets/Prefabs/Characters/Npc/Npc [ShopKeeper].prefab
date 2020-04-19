@@ -402,7 +402,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8bbad96bd51147149b25d3f118c5a7ab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -466,13 +466,13 @@ MonoBehaviour:
     name: Shop Keeper
     image: {fileID: 21300000, guid: bc307180b499f1448aaa6a571f85c3bf, type: 3}
     texts:
-    - Welcome to my shop stranger, if you wanna reroll something, the cost is 30
-      golds.
+    - Welcome to my shop stranger, if you want something good you'll have to pay!
+    - Also, if you wanna reroll something, the cost is 30 gold.
     nameText: {fileID: 5517920737560063981}
   npcOptions: {fileID: 4769450278515751685}
   interactionSprite: {fileID: 8795656704906332606}
   inventory: {fileID: 0}
-  rerollCost: 30
+  rerollCost: 60
   rerollCostText: {fileID: 1378532401397642537}
 --- !u!1 &4769450278515751685
 GameObject:

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Relic 
@@ -13,7 +14,9 @@ public class Relic
     public bool isLocked = true;
     public GameObject activeVisual = null;
     public bool isActive = false;
-
+    public Sprite icon = null;
+    [TextArea(2, 10)]
+    public string discoveryDescription = null;
 
     public Relic(string _name)
     {

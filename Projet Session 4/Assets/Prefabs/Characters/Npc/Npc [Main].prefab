@@ -254,7 +254,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8bbad96bd51147149b25d3f118c5a7ab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -305,14 +305,24 @@ MonoBehaviour:
     name: Master
     image: {fileID: 21300000, guid: bc307180b499f1448aaa6a571f85c3bf, type: 3}
     texts:
-    - Welcome back warrior, ready to face the corruption ?
-    - But first let me teach you the basic !
+    - Welcome warrior, ready to face corruption?
+    - But first let me teach you the basics!
     - You can use ASDW to move your character around.
     - Use your left mouse button to attack.
-    - You can press space to dodge.
-    - If you find an item use the button Q to use the item.
-    - The button E is to interact with object around you.
-    - 'Error... '
+    - If you find an item, press the Q key to use the item.
+    - The E key is to interact with objects around you.
+    - The C key is to access the SkillTree and Characteristic menu where you can
+      spend points to improve yourself.
+    - To earn points you have to fight your enemies and gain xp.
+    - When you will get stronger, you will gain access to strange power that this
+      place offers you.
+    - These will be your skills, to use them press the keys 1, 2, 3 or 4.
+    - You cannot have more than 4 skills...
+    - but the button reset in your character profile(C) gives you the chance to rechoose
+      the skills you like the most.
+    - Now that you know the basics, I think you are ready to go into the fog!
+    - Watchout! A lot of warriors tried to escape this strange place without success
+      and a lot more will try after you...
     nameText: {fileID: 2971321713239041199}
   npcOptions: {fileID: 4769450278515751685}
   interactionSprite: {fileID: 1128177891532746175}

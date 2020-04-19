@@ -80,6 +80,7 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private Image img_XpBarSkill = null;
     [SerializeField] private GameObject dashUI = null;
 
+
     void Start()
     {
         Time.timeScale = 1;
@@ -164,7 +165,7 @@ public class UI_Manager : MonoBehaviour
         //Skills
         txt_LevelSkill.text = "Level : " + _Player.LevelCurrent.ToString();
         img_XpBarSkill.fillAmount = _Player.ExperienceCurrent / _Player.ExperienceMaximum;
-        txt_SkillPointsNumber.text = "SkillPoints: " + _Player.SkillPoints.ToString();
+        txt_SkillPointsNumber.text = _Player.SkillPoints.ToString();
         dashUI.SetActive(true);
     }
 
@@ -251,6 +252,14 @@ public class UI_Manager : MonoBehaviour
         SceneManager.LoadScene(level);
     }
 
+    public void OpenStatsPanel(GameObject panel)
+    {
+        panel.SetActive(true);
+    }
 
+    public void CloseStatsPanel(GameObject panel)
+    {
+        panel.SetActive(false);
+    }
     #endregion
 }

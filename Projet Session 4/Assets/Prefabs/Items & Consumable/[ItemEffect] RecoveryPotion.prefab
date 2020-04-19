@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healingAmount:
-  - 20
+  - 100
   manaAmount:
-  - 20
+  - 100
   barrierAmount:
-  - 20
+  - 100
+  magicalRatio: 0
 --- !u!1001 &6646148367128712732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -149,7 +150,7 @@ PrefabInstance:
     - target: {fileID: 8853441840570973032, guid: b486c8b2974341f4da027fa80d036bd2,
         type: 3}
       propertyPath: cooldown.baseValue
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8853441840570973032, guid: b486c8b2974341f4da027fa80d036bd2,
         type: 3}
@@ -165,7 +166,7 @@ PrefabInstance:
         type: 3}
       propertyPath: consumable
       value: 
-      objectReference: {fileID: 6928837098258666338, guid: 4272b8c0ce47da645874abfdef6e47af,
+      objectReference: {fileID: 1908719911342635792, guid: 5fc73fd03230e914390829ef7aa9ee11,
         type: 3}
     - target: {fileID: 8853441840570973032, guid: b486c8b2974341f4da027fa80d036bd2,
         type: 3}

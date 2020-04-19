@@ -7,9 +7,9 @@ using UnityEditor;
 public class ProceduralGenerationManager : MonoBehaviour
 {
     #region Variables & Initialization 
-    [SerializeField] private int numberOfVillagePrefab = 0;
-    [SerializeField] private int numberOfForestPrefab = 0;
-    [SerializeField] private int numberOfPlainPrefab = 0;
+  //  [SerializeField] private int numberOfVillagePrefab = 0;
+  //  [SerializeField] private int numberOfForestPrefab = 0;
+  //  [SerializeField] private int numberOfPlainPrefab = 0;
     [SerializeField] private List<GameObject> waypoints = new List<GameObject>();
     private Actor actorManager;
 
@@ -97,18 +97,18 @@ public class ProceduralGenerationManager : MonoBehaviour
 
             if (i < 24)
             {
-                AssignRoomTypes(i,x, Random.Range(0,numberOfVillagePrefab), villageRoomsType);
+                AssignRoomTypes(i,x, Random.Range(0,2), villageRoomsType);
             }
             else if (i >= 24 && i < 80)
             {
                 if(x == 24 && i == 24) { x = 0; }
-                AssignRoomTypes(i,x,numberOfForestPrefab + numberOfVillagePrefab -1, forestRoomsType);
+                AssignRoomTypes(i,x, Random.Range(2, 4), forestRoomsType);
 
             }
             else if (i > 79)
             {
                 if (x >= 55 && i == 80) { x = 0; }
-                AssignRoomTypes(i, x, numberOfForestPrefab + numberOfVillagePrefab + numberOfPlainPrefab -1, plainRoomsType);
+                AssignRoomTypes(i, x, Random.Range(4, 6), plainRoomsType);
             }
             x++;
         }

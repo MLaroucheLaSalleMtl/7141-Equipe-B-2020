@@ -42,6 +42,11 @@ PrefabInstance:
       propertyPath: movementSpeed.baseValue
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 995319867226609099, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: m_Text
+      value: Rusher
+      objectReference: {fileID: 0}
     - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
         type: 3}
       propertyPath: m_LocalPosition.x

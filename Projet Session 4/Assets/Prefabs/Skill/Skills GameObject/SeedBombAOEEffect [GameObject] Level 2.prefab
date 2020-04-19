@@ -15,13 +15,18 @@ PrefabInstance:
     - target: {fileID: 3309218105499097796, guid: 61f650e63943f2a4f88bf7b491d717e1,
         type: 3}
       propertyPath: baseDamage
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5399235527094855538, guid: 61f650e63943f2a4f88bf7b491d717e1,
         type: 3}
       propertyPath: expirationTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5681492471278285494, guid: 61f650e63943f2a4f88bf7b491d717e1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d4362df63d3ddc64cb9189ca9865b201, type: 2}
     - target: {fileID: 7877643907588590387, guid: 61f650e63943f2a4f88bf7b491d717e1,
         type: 3}
       propertyPath: m_LocalPosition.x

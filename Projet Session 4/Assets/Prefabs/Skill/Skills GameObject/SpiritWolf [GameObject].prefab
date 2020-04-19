@@ -131,7 +131,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 49f24c0e20530e94288d5387208078b4, type: 2}
+  - {fileID: 2100000, guid: 247199dfb95f761419c027be316f7c89, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 8586331382396643379}
   - component: {fileID: 1686266475467510864}
   - component: {fileID: 5936525421089055554}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SpiritWolf [GameObject]
   m_TagString: Ally
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 247199dfb95f761419c027be316f7c89, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -704,8 +704,8 @@ MonoBehaviour:
   isABoss: 0
   typeOfTarget: 1
   detectionRadius: 50
-  attackRangeDetection: 2.5
-  walkBackRangeDetection: 1.5
+  attackRangeDetection: 3.5
+  walkBackRangeDetection: 2
 --- !u!1 &4694276579855162555
 GameObject:
   m_ObjectHideFlags: 0

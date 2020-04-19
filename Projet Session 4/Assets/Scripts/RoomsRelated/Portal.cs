@@ -12,7 +12,7 @@ public class Portal : MonoBehaviour
         if (other.tag == "Player")
         {
             if (exit != null)
-                other.gameObject.transform.position = exit.transform.localPosition + new Vector3(0, -1, 2);
+                other.gameObject.transform.position = exit.transform.position + new Vector3(0, -1, 2);
         }
     }
 

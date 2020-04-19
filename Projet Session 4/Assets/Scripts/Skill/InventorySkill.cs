@@ -38,7 +38,6 @@ public class InventorySkill : MonoBehaviour
     {
         _Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
-        Debug.Log(_Player);
         _Player.Dash.AddModifier(3);
         _Player.Dash.IncreaseCurrentValue(3);
         _Player.canDash = true;
@@ -67,14 +66,14 @@ public class InventorySkill : MonoBehaviour
     public void EnableBearSkin()
     {
         _Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        _Player.Health.AddModifier(_Player.Health.GetBaseValue() * 0.5f);
-        _Player.Health.IncreaseCurrentValue(_Player.Health.GetBaseValue() * 0.5f);
+        _Player.Health.AddModifier(25);
+        _Player.Health.IncreaseCurrentValue(25);
         _Player.ResistancePhysical.AddModifier(10);
     }
     public void EnableBerserkerBlood()
     {
         _Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        _Player.LifeSteal.AddModifier(25);
+        _Player.LifeSteal.AddModifier(10);
     }
     public void EnableBerserkFury()
     {
@@ -90,6 +89,7 @@ public class InventorySkill : MonoBehaviour
     {
         _Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         _Player.MovementSpeed.AddModifier(2);
+        _Player.Evasion.AddModifier(10);
     }
     #endregion
 }

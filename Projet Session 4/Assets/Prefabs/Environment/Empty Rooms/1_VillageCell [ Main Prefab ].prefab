@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 270573274802702675}
   - component: {fileID: 4725013469228369885}
   - component: {fileID: 6423267548827145067}
-  - component: {fileID: 5396086457871024160}
+  - component: {fileID: 8580109719945348694}
   m_Layer: 0
   m_Name: MusicActivator
   m_TagString: Untagged
@@ -94,7 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: -0.00000047683716}
---- !u!114 &5396086457871024160
+--- !u!114 &8580109719945348694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,7 +169,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8bbad96bd51147149b25d3f118c5a7ab, type: 2}
+  - {fileID: 2100000, guid: f0931b1edbe492a46892cd229cec0acf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -224,6 +224,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6631756273346259006}
     m_Modifications:
+    - target: {fileID: 1610114716532128480, guid: eb71965066e23464388ad7299f7e77b5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3504454814931321661, guid: eb71965066e23464388ad7299f7e77b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -279,6 +284,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6070221310915388106, guid: eb71965066e23464388ad7299f7e77b5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 247199dfb95f761419c027be316f7c89, type: 2}
     - target: {fileID: 7284373586121823814, guid: eb71965066e23464388ad7299f7e77b5,
         type: 3}
       propertyPath: m_Name

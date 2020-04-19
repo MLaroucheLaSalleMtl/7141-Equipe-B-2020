@@ -7,20 +7,65 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: health.baseValue
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: resistancePhysical.baseValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: armorStack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: powerThorn.baseValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: movementSpeed.baseValue
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: rotationSpeed.baseValue
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: gold
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 853945277429990490, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: ExperienceReward
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 995319867226609099, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
+        type: 3}
+      propertyPath: m_Text
+      value: Thorner
+      objectReference: {fileID: 0}
     - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.3919392
       objectReference: {fileID: 0}
     - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -7.4742413
       objectReference: {fileID: 0}
     - target: {fileID: 8553033267133059171, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
         type: 3}
@@ -65,7 +110,7 @@ PrefabInstance:
     - target: {fileID: 8553033267133059179, guid: 1e6e4dd68f8157d46bc9e41e172b0801,
         type: 3}
       propertyPath: m_Name
-      value: Melee Enemy
+      value: '[Melee] Thorn'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e6e4dd68f8157d46bc9e41e172b0801, type: 3}

@@ -33,7 +33,7 @@ public class BossBehaviour_Shooter : Boss
         }
         if (cooldownTeleport.IsFinish())
         {
-            transform.position = new Vector3(Random.Range(-range, range), origin.y, Random.Range(-range, range));
+            transform.position = new Vector3(origin.x + Random.Range(-range, range), origin.y, origin.z + Random.Range(-range, range));
             cooldownTeleport.ResetCountdown();
         }
 
@@ -43,7 +43,7 @@ public class BossBehaviour_Shooter : Boss
             cooldownTeleport.AddModifier(-4);
             actor.Barrier.AddModifier(750);
             actor.Barrier.IncreaseCurrentValue(750);
-            transform.position = new Vector3(Random.Range(-range, range), origin.y, Random.Range(-range, range));
+            transform.position = new Vector3(origin.x + Random.Range(-range, range), origin.y, origin.z + Random.Range(-range, range));
             cooldownTeleport.ResetCountdown();
         }
 

@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class ResetAllSkills : MonoBehaviour
 {
-    private InventorySkill skill = null;
+    private InventorySkill inventorySkill = null;
     private Player player = null;
     public bool resetON = false;
     [SerializeField] private GameObject[] skillUI = null;
-    //[SerializeField] private SkillPlacement[] SkillTreeIcon = null;
+    [SerializeField] private SkillPlacement[] skillTreeIcon = null;
+    private bool firstReset = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        skill = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySkill>();
+        inventorySkill = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySkill>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
@@ -25,7 +26,7 @@ public class ResetAllSkills : MonoBehaviour
 
     public void ResetSkills()
     {
-        foreach (skill skills in skill.skillsBook)
+        foreach (skill skills in inventorySkill.skillsBook)
         {
             if (skills.maxUpgrade == 0)
             {
@@ -47,19 +48,26 @@ public class ResetAllSkills : MonoBehaviour
                 skills.Learned = false;
                 skills.CurrentUpgrade = 0;
             }
+
         }
         foreach (GameObject obj in skillUI)
         {
             obj.GetComponent<RemoveSkill>().SkillRemove();
         }
-        StartCoroutine(Reset());
+
+        foreach (SkillPlacement skillPlacement in skillTreeIcon)
+        {
+            if(!firstReset)
+                skillPlacement.Start();
+            skillPlacement.ResetSkillAndPanel();
+        }
+                firstReset = true;
     }
 
     IEnumerator Reset()
     {
         resetON = true;
-        yield return new WaitForSeconds(0.2f);
-        resetON = false;
+        yield return new WaitForSeconds(0);
     }
 
 }

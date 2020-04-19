@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7755379934522082040}
   - component: {fileID: 9174373832904411755}
   - component: {fileID: 2486418574923821488}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ShieldThrow [GameObject] Level 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c16b0e46ce274b24c8a2b28603bf208a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   caster: {fileID: 0}
   range: 10
   velocity: 15
-  piercingNumber: 1
+  piercingNumber: 2
   spreadRatio: 0
   isHoming: 1
   target: {fileID: 0}
@@ -147,5 +147,5 @@ MonoBehaviour:
   damageRatio: 0.4
   damageType: 0
   typeOfTarget: 1
-  numberOfTickBeforeDirty: 1
+  numberOfTickBeforeDirty: 2
   caster: {fileID: 0}

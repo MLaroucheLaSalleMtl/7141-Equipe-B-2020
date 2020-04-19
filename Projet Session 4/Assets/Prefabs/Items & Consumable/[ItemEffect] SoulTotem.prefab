@@ -141,7 +141,7 @@ PrefabInstance:
         type: 3}
       propertyPath: consumable
       value: 
-      objectReference: {fileID: 8965659446816338764, guid: 06779b9412f90e94486d5c31efb75ca7,
+      objectReference: {fileID: 1908719911342635792, guid: 49ce43f6b22c7c54a9b9b7cbdabaa122,
         type: 3}
     - target: {fileID: 8853441840570973032, guid: b486c8b2974341f4da027fa80d036bd2,
         type: 3}

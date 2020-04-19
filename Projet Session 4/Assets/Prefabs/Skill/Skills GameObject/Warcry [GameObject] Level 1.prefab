@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6847516017957192232}
   - component: {fileID: -7233961439263341552}
   - component: {fileID: 8026312604175780385}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Warcry [GameObject] Level 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d4362df63d3ddc64cb9189ca9865b201, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

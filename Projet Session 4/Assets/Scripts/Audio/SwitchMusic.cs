@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SwitchMusic : MonoBehaviour
 {
-    [SerializeField] private AudioClip newMusic;
-    private AudioManager audioManager;
+    [SerializeField] private AudioClip newMusic = null;
+    private AudioManager audioManager = null;
+
 
     // Start is called before the first frame update
     void Start()

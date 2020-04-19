@@ -61,8 +61,7 @@ public class Wish : MonoBehaviour
 
     public void CreateChest()
     {
-        Instantiate(chest, new Vector3(transform.position.x + 2f,0.8f,transform.position.z), Quaternion.identity);
-        Instantiate(chest, new Vector3(transform.position.x - 2f, 0.8f, transform.position.z), Quaternion.identity);
+        Instantiate(chest, new Vector3(GetComponentInParent<AncientSpirit>().gameObject.transform.position.x,0.5f, GetComponentInParent<AncientSpirit>().gameObject.transform.position.z), Quaternion.identity);
 
         Destroy(GetComponentInParent<AncientSpirit>().gameObject);
     }

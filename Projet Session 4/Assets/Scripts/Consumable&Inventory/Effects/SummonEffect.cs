@@ -6,7 +6,13 @@ public class SummonEffect : MonoBehaviour
 {
     [Header("Summon & Level")]
     public Transform[] ObjectPrefab = null;
+    private Transform positionToDrop = null;
     private int level = 0;
+
+    void Start()
+    {
+        positionToDrop = GameObject.Find("DropPosition").transform;
+    }
 
     public void Summon()
     {
@@ -20,8 +26,7 @@ public class SummonEffect : MonoBehaviour
             level = GetComponent<SkillComponant>().Skill.CurrentUpgrade;
         }
 
-        Vector3 playerPosition = new Vector3(caster.transform.position.x, caster.transform.position.y, caster.transform.position.z);
-        Transform clone = Instantiate(ObjectPrefab[level], playerPosition, caster.transform.rotation);
+        Transform clone = Instantiate(ObjectPrefab[level], positionToDrop.position, caster.transform.rotation);
         if (clone.GetComponent<DamageComponant>() != null)
             clone.GetComponent<DamageComponant>().caster = caster;
 

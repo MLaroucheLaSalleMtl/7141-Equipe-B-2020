@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &742498860895730239
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4560029104617137763, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: m_Name
+      value: '[Melee] Rushing Enemy Lv.3'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560029104617137771, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.345884
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560029104617137771, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560029104617137771, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.282707
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560029104617137771, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560029104617137771, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560029104617137771, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560029104617137771, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560029104617137771, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560029104617137771, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560029104617137771, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560029104617137771, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765884328676913746, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: health.baseValue
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765884328676913746, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: resistancePhysical.baseValue
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765884328676913746, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: armorStack
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765884328676913746, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: evasion.baseValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765884328676913746, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: attackSpeed.baseValue
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765884328676913746, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: rotationSpeed.baseValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765884328676913746, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: gold
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765884328676913746, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: basicAttack
+      value: 
+      objectReference: {fileID: 7969681533025733604, guid: 831b8bddbf9940c4a905e5f3f1d265e2,
+        type: 3}
+    - target: {fileID: 4765884328676913746, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: distanceOfAttack
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765884328676913746, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: attackRangeDetection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765884328676913746, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: ExperienceReward
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911762644900996035, guid: bec3aa4802d53754080e0358cd2ebada,
+        type: 3}
+      propertyPath: m_Text
+      value: Rusher Lv.3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bec3aa4802d53754080e0358cd2ebada, type: 3}

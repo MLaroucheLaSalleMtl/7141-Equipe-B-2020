@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5399235527094855538}
   - component: {fileID: 3403671822849729726}
   - component: {fileID: 3309218105499097796}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SeedBombAOEEffect [GameObject] Level 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d4362df63d3ddc64cb9189ca9865b201, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f3ef1722052a3408231cc479632b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 15
+  baseDamage: 10
   damageRatio: 1.25
   damageType: 1
   typeOfTarget: 1

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SacrificePit : MonoBehaviour
 {
-    public GameObject reward;
+    public GameObject[] reward;
     private float delayBetweenTry = 1f;
     public int rewardChance;
 
@@ -24,7 +24,10 @@ public class SacrificePit : MonoBehaviour
             if(rewardChance > roll)
             {
                 other.GetComponent<Player>().TakeDamage(20, 0, other.GetComponent<Player>().CriticalChance, 0, "True");
-                reward.SetActive(true);
+                foreach (GameObject item in reward)
+                {
+                    item.SetActive(true);
+                }
                 delayBetweenTry = 1f;
             }
             else

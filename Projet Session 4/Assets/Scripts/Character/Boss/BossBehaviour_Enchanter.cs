@@ -14,8 +14,6 @@ public class BossBehaviour_Enchanter : Boss
     [Header("ForceField Mechanics")]
     [SerializeField] private Cooldown cooldownKnockbackSpell = null;
     [SerializeField] private GameObject knockSpell = null;
-    
-
 
     void Start()
     {

@@ -39,11 +39,8 @@ public class InfoBox : MonoBehaviour
 
     public void UpdateReset()
     {
-
         if (!skill.IsLearned())
             skillLevel.text = "Unlearned";
-        else if (isAPassive)
-            skillLevel.text = "Passive Activated ";
         else
             skillLevel.text = "Level : " + (skill.CurrentUpgrade + 1);
         skillDescription.text = skill.GetDescription();

@@ -10,12 +10,14 @@ public class GameManager : MonoBehaviour
     [Header("Altar")]
     [SerializeField] private GameObject altarPortal = null;
     public static int NumberOfActiveAltar = 0;
-    private int NumberOfAltar = 1;
+    private int NumberOfAltar = 3;
     public static bool victory = false;
     public static bool gameOver = false;
     private bool endGame = false;
     ProceduralGenerationManager _PGM;
     UI_Manager _UIM;
+    private AudioManager audioManager = null;
+    [SerializeField] private AudioClip newMusic = null;
     void Awake()
     {
         _PGM = GameObject.Find("ProceduralGeneratorManager").GetComponent<ProceduralGenerationManager>();
@@ -24,7 +26,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        _PGM.GenerateTheDungeon();   
+        _PGM.GenerateTheDungeon();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -60,7 +63,9 @@ public class GameManager : MonoBehaviour
     public void Victory()
     {
         NumberOfEnemy = 0;
+        audioManager.VictoryMusic(newMusic);
         _UIM.PanelToggle(4);
+
     }
 
     public void SummonPortal(GameObject portal)

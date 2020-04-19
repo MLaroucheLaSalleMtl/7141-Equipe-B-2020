@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8510675479772426675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237029853043813852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c872855db4324264485c74deaa13f350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunDuration: 0.75
+  typeOfTarget: 0
+--- !u!1001 &1237029853043811813
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3307286508091862031, guid: dccb7b0627b828449baceaf9a495a5e5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3307286508091862031, guid: dccb7b0627b828449baceaf9a495a5e5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3307286508091862031, guid: dccb7b0627b828449baceaf9a495a5e5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3307286508091862031, guid: dccb7b0627b828449baceaf9a495a5e5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3307286508091862031, guid: dccb7b0627b828449baceaf9a495a5e5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3307286508091862031, guid: dccb7b0627b828449baceaf9a495a5e5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3307286508091862031, guid: dccb7b0627b828449baceaf9a495a5e5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3307286508091862031, guid: dccb7b0627b828449baceaf9a495a5e5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3307286508091862031, guid: dccb7b0627b828449baceaf9a495a5e5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3307286508091862031, guid: dccb7b0627b828449baceaf9a495a5e5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3307286508091862031, guid: dccb7b0627b828449baceaf9a495a5e5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741062844268564752, guid: dccb7b0627b828449baceaf9a495a5e5,
+        type: 3}
+      propertyPath: baseDamage
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969681533025733604, guid: dccb7b0627b828449baceaf9a495a5e5,
+        type: 3}
+      propertyPath: m_Name
+      value: '[Enemy][Melee][Physical] Melee Stun'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dccb7b0627b828449baceaf9a495a5e5, type: 3}
+--- !u!1 &1237029853043813852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7969681533025733604, guid: dccb7b0627b828449baceaf9a495a5e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1237029853043811813}
+  m_PrefabAsset: {fileID: 0}

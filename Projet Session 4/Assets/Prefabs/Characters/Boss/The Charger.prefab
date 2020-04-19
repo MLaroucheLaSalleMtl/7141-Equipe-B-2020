@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4343308935898887611}
   - component: {fileID: 4343308935898887610}
   - component: {fileID: 2714267275213376978}
+  - component: {fileID: 6403773668801262080}
   m_Layer: 9
   m_Name: The Charger
   m_TagString: Enemy
@@ -103,7 +104,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4343308935898887609}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.93, z: 0}
   m_LocalScale: {x: 2, y: 3, z: 2}
   m_Children:
@@ -137,7 +138,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 49f24c0e20530e94288d5387208078b4, type: 2}
+  - {fileID: 2100000, guid: 59ad009d8b24c3b408901c450a3f5e29, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -243,14 +244,14 @@ MonoBehaviour:
   criticalDamage:
     baseValue: 0
   movementSpeed:
-    baseValue: 2
+    baseValue: 3
   rotationSpeed:
     baseValue: 6
   cooldownReduction:
     baseValue: 1
   buffEnhancement:
     baseValue: 1
-  gold: 0
+  gold: 100
   useDash: 0
   dashSpeedRatio:
     baseValue: 0
@@ -270,10 +271,12 @@ MonoBehaviour:
   img_StunMeter: {fileID: 0}
   img_Barrier: {fileID: 0}
   detectionRadius: 30
-  attackRangeDetection: 3
-  walkBackRangeDetection: 2.9
+  attackRangeDetection: 2.5
+  walkBackRangeDetection: 0
   ExperienceReward: 1000
-  ChestReward: {fileID: 3125331563489428209, guid: ae397431aa8a43f479bc1650d7463498,
+  ChestReward: {fileID: 1525757553292882559, guid: c4d9bd203540b6644950e05c8c2b6b33,
+    type: 3}
+  moneyText: {fileID: 1704037874003482379, guid: 100a59a1e8417ff49957702440ab6838,
     type: 3}
 --- !u!114 &4343308935898887610
 MonoBehaviour:
@@ -289,7 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownCharge:
     baseValue: 10
-  distanceCharge: 200
+  distanceCharge: 250
   Warning: {fileID: 4343308936324970849}
   baseProjectile: {fileID: 2897629663414043087, guid: 274b331f97bde514ebe2c16b97d9624b,
     type: 3}
@@ -316,6 +319,19 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6403773668801262080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4343308935898887609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1a1ab753a847c478efd65b4a7512a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newMusic: {fileID: 8300000, guid: 97147ca3cc2993d43a66c1d91ee1ea0d, type: 3}
 --- !u!1 &4343308936324970849
 GameObject:
   m_ObjectHideFlags: 0

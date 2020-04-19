@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4796879469190526229}
   - component: {fileID: 7790470793546846423}
   - component: {fileID: -9165316650760105016}
+  - component: {fileID: 704230052139607759}
   m_Layer: 13
   m_Name: '[Ally][Projectile][Magical] JarOfSpirits'
   m_TagString: Untagged
@@ -111,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 15
   damageRatio: 1
-  damageType: 1
+  damageType: 2
   typeOfTarget: 1
   numberOfTickBeforeDirty: 0
   caster: {fileID: 0}
@@ -131,7 +132,7 @@ MonoBehaviour:
   range: 30
   velocity: 2
   piercingNumber: 0
-  spreadRatio: 3
+  spreadRatio: 2
   isHoming: 1
   target: {fileID: 0}
   typeOfTarget: 1
@@ -164,3 +165,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &704230052139607759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897629663414043087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3de62f98169154479c2ca2de16a15f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growingScale: 0.05
+  growingRate: 0.2
+  notY: 0

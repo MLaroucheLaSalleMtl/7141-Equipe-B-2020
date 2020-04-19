@@ -19,9 +19,12 @@ public class ConsumableQuick : MonoBehaviour
     [SerializeField] private Text nameText = null;
     private float safetyCountdown = 1f;
 
+    private PopupManager popupManager;
 
     void Start()
     {
+        popupManager = GameObject.Find("PopupManager").GetComponent<PopupManager>();
+
         inventoryRelic = GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryRelic>();
         if (locked != false)
         {
@@ -94,6 +97,7 @@ public class ConsumableQuick : MonoBehaviour
             {
                 relic.UnlockTheRelic();
                 relic.lockedVisual.SetActive(false);
+                popupManager.InitializeBox(relic);
                 Destroy(gameObject);
                 break;
             }

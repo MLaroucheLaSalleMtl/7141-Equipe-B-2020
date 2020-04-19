@@ -10,7 +10,7 @@ public class SetBossFight : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,7 +20,9 @@ public class SetBossFight : MonoBehaviour
         {
             if (GameManager.victory) return;
             if (FinalBoss == null)
+            {
                 GameManager.victory = true;
+            }              
         }
     }
 

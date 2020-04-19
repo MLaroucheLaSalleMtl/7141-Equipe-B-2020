@@ -144,12 +144,12 @@ PrefabInstance:
     - target: {fileID: 8853441840570973032, guid: b486c8b2974341f4da027fa80d036bd2,
         type: 3}
       propertyPath: maximumCharges
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8853441840570973032, guid: b486c8b2974341f4da027fa80d036bd2,
         type: 3}
       propertyPath: cooldown.baseValue
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8853441840570973032, guid: b486c8b2974341f4da027fa80d036bd2,
         type: 3}
@@ -180,7 +180,7 @@ PrefabInstance:
         type: 3}
       propertyPath: consumable
       value: 
-      objectReference: {fileID: 1903482228163106605, guid: 2d76ee7488dfdf14e895ac7f2954e2a1,
+      objectReference: {fileID: 1908719911342635792, guid: 055f67c349046114d89afe60d7c36ecb,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b486c8b2974341f4da027fa80d036bd2, type: 3}

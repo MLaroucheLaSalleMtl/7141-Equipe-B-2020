@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4796879469190526229}
   - component: {fileID: 7790470793546846423}
   - component: {fileID: -9165316650760105016}
+  - component: {fileID: 3163955372828145339}
   m_Layer: 0
   m_Name: '[Boss][Projectile][Magical] Swarm Bullet'
   m_TagString: Untagged
@@ -129,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   caster: {fileID: 0}
   range: 27
-  velocity: 4
+  velocity: 7
   piercingNumber: 0
   spreadRatio: 0
   isHoming: 1
@@ -164,3 +165,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &3163955372828145339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897629663414043087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879941febf3f6304aa605311b97059d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

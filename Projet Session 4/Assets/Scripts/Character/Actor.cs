@@ -295,6 +295,7 @@ public class Actor : MonoBehaviour
         if (attackSpeed.IsFinish() && canAttack)
         {
             rig.freezeRotation = true;
+            StartCoroutine(AttackRootEffect(0.15f));
             GameObject clone = Instantiate(basicAttack, transform.position + (transform.forward * distanceOfAttack), transform.rotation);
             clone.GetComponent<DamageComponant>().caster = GetComponent<Actor>();
             attackSpeed.ResetCountdown();
@@ -305,6 +306,7 @@ public class Actor : MonoBehaviour
         if (attackSpeed.IsFinish() && canAttack)
         {
             rig.freezeRotation = true;
+            StartCoroutine(AttackRootEffect(0.15f));
             GameObject clone = Instantiate(basicAttack, transform.position + (transform.forward * distanceOfAttack), transform.rotation);
             clone.GetComponent<DamageComponant>().caster = GetComponent<Actor>();
             if (clone.GetComponent<MissileComponant>() != null)

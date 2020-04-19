@@ -25,7 +25,7 @@ public class ShopInventory : MonoBehaviour
 
         for (int i = 0; i < positions.Length; i++)
         {
-            GameObject clone = Instantiate(consumables[i], positions[i].transform.position, Quaternion.identity, positions[i].transform);
+            GameObject clone = Instantiate(consumables[i], positions[i].transform.position + new Vector3(0, 1, 0), Quaternion.Euler(-90, 0, 0), positions[i].transform);
         }
     }
 

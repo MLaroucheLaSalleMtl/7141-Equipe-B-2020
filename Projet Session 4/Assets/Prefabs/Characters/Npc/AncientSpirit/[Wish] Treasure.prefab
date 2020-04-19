@@ -233,4 +233,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f3c0a6d5a8db964abd93514469fd72d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chest: {fileID: 3125331563489428209, guid: e232da0d351776244837abadaaa22f67, type: 3}
+  chest: {fileID: 1525757553292882559, guid: c4d9bd203540b6644950e05c8c2b6b33, type: 3}

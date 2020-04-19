@@ -383,7 +383,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8bbad96bd51147149b25d3f118c5a7ab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -447,12 +447,12 @@ MonoBehaviour:
     name: The Seer
     image: {fileID: 21300000, guid: bc307180b499f1448aaa6a571f85c3bf, type: 3}
     texts:
-    - Greeting , lost one. I'm the Worshiper of all Gods. Let me tell you something
+    - Greetings, lost one. I'm the Worshipper of all Gods. Let me tell you something
       really important ...
-    - You will find powerful enemies in this cursed world.If you defeat them, they
-      might drop a powerful relic. Those relic can help you defeat the Dark One.
+    - You will find powerful enemies in this cursed world. If you defeat them, they
+      might drop a powerful relic. Those relics can help you defeat the Dark One.
     - Bring the relic to me and i will tell you everything about it.
-    - May the gods be with you.
+    - May the Gods be with you.
     nameText: {fileID: 2971321713239041199}
   npcOptions: {fileID: 4769450278515751685}
   interactionSprite: {fileID: 1128177891532746175}

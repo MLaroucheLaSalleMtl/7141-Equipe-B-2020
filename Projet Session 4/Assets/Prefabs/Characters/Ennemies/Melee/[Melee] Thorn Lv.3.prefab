@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4210272983038101103
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1683812586594177539, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: m_Name
+      value: '[Melee] Thorn Lv.3'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683812586594177547, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.4149578
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683812586594177547, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683812586594177547, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.835821
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683812586594177547, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683812586594177547, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683812586594177547, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683812586594177547, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683812586594177547, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683812586594177547, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683812586594177547, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683812586594177547, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653219284436502066, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: health.baseValue
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653219284436502066, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: barrier.baseValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653219284436502066, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: powerThorn.baseValue
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653219284436502066, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: movementSpeed.baseValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653219284436502066, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: rotationSpeed.baseValue
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653219284436502066, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: gold
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653219284436502066, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: basicAttack
+      value: 
+      objectReference: {fileID: 8979845966355256439, guid: 06ce660beab81b54c93d199e22e6ad3f,
+        type: 3}
+    - target: {fileID: 7653219284436502066, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: ExperienceReward
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799239452562937763, guid: bc968bf1068afc84a9da100c5d495dd4,
+        type: 3}
+      propertyPath: m_Text
+      value: Thorner Lv.3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bc968bf1068afc84a9da100c5d495dd4, type: 3}

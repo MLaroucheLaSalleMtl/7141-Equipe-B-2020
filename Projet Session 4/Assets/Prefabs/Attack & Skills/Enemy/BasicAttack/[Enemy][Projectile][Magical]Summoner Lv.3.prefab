@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &8629011261745816292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4056686859607458188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3de62f98169154479c2ca2de16a15f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growingScale: 0.05
+  growingRate: 0.1
+  notY: 0
+--- !u!1001 &1187347106391130179
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2897629663414043087, guid: f8d0e58fa5a6c41418da50c80cd3ade8,
+        type: 3}
+      propertyPath: m_Name
+      value: '[Enemy][Projectile][Magical]Summoner Lv.3'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796879469190526229, guid: f8d0e58fa5a6c41418da50c80cd3ade8,
+        type: 3}
+      propertyPath: velocity
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493128204196860702, guid: f8d0e58fa5a6c41418da50c80cd3ade8,
+        type: 3}
+      propertyPath: baseDamage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665272333326386691, guid: f8d0e58fa5a6c41418da50c80cd3ade8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665272333326386691, guid: f8d0e58fa5a6c41418da50c80cd3ade8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665272333326386691, guid: f8d0e58fa5a6c41418da50c80cd3ade8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665272333326386691, guid: f8d0e58fa5a6c41418da50c80cd3ade8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665272333326386691, guid: f8d0e58fa5a6c41418da50c80cd3ade8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665272333326386691, guid: f8d0e58fa5a6c41418da50c80cd3ade8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665272333326386691, guid: f8d0e58fa5a6c41418da50c80cd3ade8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665272333326386691, guid: f8d0e58fa5a6c41418da50c80cd3ade8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665272333326386691, guid: f8d0e58fa5a6c41418da50c80cd3ade8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665272333326386691, guid: f8d0e58fa5a6c41418da50c80cd3ade8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665272333326386691, guid: f8d0e58fa5a6c41418da50c80cd3ade8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f8d0e58fa5a6c41418da50c80cd3ade8, type: 3}
+--- !u!1 &4056686859607458188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2897629663414043087, guid: f8d0e58fa5a6c41418da50c80cd3ade8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1187347106391130179}
+  m_PrefabAsset: {fileID: 0}

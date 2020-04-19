@@ -7,6 +7,7 @@ public class Altar : MonoBehaviour
 {
     [SerializeField] private bool isActive;
     public GameObject interactionSprite;
+    [SerializeField] private ParticleSystem particle = null;
 
     void OnTriggerStay(Collider collider)
     {
@@ -17,6 +18,7 @@ public class Altar : MonoBehaviour
 
             if (collider.GetComponent<Player>().isInteracting == true && !isActive) // Switch Consumable
             {
+                particle.Play();
                 GameManager.NumberOfActiveAltar += 1;
                 isActive = true;
             }

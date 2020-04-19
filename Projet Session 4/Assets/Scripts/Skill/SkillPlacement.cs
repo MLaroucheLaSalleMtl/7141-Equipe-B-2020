@@ -17,6 +17,7 @@ public class SkillPlacement : MonoBehaviour
     [SerializeField] private GameObject infoPanel = null;
     [SerializeField] private GameObject lockIcon = null;
     [SerializeField] private GameObject skillIcon = null;
+    [SerializeField] private GameObject[] levelIcons = null;
     [SerializeField] private Text skillLevelRequire = null;
 
 
@@ -28,22 +29,20 @@ public class SkillPlacement : MonoBehaviour
     #endregion
 
     #region Unity's MEthods
-    private void Start()
+
+    public void Start()
     {
         _Inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySkill>();
         _Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         skill = _Inventory.GetASkill(nameOfTheSkill);
+
+
         skillLevelRequire.text = skill.LevelRequierement.ToString();
         infoPanel.SetActive(false);
     }
 
     void Update()
     {
-        if (resetButton.GetComponent<ResetAllSkills>().resetON)
-        {
-            infoPanel.GetComponent<InfoBox>().Skill = skill;
-            infoPanel.GetComponent<InfoBox>().UpdateReset();
-        }
 
         if (!skill.IsLocked()) return;
 
@@ -67,6 +66,15 @@ public class SkillPlacement : MonoBehaviour
     #endregion
 
     #region Methods
+    public void ResetSkillAndPanel()
+    {
+        foreach (GameObject levelicon in levelIcons)
+        {
+            levelicon.SetActive(false);
+        }
+        infoPanel.GetComponent<InfoBox>().Skill = skill;
+        infoPanel.GetComponent<InfoBox>().UpdateReset();
+    }
     //Permet de l'utiliser dans un event systeme
     public void OnClickUpgrade()
     {
@@ -79,10 +87,14 @@ public class SkillPlacement : MonoBehaviour
             return;
 
         if (_skill.Learned)
+        {
+            levelIcons[skill.CurrentUpgrade +1].SetActive(true);
             _skill.CurrentUpgrade++;
+        }
         else
         {
             _skill.LearnSkill();
+            levelIcons[0].SetActive(true);
             InstantiateSkill();
         }
         _Player.SkillPoints--;
@@ -112,6 +124,11 @@ public class SkillPlacement : MonoBehaviour
         infoPanel.SetActive(true);
     }
     public void HidePanel()
+    {
+        infoPanel.SetActive(false);
+    }
+
+    void OnDisable()
     {
         infoPanel.SetActive(false);
     }

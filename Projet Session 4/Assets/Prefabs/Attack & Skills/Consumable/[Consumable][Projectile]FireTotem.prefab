@@ -109,9 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f3ef1722052a3408231cc479632b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 25
+  baseDamage: 5
   damageRatio: 0.5
-  damageType: 1
+  damageType: 2
   typeOfTarget: 1
   numberOfTickBeforeDirty: 2
   caster: {fileID: 0}

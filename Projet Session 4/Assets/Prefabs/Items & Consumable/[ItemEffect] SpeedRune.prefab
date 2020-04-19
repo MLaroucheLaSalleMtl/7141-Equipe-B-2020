@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c8909b46548d2b45bde841fea994270, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumable: {fileID: 5837786853450334201, guid: 83aa580952ab8054fbf842cb5c126370,
+  consumable: {fileID: 1908719911342635792, guid: 2b6385fd76a401645b2dc58353305dda,
     type: 3}
   maximumCharges: 5
   cooldown:
@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0a000000
+  level: 0
   value:
   - 3
   imageDamageBoost: {fileID: 0}

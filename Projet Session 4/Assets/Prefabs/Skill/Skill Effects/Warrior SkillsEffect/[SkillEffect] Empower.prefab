@@ -30,9 +30,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0d0000001000000013000000
   value:
-  - 20
-  - 25
-  - 30
+  - 0.5
+  - 0.6
+  - 0.7
   imageDamageBoost: {fileID: 4006265840274569535, guid: 646916b137bd78248a66549a348c1957,
     type: 3}
   imageDefenseBoost: {fileID: 4006265840274569535, guid: 7fdbd42e642861b4eab4cbec445c9d79,
